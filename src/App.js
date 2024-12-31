@@ -9,7 +9,6 @@ import Home from "./pages/Home";
 import Verification from "./pages/profile/Verification";
 import Notification from "./pages/Notification";
 import testpage from "./pages/testpage";
-//import "./style.css";
 //DISPLAY
 import Landing from "./pages/Landing/Landing";
 import Menu from "./pages/Menu";

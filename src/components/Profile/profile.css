@@ -66,8 +66,6 @@
 }
 
 .id_2 img {
-    /* width: 200px;
-    height: 150px; */
 
     width: 300px;
     height: 150px;
@@ -111,11 +109,8 @@
     font-size: 16px;
     outline: none;
     text-align: center;
-    /* Center the text */
     background-color: transparent;
-    /* Ensures no background */
     transition: border-bottom 0.3s ease;
-    /* Smooth transition for border */
 }
 
 .profile-left input[type="text"]:focus,
@@ -123,26 +118,19 @@
 .profile-left input[type="email"]:focus {
     background-color: #e4dfdf88;
     border-bottom: 1px solid rgb(49, 47, 47);
-    /* Add underline on focus */
 }
 
 .profile-left input[type="text"].error,
 .profile-left input[type="email"].error,
 .profile-left input[type="number"].error {
     border: 2px solid #dc3545;
-    /* color: red; */
-    /* text-align: start; */
 }
 
 .profile-right input[type="text"].error,
 .profile-right input[type="number"].error,
 .profile-right input[type="date"].error {
     border: 2px solid #dc3545;
-    /* color: red; */
-    /* text-align: start; */
 }
-
-/* age */
 input[type="number"].error {
     border: 2px solid #dc3545;
     color: black;
@@ -154,13 +142,12 @@ input[type="number"].error {
 
 select .display-data1 .error {
     height: 4rem;
-    /* Adjust the height as needed */
+
     width: 100%;
     font-size: 18px;
     padding: 12px;
     border: 2px solid #dc3545;
-    /* text-align: start;
-    color: red; */
+
 }
 
 .error::placeholder {
@@ -168,7 +155,7 @@ select .display-data1 .error {
     opacity: 1;
 }
 
-/* gender */
+
 .display-data1.error {
     border: 2px solid red;
 }
@@ -189,16 +176,14 @@ select .display-data1 .error {
     border-bottom: 1px solid rgb(49, 47, 47);
 }
 
-/* Remove the increment (spinner) in number inputs */
 .profile-left input[type="number"] {
     -moz-appearance: textfield;
-    /* For Firefox */
+
 }
 
 .profile-left input[type="number"]::-webkit-outer-spin-button,
 .profile-left input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
-    /* For Chrome, Safari, and Edge */
     margin: 0;
 }
 
@@ -238,11 +223,9 @@ select .display-data1 .error {
 
 .profile-right .buttonchange button {
     background-color: #ccc;
-    /* padding: 15px 30px; */
     padding: 10px;
     border: none;
     border-radius: 6px;
-    /* margin-right: 15px; */
     cursor: pointer;
     font-size: 14px;
     width: 100%;
@@ -251,8 +234,6 @@ select .display-data1 .error {
 }
 
 .profile-right .buttonchange button:hover {
-    /* background-color: #bbb; */
-    /* background-color: #1679ab; */
     background-color: #378ce7;
     color: #fff;
 }
@@ -321,7 +302,6 @@ select .display-data1 .error {
     display: flex;
     padding: 5px;
     align-items: center;
-    /* Align items vertically */
     justify-content: center;
     gap: 8px;
 }
@@ -333,11 +313,9 @@ select .display-data1 .error {
 
 .upload-container input[type="file"] {
     margin-right: 10px;
-    /* Add margin between the file input and the button */
 }
 
 
-/* Resetpassword component */
 .form-container {
     max-width: 400px;
     background-color: #fff;
@@ -353,9 +331,7 @@ select .display-data1 .error {
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.084), 0px 2px 3px rgba(0, 0, 0, 0.168);
 }
 
-/* .form-container button:active {
-    scale: 0.95;
-} */
+
 
 .form-container .titlehead {
     text-align: center;

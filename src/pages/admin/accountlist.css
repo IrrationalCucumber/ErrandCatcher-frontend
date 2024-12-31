@@ -79,7 +79,6 @@
 }
 
 .accounts th {
-  /* background-color: #ce9251; */
   background-color: #1679AB;
   color: white;
 }
@@ -122,48 +121,39 @@
   justify-content: center;
 }
 
-/* Search bar */
 .search input[type="text"] {
   padding: 8px;
   font-size: 16px;
-  border: 1px solid #ccc; /* Add border for consistency */
-  border-radius: 4px; /* Add border radius for rounded corners */
+  border: 1px solid #ccc; 
+  border-radius: 4px;
 }
 
-/* Dropdown */
 .search select {
   padding: 8px;
   font-size: 12px;
-  border: 1px solid #ccc; /* Add border for consistency */
-  border-radius: 4px; /* Add border radius for rounded corners */
+  border: 1px solid #ccc; 
+  border-radius: 4px;
 }
 
-/* Search button */
 .search button {
   padding: 8px 12px;
   font-size: 16px;
   cursor: pointer;
   margin-bottom: 0;
-  border: none; /* Remove border for cleaner appearance */
+  border: none; 
   background-color: rgb(22, 121, 171);
-  /* background-color: #ce9251;  */
-  /* Match the button color with the header */
   color: white;
-  border-radius: 4px; /* Add border radius for rounded corners */
+  border-radius: 4px;
 }
 
-/* Search button hover effect */
 .search button:hover {
   background-color: rgb(11, 95, 138);
-  /* background-color: #b97728;  */
-  /* Darken the button color on hover */
 }
 
 .custom-modal {
   width: 600px;
   height: 400px;
 }
- /* Target the modal root class */
 @media (min-width: 768px) {
   .accList_modal {
    
@@ -173,6 +163,6 @@
 
 @media (max-width: 767px) {
   .accList_modal {
-    width: 90%; /* Set width to 90% for smaller screens */
+    width: 90%; 
   }
 }

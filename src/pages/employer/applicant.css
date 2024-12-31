@@ -1,11 +1,9 @@
-/*css for employer applicant page*/
 .applicants-container {
   margin: 20px;
 }
 
 .applicants {
   display: flex;
-  /* align-items: flex-start; */
   margin: 20px;
   flex-direction: column;
   min-height: 100vh;
@@ -18,7 +16,7 @@
 }
 
 .search {
-  margin-bottom: 10px; /* Adjust margin as needed */
+  margin-bottom: 10px; 
   display: flex;
   align-items: center;
 }
@@ -34,8 +32,8 @@
 }
 
 .applicants-divider {
-  border-top: 1px solid white; /* Adjust border color and style as needed */
-  margin: 20px 0; /* Adjust margin as needed */
+  border-top: 1px solid white; 
+  margin: 20px 0;
 }
 
 .applicants-divider .table-wrapper {
@@ -43,7 +41,7 @@
 }
 
 .applicants table {
-  border-spacing: 0; /* Remove the gap between cells */
+  border-spacing: 0; 
   width: 100%;
 }
 

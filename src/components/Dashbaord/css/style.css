@@ -1,13 +1,13 @@
-/* custom style */
+
 :root {
-  /* font */
+
   --ff-primary: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   --ff-accent: "Playfair Display", serif;
   --ff-para: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 
-  /* color */
+
   --clr-primary: rgb(43, 137, 224);
   --clr-secondary: rgba(68, 186, 255, 0.682);
 }
@@ -38,23 +38,6 @@
   line-height: 1.6;
 }
 
-/* .landing__service__btn__lt {
-  position: relative;
-  left: 30%;
-  width: 150px;
-  height: 50px;
-  background: none;
-  border: none;
-  color: white;
-  text-decoration: underline;
-}
-
-.landing__service__btn__lt:hover {
-  zoom: 1;
-  left: 30%;
-  color: black;
-  background: white;
-} */
 
 .landing__service__btn__lt {
   padding: 1em 2em;
@@ -76,7 +59,6 @@
   transform: scale(1.1);
   outline: 2px solid var(--clr-secondary);
   box-shadow: 4px 5px 17px -4px #268391;
-  /* box-shadow: 4px 5px 17px -4px var(--clr-secondary); */
 }
 
 .landing__service__btn__lt::before {
@@ -96,22 +78,7 @@
   width: 250%;
 }
 
-/* .landing__service__btn__rt {
-  position: relative;
-  left: 50%;
-  width: 150px;
-  height: 50px;
-  background: none;
-  border: none;
-  color: white;
-  text-decoration: underline;
-}
 
-.landing__service__btn__rt:hover {
-  zoom: 1;
-  color: black;
-  background: white;
-} */
 
 .landing__service__btn__rt {
   padding: 1em 2em;
@@ -152,15 +119,6 @@
   width: 250%;
 }
 
-/* .landing__bg__left {
-    width: 45%;
-    height: 100%;
-    align-items: center;
-    display: flex;
-    background: rgb(255, 255, 255) url("../../../../public/images/hs-i-4.jpg")
-      no-repeat fixed left / 70%;
-    border-radius: 0 50% 50% 0;
-  } */
 
 .landing__bg__right p {
   font-size: 20px;
@@ -212,9 +170,6 @@
 }
 
 .landing__bg__right {
-  /* width: 45%;
-    height: 100%; */
-  /* width: 100vw; */
   min-width: 100px;
   width: 45%;
   max-width: 700px;
@@ -241,15 +196,10 @@
   font-size: 50px;
   line-height: 1.6;
 }
-/* 
-  .landing__cont:hover{
-     
-  } */
+
 
 @media screen and (max-width: 700px) {
-  /* .landing__cont > * {
-    width: 100vw;
-  } */
+
 
   .landing__text__right > h2 {
     backdrop-filter: blur(10px);

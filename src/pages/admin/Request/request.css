@@ -20,7 +20,6 @@
   margin-bottom: 10px;
   display: flex;
   flex-direction: row;
-  /* align-items: center; */
   width: 60%;
   gap: 10px;
 }
@@ -29,7 +28,6 @@
 
   .containerReq {
     width: auto;
-    /* border: solid; */
   }
 
   .tableRow {

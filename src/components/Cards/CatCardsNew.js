@@ -9,7 +9,6 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import CardItem from "./CardItem";
 import axios from "axios";
-// import "./Cards.css";
 import "./cardsNew.css";
 import CardItemNew from "./CardsItemNew";
 
