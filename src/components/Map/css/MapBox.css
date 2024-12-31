@@ -104,7 +104,7 @@
   .mapboxgl-ctrl-geocoder input:focus {
     color: rgba(0, 0, 0, 0.75);
     outline: 0;
-    outline: thin dotted\8;
+    outline: thin dotted;
   }
   
   .mapboxgl-ctrl-geocoder .geocoder-icon-search {
