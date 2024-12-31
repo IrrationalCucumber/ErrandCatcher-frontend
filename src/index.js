@@ -66,243 +66,248 @@ import { ProtectedRoute } from "./components/ProtectedROute";
 import GenerateReport from "./pages/admin/GenerateReport";
 import VerificationSuccess from "./pages/VerificationSuceess";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Landing />,
-  },
-  {
-    path: "/dashboard/",
-    element: <Dashboard />,
-    children: [
-      { path: "home", element: <Home /> },
-      {
-        path: "admin/",
-        element: (
-          <ProtectedRoute allowedUserTypes={["admin"]}>
-            <AdminPage />
-          </ProtectedRoute>
-        ),
-        children: [
-          {
-            path: "accounts",
-            element: <AccountList />,
-          },
-          {
-            path: "errand-list",
-            element: <CommissionList />,
-          },
-          {
-            path: "map",
-            element: <Map />,
-          },
-          {
-            path: "request",
-            element: <RequestPage />,
-          },
-          {
-            path: "generate-report",
-            element: <GenerateReport />,
-          },
-        ],
-      },
-      //EMPLOYER
-      {
-        path: "errands/",
-        element: (
-          <ProtectedRoute allowedUserTypes={["Employer"]}>
-            <EmployerCommissions />
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "applicants/",
-        element: (
-          <ProtectedRoute allowedUserTypes={["Employer"]}>
-            <EmployerApplicants />
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "e-map/",
-        element: (
-          <ProtectedRoute allowedUserTypes={["Employer"]}>
-            <EmployerMap />
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "ongoing/",
-        element: (
-          <ProtectedRoute allowedUserTypes={["Employer"]}>
-            <Ongoing />
-          </ProtectedRoute>
-        ),
-      },
-      //CATCHER
-      {
-        path: "catcher-errands/",
-        element: (
-          <ProtectedRoute allowedUserTypes={["Catcher"]}>
-            <CatcherCommission />
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "my-application/",
-        element: (
-          <ProtectedRoute allowedUserTypes={["Catcher"]}>
-            <Application />
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "c-map/",
-        element: (
-          <ProtectedRoute allowedUserTypes={["Catcher"]}>
-            <CatcherMap />
-          </ProtectedRoute>
-        ),
-      },
-    ],
-  },
-  {
-    path: "/errand/",
-    element: <Errands />,
-    children: [
-      {
-        path: "view/:comID",
-        element: (
-          <ProtectedRoute allowedUserTypes={["Catcher", "Employer", "admin"]}>
-            <ErrandPage />
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "view-commission/:comID",
-        element: (
-          <ProtectedRoute allowedUserTypes={["Employer", "admin"]}>
-            <ViewCommission />
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "update/:comID",
-        element: (
-          <ProtectedRoute allowedUserTypes={["Employer", "admin"]}>
-            <UpdateCommission />
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "post-errand",
-        element: (
-          <ProtectedRoute allowedUserTypes={["Employer", "admin"]}>
-            <PostCommission />
-          </ProtectedRoute>
-        ),
-      },
-    ],
-  },
-  //SERVICES / CATEGIRY
-  {
-    path: "/service/",
-    element: <Service />,
-    children: [
-      {
-        path: "Transpo/:type",
-        element: <Transportation />,
-      },
-      {
-        path: "Delivery/:type",
-        element: <Delivery />,
-      },
-      {
-        path: "HomeService/:type",
-        element: <HomeServices />,
-      },
-    ],
-  },
-  //SEARCH PAGE
-  {
-    path: "/search/:term",
-    element: <SearchPage />,
-  },
-  //PROFILE PAGES
-  {
-    path: "/profile/",
-    element: <ProfilePage />,
-    children: [
-      {
-        path: "me",
-        element: <Profile />,
-      },
-      {
-        path: "update",
-        element: <UpdateAccount />,
-      },
-      {
-        path: "user/:id",
-        element: <ViewProfile />,
-      },
-      {
-        path: "verification",
-        element: <Verification />,
-      },
-      {
-        path: "add",
-        element: (
-          <ProtectedRoute allowedUserTypes={["admin"]}>
-            <AddAccount />
-          </ProtectedRoute>
-        ),
-      },
-    ],
-  },
-  {
-    path: "/notifications",
-    element: <Notification />,
-  },
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <Landing />,
+    },
+    {
+      path: "/dashboard/",
+      element: <Dashboard />,
+      children: [
+        { path: "home", element: <Home /> },
+        {
+          path: "admin/",
+          element: (
+            <ProtectedRoute allowedUserTypes={["admin"]}>
+              <AdminPage />
+            </ProtectedRoute>
+          ),
+          children: [
+            {
+              path: "accounts",
+              element: <AccountList />,
+            },
+            {
+              path: "errand-list",
+              element: <CommissionList />,
+            },
+            {
+              path: "map",
+              element: <Map />,
+            },
+            {
+              path: "request",
+              element: <RequestPage />,
+            },
+            {
+              path: "generate-report",
+              element: <GenerateReport />,
+            },
+          ],
+        },
+        //EMPLOYER
+        {
+          path: "errands/",
+          element: (
+            <ProtectedRoute allowedUserTypes={["Employer"]}>
+              <EmployerCommissions />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "applicants/",
+          element: (
+            <ProtectedRoute allowedUserTypes={["Employer"]}>
+              <EmployerApplicants />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "e-map/",
+          element: (
+            <ProtectedRoute allowedUserTypes={["Employer"]}>
+              <EmployerMap />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "ongoing/",
+          element: (
+            <ProtectedRoute allowedUserTypes={["Employer"]}>
+              <Ongoing />
+            </ProtectedRoute>
+          ),
+        },
+        //CATCHER
+        {
+          path: "catcher-errands/",
+          element: (
+            <ProtectedRoute allowedUserTypes={["Catcher"]}>
+              <CatcherCommission />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "my-application/",
+          element: (
+            <ProtectedRoute allowedUserTypes={["Catcher"]}>
+              <Application />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "c-map/",
+          element: (
+            <ProtectedRoute allowedUserTypes={["Catcher"]}>
+              <CatcherMap />
+            </ProtectedRoute>
+          ),
+        },
+      ],
+    },
+    {
+      path: "/errand/",
+      element: <Errands />,
+      children: [
+        {
+          path: "view/:comID",
+          element: (
+            <ProtectedRoute allowedUserTypes={["Catcher", "Employer", "admin"]}>
+              <ErrandPage />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "view-commission/:comID",
+          element: (
+            <ProtectedRoute allowedUserTypes={["Employer", "admin"]}>
+              <ViewCommission />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "update/:comID",
+          element: (
+            <ProtectedRoute allowedUserTypes={["Employer", "admin"]}>
+              <UpdateCommission />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "post-errand",
+          element: (
+            <ProtectedRoute allowedUserTypes={["Employer", "admin"]}>
+              <PostCommission />
+            </ProtectedRoute>
+          ),
+        },
+      ],
+    },
+    //SERVICES / CATEGIRY
+    {
+      path: "/service/",
+      element: <Service />,
+      children: [
+        {
+          path: "Transpo/:type",
+          element: <Transportation />,
+        },
+        {
+          path: "Delivery/:type",
+          element: <Delivery />,
+        },
+        {
+          path: "HomeService/:type",
+          element: <HomeServices />,
+        },
+      ],
+    },
+    //SEARCH PAGE
+    {
+      path: "/search/:term",
+      element: <SearchPage />,
+    },
+    //PROFILE PAGES
+    {
+      path: "/profile/",
+      element: <ProfilePage />,
+      children: [
+        {
+          path: "me",
+          element: <Profile />,
+        },
+        {
+          path: "update",
+          element: <UpdateAccount />,
+        },
+        {
+          path: "user/:id",
+          element: <ViewProfile />,
+        },
+        {
+          path: "verification",
+          element: <Verification />,
+        },
+        {
+          path: "add",
+          element: (
+            <ProtectedRoute allowedUserTypes={["admin"]}>
+              <AddAccount />
+            </ProtectedRoute>
+          ),
+        },
+      ],
+    },
+    {
+      path: "/notifications",
+      element: <Notification />,
+    },
 
-  { path: "sign-in", element: <SignIn /> },
-  {
-    path: "sign-up",
-    element: <SignUp />,
-  },
-  { path: "/history", element: <History /> },
+    { path: "sign-in", element: <SignIn /> },
+    {
+      path: "sign-up",
+      element: <SignUp />,
+    },
+    { path: "/history", element: <History /> },
 
-  // PROCESS PAYMENTS
-  {
-    path: "/paymentcancel",
-    element: <PaymentCancel />,
-  },
-  {
-    path: "/paymentsuccess",
-    element: <PaymentSuccess />,
-  },
+    // PROCESS PAYMENTS
+    {
+      path: "/paymentcancel",
+      element: <PaymentCancel />,
+    },
+    {
+      path: "/paymentsuccess",
+      element: <PaymentSuccess />,
+    },
 
-  { path: "/test", element: <MapComponent /> },
-  //MISCILLANOUS PAGES
+    { path: "/test", element: <MapComponent /> },
+    //MISCILLANOUS PAGES
+    {
+      path: "/us/",
+      element: <Us />,
+      children: [
+        {
+          path: "about",
+          element: <About />,
+        },
+        {
+          path: "contact",
+          element: <Contact />,
+        },
+      ],
+    },
+    {
+      path: "*",
+      element: <ErrorElement />,
+    },
+    { path: "/verify-email", element: <VerificationSuccess /> },
+  ],
   {
-    path: "/us/",
-    element: <Us />,
-    children: [
-      {
-        path: "about",
-        element: <About />,
-      },
-      {
-        path: "contact",
-        element: <Contact />,
-      },
-    ],
-  },
-  {
-    path: "*",
-    element: <ErrorElement />,
-  },
-  { path: "/verify-email", element: <VerificationSuccess /> },
-]);
+    basename: "/ErrandCatcher-frontend",
+  }
+);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
