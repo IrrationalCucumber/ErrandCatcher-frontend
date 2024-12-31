@@ -10,11 +10,12 @@ import axios from "axios";
 
 function Dashboard() {
   const { user, updateUser } = useAuth();
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   useEffect(() => {
     const fetchHasErrand = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8800/check-has-errand/${user.userID}`
+          `${apiBaseUrl}/check-has-errand/${user.userID}`
         );
 
         // Create a new object with updated `hasErrand` but keeping other fields the same

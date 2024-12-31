@@ -24,7 +24,7 @@ const AddAccount = () => {
     const day = String(currentDate.getDate()).padStart(2, "0");
     return `${year}-${month}-${day}`;
   };
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -46,7 +46,7 @@ const AddAccount = () => {
     e.preventDefault();
     try {
       account.dateCreated = getCurrentDate();
-      await axios.post("http://localhost:8800/sign-up", account);
+      await axios.post(`${apiBaseUrl}/sign-up`, account);
       navigate("/dashboard/admin/accounts");
     } catch (err) {
       console.log(err);

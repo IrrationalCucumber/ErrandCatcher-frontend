@@ -62,7 +62,7 @@ const CommissionList = () => {
     handleDelete(currentId);
     setOpen(false);
   };
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   // modal message pop-up
   const [openDel, setOpenDel] = useState(false);
   const handleOpenDel = () => {
@@ -70,7 +70,6 @@ const CommissionList = () => {
   };
   const handleCloseDel = () => {
     setOpenDel(false);
-
   };
 
   //handle error
@@ -79,7 +78,7 @@ const CommissionList = () => {
   const fetchAllCommission = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8800/your-commission/${userID}`
+        `${apiBaseUrl}/your-commission/${userID}`
       );
       setCommissions(response.data);
     } catch (err) {
@@ -98,7 +97,7 @@ const CommissionList = () => {
     try {
       //"http://localhost:8800/commission" - local computer
       //"http://192.168.1.47:8800/commission" - netwrok
-      await axios.delete(`http://localhost:8800/delete-errand/${commissionID}`);
+      await axios.delete(`${apiBaseUrl}/delete-errand/${commissionID}`);
 
       // popup delete modal
       setTimeout(() => {
@@ -163,7 +162,6 @@ const CommissionList = () => {
         colorText="error"
         icon={CancelOutlinedIcon}
       />
-
 
       <div>
         <BannerEmployerPages
@@ -299,8 +297,9 @@ const CommissionList = () => {
                             </DialogTitle>
                             <Divider />
                             <DialogContent>
-                              Are you sure you want to discard Errand {currentId}{" "}
-                              ?{/* Display the current ID from state */}
+                              Are you sure you want to discard Errand{" "}
+                              {currentId} ?
+                              {/* Display the current ID from state */}
                             </DialogContent>
                             <DialogActions>
                               <Button

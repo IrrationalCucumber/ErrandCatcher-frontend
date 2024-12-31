@@ -19,13 +19,13 @@ function Notification(props) {
   const [notifs, setNotifs] = useState([]);
   const { user } = useAuth();
   const navigate = useNavigate();
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   // Fetch and display all user's unread notifications
   useEffect(() => {
     const fetchNotif = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8800/unread-notifs/${user.userID}`
+          `${apiBaseUrl}/unread-notifs/${user.userID}`
         );
         setNotifs(res.data);
       } catch (err) {
@@ -40,7 +40,7 @@ function Notification(props) {
   // Function to mark all notifications as read
   const handleMarkAllAsRead = async () => {
     try {
-      await axios.put(`http://localhost:8800/read-all/${user.userID}`);
+      await axios.put(`${apiBaseUrl}/read-all/${user.userID}`);
       // Update the notification list in the UI
       setNotifs((prevNotifs) =>
         prevNotifs.map((notif) => ({ ...notif, isRead: true }))
@@ -54,7 +54,9 @@ function Notification(props) {
     <div>
       <Dropdown>
         <MenuButton variant="primary" size="sm">
-          <Badge color="danger" badgeContent={props.count}
+          <Badge
+            color="danger"
+            badgeContent={props.count}
             sx={{
               "& .MuiBadge-badge": {
                 border: "none",

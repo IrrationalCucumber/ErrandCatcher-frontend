@@ -57,19 +57,19 @@ function OngoingCardsNew(props) {
     status === "Task Done"
       ? "#D6B84F"
       : status === "Ongoing"
-        ? "#F26B0F"
-        : status === "Complete"
-          ? "#5CB85C"
-          : status === "Cancelled"
-            ? "#D9534F"
-            : "#C0C0C0";
+      ? "#F26B0F"
+      : status === "Complete"
+      ? "#5CB85C"
+      : status === "Cancelled"
+      ? "#D9534F"
+      : "#C0C0C0";
 
   // White text for better contrast
   const chipTextColor = "#FFFFFF";
 
   const { user } = useAuth();
   const userID = user.userID;
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const [feedback, setFeedback] = useState({
     catcherID: "",
     commissionID: "",
@@ -223,10 +223,7 @@ function OngoingCardsNew(props) {
         );
 
         //feedback.commissionID = fetchLoc().commissionID;
-        const response = await axios.post(
-          "http://localhost:8800/rate",
-          feedback
-        );
+        const response = await axios.post(`${apiBaseUrl}/rate`, feedback);
         setSuccessMsg(response.data);
       }
     } catch (err) {
@@ -306,11 +303,11 @@ function OngoingCardsNew(props) {
       notifcat.notifDate = getTimeAndDate();
 
       // for employer
-      await axios.post("http://localhost:8800/notify", notif);
+      await axios.post(`${apiBaseUrl}/notify`, notif);
       // for catcher
-      await axios.post("http://localhost:8800/notify", notifcat);
+      await axios.post(`${apiBaseUrl}/notify`, notifcat);
       //cancel the transaction employer side
-      await axios.put(`http://localhost:8800/cancel-trans/${transactID}`, {
+      await axios.put(`${apiBaseUrl}/cancel-trans/${transactID}`, {
         params: { date: getTimeAndDate() },
       });
       // for catcher side
@@ -323,7 +320,7 @@ function OngoingCardsNew(props) {
       //   // modal will pop-up in 1 seconds
       //   handleOpencancel();
       // }, 1000);
-      
+
       handleOpencancel();
       setOpenDelete(false);
     } catch (err) {
@@ -342,12 +339,12 @@ function OngoingCardsNew(props) {
       notif.notificationType = "Errand completed";
       notif.notifDate = getTimeAndDate();
 
-      await axios.post("http://localhost:8800/notify", notif);
+      await axios.post(`${apiBaseUrl}/notify`, notif);
       // catcher the one who marked as complete....
-      await axios.put(`http://localhost:8800/complete-trans/${transactID}`);
+      await axios.put(`${apiBaseUrl}/complete-trans/${transactID}`);
       console.log("status: completed", userID, transactID);
       // catcher has done the errand
-      await axios.put(`http://localhost:8800/has-done-errand/${catcherID}`);
+      await axios.put(`${apiBaseUrl}/has-done-errand/${catcherID}`);
       // alert("Successfully marked errand as completed");
       // window.location.reload();
       handleOpencom();
@@ -365,7 +362,7 @@ function OngoingCardsNew(props) {
   useEffect(() => {
     const checkPaymentStatus = async () => {
       try {
-        const response = await axios.get(`http://localhost:8800/invoice`, {
+        const response = await axios.get(`${apiBaseUrl}/invoice`, {
           params: { transCatID, comID, userID },
         });
         if (response.data.paid) {
@@ -390,7 +387,7 @@ function OngoingCardsNew(props) {
     erID,
     catID
   ) => {
-    const paymentUrl = `http://localhost:8800/process-payment/${userID}`;
+    const paymentUrl = `${apiBaseUrl}/process-payment/${userID}`;
     // Change the amount
     const amount = pay;
     const errType = type;
@@ -457,7 +454,7 @@ function OngoingCardsNew(props) {
         contentMes="You have successfully Rated a catcher."
         color="success"
         colorText="green"
-      // icon={ErrorIcon}
+        // icon={ErrorIcon}
       />
 
       <ModalFeedback
@@ -483,7 +480,7 @@ function OngoingCardsNew(props) {
         contentMes="You have successfully marked as completed"
         color="success"
         colorText="green"
-      // icon={ErrorIcon}
+        // icon={ErrorIcon}
       />
 
       <div class="cardnew">
@@ -491,7 +488,7 @@ function OngoingCardsNew(props) {
           <Box class="boxer">
             {/* commissionType props */}
             {props.icon === "HomeService - Indoor" ||
-              props.icon === "HomeService - Outdoor" ? (
+            props.icon === "HomeService - Outdoor" ? (
               <OtherHousesIcon sx={{ color: "#fff", fontSize: 100 }} />
             ) : props.icon === "Transportation" ? (
               <LocalShippingIcon sx={{ color: "#fff", fontSize: 100 }} />
@@ -604,7 +601,6 @@ function OngoingCardsNew(props) {
                     >
                       Mark as done
                     </button>
-
                     <button
                       // onClick={() => cancel(commission.commissionID)}
                       onClick={handleOpenCancelModal}
@@ -614,8 +610,7 @@ function OngoingCardsNew(props) {
                     </button>
                   </>
                 ) : props.status === "Cancelled" ? (
-                  <>
-                  </>
+                  <></>
                 ) : (
                   <>
                     {" "}

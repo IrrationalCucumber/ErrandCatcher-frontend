@@ -14,10 +14,10 @@ function VerificationSuccess() {
     const verifyEmail = async () => {
       const params = new URLSearchParams(location.search);
       const token = params.get("token");
-
+      const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
       try {
         const response = await axios.get(
-          `http://localhost:8800/verify-email?token=${token}`
+          `${apiBaseUrl}/verify-email?token=${token}`
         );
         setMessage(response.data.message);
       } catch (error) {

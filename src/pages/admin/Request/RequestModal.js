@@ -29,7 +29,7 @@ const RequestModal = ({ request, handleClose }) => {
     notifDesc: "", //contents of the notif
     notifDate: "", //time and date notif is added
   });
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const [open, setOpen] = useState(false);
   const [openSus, setOpenSus] = useState(false);
   const [opensnack, setOpenSnack] = useState(false);
@@ -63,9 +63,7 @@ const RequestModal = ({ request, handleClose }) => {
   const handleVerify = async (requestUserID, requestID) => {
     try {
       const status = "Verified";
-      await axios.put(
-        `http://localhost:8800/change-status/${requestUserID}/${status}`
-      );
+      await axios.put(`${apiBaseUrl}/change-status/${requestUserID}/${status}`);
       console.log("Request verified:", request);
       setIsButtonClicked(true);
       //add a notification to the request user
@@ -73,9 +71,9 @@ const RequestModal = ({ request, handleClose }) => {
       notif.userID = requestUserID;
       notif.notificationType = "Verification";
       notif.notifDate = getTimeAndDate();
-      await axios.post("http://localhost:8800/notify", notif);
+      await axios.post(`${apiBaseUrl}/notify`, notif);
       //update request to complete
-      await axios.put(`http://localhost:8800/done-request/${requestID}`);
+      await axios.put(`${apiBaseUrl}/done-request/${requestID}`);
 
       setLoading(true);
       // 2 seconds cd
@@ -103,9 +101,7 @@ const RequestModal = ({ request, handleClose }) => {
     // You can implement the logic to mark the request as unverified here
     try {
       const status = "Suspended";
-      await axios.put(
-        `http://localhost:8800/change-status/${requestUserID}/${status}`
-      );
+      await axios.put(`${apiBaseUrl}/change-status/${requestUserID}/${status}`);
       console.log("Request verified:", request);
       setIsButtonClicked(true);
       //add a notification to the request user
@@ -113,9 +109,9 @@ const RequestModal = ({ request, handleClose }) => {
       notif.userID = requestUserID;
       notif.notificationType = "Suspension";
       notif.notifDate = getTimeAndDate();
-      await axios.post("http://localhost:8800/notify", notif);
+      await axios.post(`${apiBaseUrl}/notify`, notif);
       //update request to complete
-      await axios.put(`http://localhost:8800/done-request/${requestID}`);
+      await axios.put(`${apiBaseUrl}/done-request/${requestID}`);
       // handleClose();
 
       setLoading(true);

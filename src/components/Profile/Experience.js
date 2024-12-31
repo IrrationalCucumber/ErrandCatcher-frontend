@@ -27,12 +27,11 @@ function Experience(props) {
     endMonth: "",
     endYear: "",
   });
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   //fetch experience
   const fetch = async () => {
     try {
-      const response = await axios(
-        `http://localhost:8800/experience/${props.id}`
-      );
+      const response = await axios(`${apiBaseUrl}/experience/${props.id}`);
       const data = await response.data;
       setExperience(data);
     } catch (error) {
@@ -53,7 +52,7 @@ function Experience(props) {
     newExperience.userID = props.id;
     newExperience.startDate = `${newExperience.startMonth} ${newExperience.startYear}`;
     newExperience.endDate = `${newExperience.endMonth} ${newExperience.endYear}`;
-    await axios.post(`http://localhost:8800/experience`, newExperience);
+    await axios.post(`${apiBaseUrl}/experience`, newExperience);
     console.log(newExperience);
     setShowForm(false);
     //refresh experience display
@@ -64,7 +63,7 @@ function Experience(props) {
   //delete experience
   const deleteExperience = async (id) => {
     try {
-      await axios.delete(`http://localhost:8800/delete-experience/${id}`);
+      await axios.delete(`${apiBaseUrl}/delete-experience/${id}`);
       //refresh experience display
       const interval = setInterval(fetch, 1000);
       return () => clearInterval(interval);
@@ -295,9 +294,7 @@ export function ViewExperience(props) {
   //fetch experience
   const fetch = async () => {
     try {
-      const response = await axios(
-        `http://localhost:8800/experience/${props.id}`
-      );
+      const response = await axios(`${apiBaseUrl}/experience/${props.id}`);
       const data = await response.data;
       setExperience(data);
     } catch (error) {

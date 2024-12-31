@@ -25,7 +25,7 @@ const Signup = () => {
     type: "",
     dateCreated: "",
   });
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const [strength, setStrength] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -40,8 +40,11 @@ const Signup = () => {
     const birth = new Date(birthDate);
     let age = today.getFullYear() - birth.getFullYear();
     const monthDiff = today.getMonth() - birth.getMonth();
-    
-    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+
+    if (
+      monthDiff < 0 ||
+      (monthDiff === 0 && today.getDate() < birth.getDate())
+    ) {
       age--;
     }
     return age;
@@ -50,7 +53,7 @@ const Signup = () => {
   useEffect(() => {
     const fetchResp = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/get-username/`);
+        const res = await axios.get(`${apiBaseUrl}/get-username/`);
         const usernameArray = res.data.map((user) => user.username);
         setUsernames(usernameArray);
       } catch (error) {
@@ -63,7 +66,7 @@ const Signup = () => {
   useEffect(() => {
     const fetchResp2 = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/get-email/`);
+        const res = await axios.get(`${apiBaseUrl}/get-email/`);
         const emailArray = res.data.map((email) => email.userEmail);
         setEmails(emailArray);
       } catch (error) {
@@ -109,7 +112,7 @@ const Signup = () => {
       if (new Date(account.bday) > new Date()) {
         newErrors.bday = "Birthday cannot be a future date";
       }
-    } 
+    }
     if (!account.gender) {
       newErrors.gender = "Gender is required";
     }
@@ -289,7 +292,7 @@ const Signup = () => {
 
       try {
         account.dateCreated = getCurrentDate();
-        await axios.post("http://localhost:8800/sign-up", account); // new enpoint
+        await axios.post(`${apiBaseUrl}/sign-up`, account); // new enpoint
         // alert("Success");
         // navigate("/sign-in");
         // modal popup message
@@ -439,7 +442,7 @@ const Signup = () => {
                         handleChange(e);
                         // Clear the error when user starts typing
                         if (errors.bday) {
-                          setErrors(prev => ({ ...prev, bday: "" }));
+                          setErrors((prev) => ({ ...prev, bday: "" }));
                         }
                       }}
                       max={getMaxDate()}

@@ -47,14 +47,14 @@ export function LandingMap() {
   // center: [123.8854, 10.3157],
   const [API_KEY] = useState("ZQyqv6eWtI6zNE29SPDd");
   const [errands, setErrands] = useState([]);
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   useEffect(() => {
     //fetch all errands
     //regardless of status
     //change api endpoint to "/available/" for available only
     const fetchErrands = async () => {
       try {
-        const response = await axios.get("http://localhost:8800/errands/");
+        const response = await axios.get(`${apiBaseUrl}/errands/`);
         setErrands(response.data);
       } catch (error) {
         console.error(error);
@@ -140,7 +140,7 @@ export function HomeMap(props) {
     const fetchErrands = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8800/your-commission/" + props.id
+          `${apiBaseUrl}/your-commission/` + props.id
         );
         setErrands(response.data);
       } catch (error) {
@@ -212,12 +212,13 @@ export function HomeMap(props) {
 }
 //view errand
 export function ViewMap({ id }) {
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const [long, setLong] = useState(null);
   const [lat, setLat] = useState(null);
   //get the coordinates of the cerrand
   const fetchLoc = async () => {
     try {
-      const response = await fetch(`http://localhost:8800/errand/${id}`);
+      const response = await fetch(`${apiBaseUrl}/errand/${id}`);
       const data = await response.json();
       return data;
     } catch (error) {
@@ -333,12 +334,12 @@ export function MapLibre({ getCoords }) {
 //HouseService
 export function UpdateMapLibre({ getCoords, id }) {
   const [coords, setCoords] = useState(null); // Start as null to delay map initialization
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   // Fetch location data from the backend
   useEffect(() => {
     const fetchLoc = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/errand/${id}`);
+        const res = await axios.get(`${apiBaseUrl}/errand/${id}`);
         if (res.data[0]) {
           setCoords({
             lat: res.data[0].commissionLat,

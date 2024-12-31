@@ -30,7 +30,7 @@ const ApplyCommission = () => {
     notifDesc: "", //contents of the notif
     notifDate: "", //time and date notif is added
   });
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const navigate = useNavigate();
   const location = useLocation();
   //pathname to array from
@@ -83,9 +83,7 @@ const ApplyCommission = () => {
   useEffect(() => {
     const fetchCommission = async () => {
       try {
-        const res = await axios.get(
-          `http://localhost:8800/commission/${commissionID}`
-        );
+        const res = await axios.get(`${apiBaseUrl}/commission/${commissionID}`);
         const retrievedCommission = res.data[0];
         //format date
         const formattedDate = new Date(retrievedCommission.commissionDeadline)
@@ -126,7 +124,7 @@ const ApplyCommission = () => {
       application.catcherID = userID;
 
       console.log(application); // Check the updated commission object
-      await axios.post("http://localhost:8800/apply", application);
+      await axios.post(`${apiBaseUrl}/apply`, application);
 
       //add a notification to the commission's employer
       notif.notifDesc = "A Catcher has applied to on of your errand";
@@ -134,7 +132,7 @@ const ApplyCommission = () => {
       notif.notificationType = "Errand Application";
       notif.notifDate = getTimeAndDate();
 
-      await axios.post("http://localhost:8800/notify", notif);
+      await axios.post(`${apiBaseUrl}/notify`, notif);
       navigate(`/application/${userID}`);
       console.log(notif); // check variables state
     } catch (err) {

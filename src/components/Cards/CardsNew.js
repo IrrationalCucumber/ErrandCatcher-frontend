@@ -12,12 +12,12 @@ import { AmountDecimal } from "../Display/DsiplayFunctions";
 
 function CardsNew() {
   const [commissions, setCommissions] = useState([]);
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   //rretrieve data
   useEffect(() => {
     const fetchAllCommission = async () => {
       try {
-        const res = await axios.get("http://localhost:8800/available");
+        const res = await axios.get(`${apiBaseUrl}/available`);
         //"http://localhost:8800/commission" - local computer
         //"http://192.168.1.47:8800/commission" - netwrok
         setCommissions(res.data);

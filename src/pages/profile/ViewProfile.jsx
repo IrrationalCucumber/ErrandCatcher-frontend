@@ -15,7 +15,7 @@ function ViewProfile(id) {
   //get userID from url
   const userID = id.id;
   console.log(id.id);
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   //variable for account details
   const [account, setAccount] = useState({
     username: "",
@@ -40,7 +40,7 @@ function ViewProfile(id) {
   useEffect(() => {
     const fetchAccount = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/user/${userID}`);
+        const res = await axios.get(`${apiBaseUrl}/user/${userID}`);
         const retrievedAccount = res.data[0];
         //format date
         const formattedDate = new Date(retrievedAccount.userBirthday)
@@ -79,9 +79,7 @@ function ViewProfile(id) {
   useEffect(() => {
     const fetchRating = async () => {
       try {
-        const res = await axios.get(
-          `http://localhost:8800/user-rating/${userID}`
-        );
+        const res = await axios.get(`${apiBaseUrl}/user-rating/${userID}`);
         //console.log(res.data[0].c);
         setRating(res.data[0].c);
       } catch (err) {
@@ -103,9 +101,7 @@ function ViewProfile(id) {
   useEffect(() => {
     const fetchDetails = async () => {
       try {
-        const res = await axios.get(
-          `http://localhost:8800/ver-details/${userID}`
-        );
+        const res = await axios.get(`${apiBaseUrl}/ver-details/${userID}`);
         setDocs({
           requestStatus: res.data[0].requestStatus,
           frontID: res.data[0].id_picture_front,

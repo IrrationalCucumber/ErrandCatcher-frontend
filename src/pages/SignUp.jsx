@@ -20,7 +20,7 @@ const SignUp = () => {
     dateCreated: "",
     regPassword2: "",
   });
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   //handle state of error message
   const [employerErrorMessage, setEmployerErrorMessage] = useState("");
   const [catcherErrorMessage, setCatcherErrorMessage] = useState("");
@@ -118,7 +118,7 @@ const SignUp = () => {
     e.preventDefault();
     try {
       account.dateCreated = getCurrentDate();
-      await axios.post("http://localhost:8800/sign-up/", account); // new enpoint
+      await axios.post(`${apiBaseUrl}/sign-up/`, account); // new enpoint
       navigate("/sign-in");
     } catch (err) {
       console.log(err);

@@ -37,7 +37,7 @@ const PostCommission = () => {
     comDestLat: 0,
     comTags: "",
   });
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const navigate = useNavigate();
   //get user id from url
   const { user } = useAuth();
@@ -185,8 +185,8 @@ const PostCommission = () => {
         setShowAlert(true);
         handleScrollToTop();
       } else {
-        await axios.post("http://localhost:8800/commission", updatedCommission);
-        await axios.post("http://localhost:8800/notify-catcher");
+        await axios.post(`${apiBaseUrl}/commission`, updatedCommission);
+        await axios.post(`${apiBaseUrl}/notify-catcher`);
 
         setLoading(true);
 

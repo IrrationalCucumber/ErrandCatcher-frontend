@@ -79,8 +79,9 @@ export default function Map({ accessToken, getDistanceCallback }) {
 
 // Function to handle onClick button events, e.g when the user wants to pay
 export function handlePayment(distance) {
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   // backend route to receive and process payment
-  const paymentUrl = "http://localhost:8800/process-payment";
+  const paymentUrl = `${apiBaseUrl}/process-payment`;
 
   // Change the amount
   const amount = 100;

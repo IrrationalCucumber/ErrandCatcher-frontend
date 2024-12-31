@@ -61,6 +61,7 @@ import ErrorIcon from "@mui/icons-material/Error";
 import Experience, { ViewExperience } from "./Experience";
 
 export function NewUserProfileui(props) {
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const { user } = useAuth();
   const userID = user.userID;
   const [preview, setPreview] = useState(null);
@@ -127,7 +128,7 @@ export function NewUserProfileui(props) {
     try {
       // Make API request to update password
       const response = await axios.put(
-        `http://localhost:8800/resetpassword/${userID}`,
+        `${apiBaseUrl}/resetpassword/${userID}`,
         {
           currentpass: account.currentpass,
           password: account.password,
@@ -242,11 +243,14 @@ export function NewUserProfileui(props) {
                       {props.profileImg ? (
                         <img
                           className="user_profile_pic"
-                          src={`http://localhost:8800/images/profile/${props.profileImg}`}
+                          src={`${apiBaseUrl}/images/profile/${props.profileImg}`}
                           alt="ProfPic"
                         />
                       ) : (
-                        <img src="/images/employer.png" alt="Profile Picture" />
+                        <img
+                          src="./images/employer.png"
+                          alt="Profile Picture"
+                        />
                       )}
                     </div>
                     <h5 class="text-center mb-1">
@@ -260,7 +264,6 @@ export function NewUserProfileui(props) {
                     ) : props.type === "admin" ? (
                       <p class="text-center text-secondary mb-4">Admin</p>
                     ) : null}
-
 
                     {/* --------------------- Rating --------------------- */}
                     {props.type === "Catcher" ? (
@@ -654,7 +657,7 @@ export function NewUserProfileui(props) {
                                 {props.profileImg ? (
                                   <img
                                     className="user_profile_pic"
-                                    src={`http://localhost:8800/images/profile/${props.profileImg}`}
+                                    src={`${apiBaseUrl}/images/profile/${props.profileImg}`}
                                     alt="ProfPic"
                                   />
                                 ) : (
@@ -926,14 +929,15 @@ export function NewUserProfileui(props) {
                           {account.password && (
                             <>
                               <div
-                                className={`password-strength ${strength === "Weak"
-                                  ? "strength-weak"
-                                  : strength === "Medium"
+                                className={`password-strength ${
+                                  strength === "Weak"
+                                    ? "strength-weak"
+                                    : strength === "Medium"
                                     ? "strength-medium"
                                     : strength === "Strong"
-                                      ? "strength-strong"
-                                      : ""
-                                  }`}
+                                    ? "strength-strong"
+                                    : ""
+                                }`}
                               >
                                 Password strength: {strength}
                               </div>
@@ -968,7 +972,7 @@ export function NewUserProfileui(props) {
                           <button
                             type="submit"
                             class="btn btn-primary"
-                          // className="form-submit-btn"
+                            // className="form-submit-btn"
                           >
                             Change Password
                           </button>
@@ -1003,10 +1007,10 @@ export function NewUserProfileui(props) {
                             <img
                               onClick={() =>
                                 handleOpenModalDocs(
-                                  `http://localhost:8800/images/docu/${props.verFront}`
+                                  `${apiBaseUrl}/images/docu/${props.verFront}`
                                 )
                               }
-                              src={`http://localhost:8800/images/docu/${props.verFront}`}
+                              src={`${apiBaseUrl}/images/docu/${props.verFront}`}
                               alt="Front"
                             />
                           </div>
@@ -1014,10 +1018,10 @@ export function NewUserProfileui(props) {
                             <img
                               onClick={() =>
                                 handleOpenModalDocs(
-                                  `http://localhost:8800/images/docu/${props.verBack}`
+                                  `${apiBaseUrl}/images/docu/${props.verBack}`
                                 )
                               }
-                              src={`http://localhost:8800/images/docu/${props.verBack}`}
+                              src={`${apiBaseUrl}/images/docu/${props.verBack}`}
                               alt="Back"
                             />
                           </div>
@@ -1033,10 +1037,10 @@ export function NewUserProfileui(props) {
                             <img
                               onClick={() =>
                                 handleOpenModalDocs(
-                                  `http://localhost:8800/images/docu/${props.verDR1}`
+                                  `${apiBaseUrl}/images/docu/${props.verDR1}`
                                 )
                               }
-                              src={`http://localhost:8800/images/docu/${props.verDR2}`}
+                              src={`${apiBaseUrl}/images/docu/${props.verDR2}`}
                               alt="License"
                             />
                           </div>
@@ -1044,10 +1048,10 @@ export function NewUserProfileui(props) {
                             <img
                               onClick={() =>
                                 handleOpenModalDocs(
-                                  `http://localhost:8800/images/docu/${props.verDR2}`
+                                  `${apiBaseUrl}/images/docu/${props.verDR2}`
                                 )
                               }
-                              src={`http://localhost:8800/images/docu/${props.verDR2}`}
+                              src={`${apiBaseUrl}/images/docu/${props.verDR2}`}
                               alt="License"
                             />
                           </div>
@@ -1063,10 +1067,10 @@ export function NewUserProfileui(props) {
                             <img
                               onClick={() =>
                                 handleOpenModalDocs(
-                                  `http://localhost:8800/images/docu/${props.verDoc1}`
+                                  `${apiBaseUrl}/images/docu/${props.verDoc1}`
                                 )
                               }
-                              src={`http://localhost:8800/images/docu/${props.verDoc1}`}
+                              src={`${apiBaseUrl}/images/docu/${props.verDoc1}`}
                               alt="License"
                             />
                           </div>
@@ -1074,10 +1078,10 @@ export function NewUserProfileui(props) {
                             <img
                               onClick={() =>
                                 handleOpenModalDocs(
-                                  `http://localhost:8800/images/docu/${props.verDoc2}`
+                                  `${apiBaseUrl}/images/docu/${props.verDoc2}`
                                 )
                               }
-                              src={`http://localhost:8800/images/docu/${props.verDoc2}`}
+                              src={`${apiBaseUrl}/images/docu/${props.verDoc2}`}
                               alt="License"
                             />
                           </div>
@@ -1146,6 +1150,7 @@ export function NewUserProfileui(props) {
  * ADREAN 10/25/2024
  */
 export function NewViewUserProfile(props) {
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const { user } = useAuth();
   const [preview, setPreview] = useState(null);
   const [image, setImage] = useState(null);
@@ -1209,11 +1214,14 @@ export function NewViewUserProfile(props) {
                       {props.profileImg ? (
                         <img
                           className="user_profile_pic"
-                          src={`http://localhost:8800/images/profile/${props.profileImg}`}
+                          src={`${apiBaseUrl}/images/profile/${props.profileImg}`}
                           alt="ProfPic"
                         />
                       ) : (
-                        <img src="/images/employer.png" alt="Profile Picture" />
+                        <img
+                          src="./images/employer.png"
+                          alt="Profile Picture"
+                        />
                       )}
                     </div>
                     <h5 class="text-center mb-1">
@@ -1312,66 +1320,6 @@ export function NewViewUserProfile(props) {
                   </div>
                 </div>
               </div>
-
-              {/* <div class="col-12">
-                <div class="card widget-card border-light shadow-sm">
-                  <div class="card-header text-bg-primary"></div>
-                  <div class="card-body">
-                    <div className="buttons">
-                      <button onClick={() => setButtonPopup1(true)}>
-                        Reviews
-                      </button>
-
-                      <button onClick={() => setButtonPopup2(true)}>
-                        Documents
-                      </button>
-
-
-                    </div>
-                    <ViewFeedback
-                      userID={user.userID}
-                      trigger={buttonPopup1}
-                      setTrigger={setButtonPopup1}
-                    >
-                      <h1>Feedback</h1>
-                    </ViewFeedback>
-                    <Docu trigger={buttonPopup2} setTrigger={setButtonPopup2}>
-                      {
-
-                        props.verFront || props.verBack ? (
-                          <>
-                            <div className="id_1">
-                              <img
-                                src={`http://localhost:8800/images/docu/${props.verFront}`}
-                                alt="Front"
-                              />
-                            </div>
-                            <div className="id_1">
-                              <img
-                                src={`http://localhost:8800/images/docu/${props.verBack}`}
-                                alt="Back"
-                              />
-                            </div>
-                          </>
-                        ) : null
-                      }
-                      {
-
-                        props.doc1 ? (
-                          <>
-                            <div className="id_1">
-                              <img
-                                src={`http://localhost:8800/images/docu/${props.doc1}`}
-                                alt="License"
-                              />
-                            </div>
-                          </>
-                        ) : null
-                      }
-                    </Docu>
-                  </div>
-                </div>
-              </div> */}
 
               <div class="col-12">
                 <div class="card widget-card border-light shadow-sm">
@@ -1619,10 +1567,10 @@ export function NewViewUserProfile(props) {
                             <img
                               onClick={() =>
                                 handleOpenModalDocs(
-                                  `http://localhost:8800/images/docu/${props.verFront}`
+                                  `${apiBaseUrl}/images/docu/${props.verFront}`
                                 )
                               }
-                              src={`http://localhost:8800/images/docu/${props.verFront}`}
+                              src={`${apiBaseUrl}/images/docu/${props.verFront}`}
                               alt="Front"
                             />
                           </div>
@@ -1630,10 +1578,10 @@ export function NewViewUserProfile(props) {
                             <img
                               onClick={() =>
                                 handleOpenModalDocs(
-                                  `http://localhost:8800/images/docu/${props.verBack}`
+                                  `${apiBaseUrl}/images/docu/${props.verBack}`
                                 )
                               }
-                              src={`http://localhost:8800/images/docu/${props.verBack}`}
+                              src={`${apiBaseUrl}/images/docu/${props.verBack}`}
                               alt="Back"
                             />
                           </div>
@@ -1649,10 +1597,10 @@ export function NewViewUserProfile(props) {
                             <img
                               onClick={() =>
                                 handleOpenModalDocs(
-                                  `http://localhost:8800/images/docu/${props.verDoc1}`
+                                  `${apiBaseUrl}/images/docu/${props.verDoc1}`
                                 )
                               }
-                              src={`http://localhost:8800/images/docu/${props.verDoc1}`}
+                              src={`${apiBaseUrl}/images/docu/${props.verDoc1}`}
                               alt="License"
                             />
                           </div>

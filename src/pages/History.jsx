@@ -17,7 +17,7 @@ const History = () => {
   const { user } = useAuth();
   const userID = user.userID;
   const [transactions, setTransactions] = useState([]);
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   // tesing data
   const sampletran = [
     {
@@ -74,8 +74,8 @@ const History = () => {
         // choose if the user is Employer otherwise Catcher
         const endpoint =
           user.userType === "Employer"
-            ? `http://localhost:8800/transactionsEmp/${userID}`
-            : `http://localhost:8800/transactionsCat/${userID}`;
+            ? `${apiBaseUrl}/transactionsEmp/${userID}`
+            : `${apiBaseUrl}/transactionsCat/${userID}`;
 
         const response = await axios.get(endpoint);
         setTransactions(response.data);

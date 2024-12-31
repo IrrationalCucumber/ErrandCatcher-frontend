@@ -16,7 +16,7 @@ const SignIn = () => {
   const [rememberMe, setRememberMe] = useState(false); //remember me function
   const { updateUser } = useAuth(); // Get the login function from useAut
   const [loading, setLoading] = useState(false);
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   //remeber me function
   const handleRememberMeChange = (e) => {
     setRememberMe(e.target.checked);
@@ -30,7 +30,7 @@ const SignIn = () => {
       return;
     }
     try {
-      const res = await axios.get("http://localhost:8800/sign-in", {
+      const res = await axios.get(`${apiBaseUrl}/sign-in`, {
         params: { username: username, password: password },
       });
       //console.log("Response from server:", res.data); //debug

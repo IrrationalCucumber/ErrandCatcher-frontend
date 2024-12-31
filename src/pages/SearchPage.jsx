@@ -36,7 +36,7 @@ function SearchPage() {
       maxPay: newValue[1],
     }));
   };
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   //  rretrieve data
   useEffect(() => {
     //add condition if search term is empty
@@ -44,7 +44,7 @@ function SearchPage() {
     //if (term == "") {
     const fetchAllCommission = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/search-available`, {
+        const res = await axios.get(`${apiBaseUrl}/search-available`, {
           params: { term: term },
         });
         //"http://localhost:8800/commission" - local computer
@@ -171,8 +171,10 @@ function SearchPage() {
             </div>
             <div class="col">
               <div className="Paylabel">
-                <div style={{ textAlign: "center" }} >
-                  <Typography color="#f5f5f5" variant="h6"
+                <div style={{ textAlign: "center" }}>
+                  <Typography
+                    color="#f5f5f5"
+                    variant="h6"
                     sx={{
                       fontSize: 18,
                       fontWeight: 460,
@@ -183,11 +185,9 @@ function SearchPage() {
                     Payment Range:
                   </Typography>
 
-                  <Slider className="sliderpay"
-                    value={[
-                      Number(filter.minPay),
-                      Number(filter.maxPay)
-                    ]}
+                  <Slider
+                    className="sliderpay"
+                    value={[Number(filter.minPay), Number(filter.maxPay)]}
                     onChange={handleSliderChange}
                     // valueLabelDisplay="on"
                     min={500}
@@ -252,16 +252,20 @@ function SearchPage() {
               alignContent: "center",
             }}
           >
-            <h1 style={{ fontWeight: "600" }}>
-              Opps!
-            </h1>
-            <h2 style={{ textAlign: "center" }} >
+            <h1 style={{ fontWeight: "600" }}>Opps!</h1>
+            <h2 style={{ textAlign: "center" }}>
               No errand found named
-              <span style={{
-                fontStyle: "italic",
-                fontWeight: "600",
-                // color: "#378ce7",
-              }}> "{term}"</span> as of now..
+              <span
+                style={{
+                  fontStyle: "italic",
+                  fontWeight: "600",
+                  // color: "#378ce7",
+                }}
+              >
+                {" "}
+                "{term}"
+              </span>{" "}
+              as of now..
             </h2>
           </div>
         </>

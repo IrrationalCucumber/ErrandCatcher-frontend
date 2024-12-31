@@ -21,13 +21,11 @@ const Home = () => {
   const { user } = useAuth();
   const userID = user.userID;
   const [showAlert, setShowAlert] = useState(false);
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   useEffect(() => {
     const checkVerificationStatus = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:8800/check-token/${userID}`
-        );
+        const response = await axios.get(`${apiBaseUrl}/check-token/${userID}`);
         if (response.data.exists) {
           setShowAlert(true);
           console.log(response.data.exists);

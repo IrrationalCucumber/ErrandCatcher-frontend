@@ -24,7 +24,7 @@ const ViewCommission = () => {
     DateCompleted: "",
     ContactNo: "",
   });
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const navigate = useNavigate();
   const location = useLocation();
   //pathname to array from
@@ -47,9 +47,9 @@ const ViewCommission = () => {
   //funtion to delete commission
   // const handleDelete = async (commissionID) =>{
   //     try {
-  //           //"http://localhost:8800/commission" - local computer
+  //           //"${apiBaseUrl}/commission" - local computer
   //           //"http://192.168.1.47:8800/commission" - netwrok
-  //       await axios.delete(`http://localhost:8800/commission/${commissionID}`)
+  //       await axios.delete(`${apiBaseUrl}/commission/${commissionID}`)
   //       window.location.reload()
   //     } catch (err) {
   //       console.log(err)
@@ -60,9 +60,7 @@ const ViewCommission = () => {
   useEffect(() => {
     const fetchCommission = async () => {
       try {
-        const res = await axios.get(
-          `http://localhost:8800/commission/${commissionID}`
-        );
+        const res = await axios.get(`${apiBaseUrl}/commission/${commissionID}`);
         const retrievedCommission = res.data[0];
         //format date
         const formattedDate = new Date(retrievedCommission.commissionDeadline)
@@ -97,7 +95,7 @@ const ViewCommission = () => {
     try {
       //account.dateCreated = getCurrentDate();
       await axios.put(
-        "http://localhost:8800/update-commission/" + commissionID,
+        `${apiBaseUrl}/update-commission/` + commissionID,
         commission
       );
       navigate("/commission-list");

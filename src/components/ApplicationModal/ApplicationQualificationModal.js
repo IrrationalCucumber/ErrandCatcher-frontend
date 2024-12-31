@@ -20,6 +20,7 @@ import AddIcon from "@mui/icons-material/Add";
 import axios from "axios";
 
 function ApplicationQualificationModal(props) {
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   //SKill tags
   // State to hold the selected skills
   const [selectedSkills, setSelectedSkills] = useState([]);
@@ -151,14 +152,14 @@ function ApplicationQualificationModal(props) {
       application.qualifications = qualificationsString;
 
       console.log(application); // Check the updated commission object
-      await axios.post("http://localhost:8800/apply", application);
+      await axios.post(`${apiBaseUrl}/apply`, application);
 
       //add a notification to the commission's employer
       notif.notifDesc = "A Catcher has applied to on of your errand";
       notif.userID = props.employerID;
       notif.notificationType = "Errand Application";
 
-      await axios.post("http://localhost:8800/notify", notif);
+      await axios.post(`${apiBaseUrl}/notify`, notif);
       alert("You have applied to this Errand!");
       //alert(application.qualifications);
       //navigate(`/application/${userID}`);

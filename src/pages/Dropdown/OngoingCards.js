@@ -21,7 +21,7 @@ import WarningRoundedIcon from "@mui/icons-material/WarningRounded";
 function OngoingCards({ commissions, to }) {
   const { user } = useAuth();
   const userID = user.userID;
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const [feedback, setFeedback] = useState({
     catcherID: "",
     commissionID: "",
@@ -77,7 +77,7 @@ function OngoingCards({ commissions, to }) {
       //feedback.employerID = commission.
 
       //feedback.commissionID = fetchLoc().commissionID;
-      const response = await axios.post("http://localhost:8800/rate", feedback);
+      const response = await axios.post(`${apiBaseUrl}/rate`, feedback);
       setSuccessMsg(response.data);
     } catch (err) {
       console.log(err);
@@ -147,9 +147,9 @@ function OngoingCards({ commissions, to }) {
       notif.notificationType = "Errand Cancelled";
       notif.notifDate = getTimeAndDate();
 
-      await axios.post("http://localhost:8800/notify", notif);
+      await axios.post(`${apiBaseUrl}/notify`, notif);
       //cancel the transaction
-      await axios.put(`http://localhost:8800/cancel-trans/${transactID}`, {
+      await axios.put(`${apiBaseUrl}/cancel-trans/${transactID}`, {
         params: { date: getTimeAndDate() },
       });
 
@@ -170,10 +170,10 @@ function OngoingCards({ commissions, to }) {
       notif.notificationType = "Errand completed";
       notif.notifDate = getTimeAndDate();
 
-      await axios.post("http://localhost:8800/notify", notif);
+      await axios.post(`${apiBaseUrl}/notify`, notif);
       //complete the transaction
       await axios.put(
-        `http://localhost:8800/catcher/complete/${transactID}/${user.userID}`
+        `${apiBaseUrl}/catcher/complete/${transactID}/${user.userID}`
       );
       console.log("status: completed");
 
@@ -193,7 +193,7 @@ function OngoingCards({ commissions, to }) {
     erID,
     catID
   ) => {
-    const paymentUrl = `http://localhost:8800/process-payment/${userID}`;
+    const paymentUrl = `${apiBaseUrl}/process-payment/${userID}`;
     // Change the amount
     const amount = pay;
     const errType = type;

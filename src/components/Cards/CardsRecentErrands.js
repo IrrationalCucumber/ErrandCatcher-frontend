@@ -12,12 +12,13 @@ import axios from "axios";
 import "./cardsNew.css";
 
 function CardsRecentErrands() {
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const [recentErrands, setRecentErrands] = useState([]);
   //get recently posted available errands
   useEffect(() => {
     const fetchErrands = async () => {
       try {
-        const res = await axios.get("http://localhost:8800/recent");
+        const res = await axios.get(`${apiBaseUrl}/recent`);
         setRecentErrands(res.data);
       } catch (error) {
         console.log(error);

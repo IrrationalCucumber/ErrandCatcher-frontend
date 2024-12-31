@@ -46,7 +46,7 @@ function Application() {
     type: "",
     status: "",
   });
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const [openCancel, setOpenCancel] = useState(false);
   const [openDelete, setOpenDelete] = useState(false);
 
@@ -72,7 +72,6 @@ function Application() {
   };
   const handleClose = () => {
     setOpen(false);
-
   };
   // delete state
   const [openDel, setOpenDel] = useState(false);
@@ -81,18 +80,14 @@ function Application() {
   };
   const handleCloseDel = () => {
     setOpenDel(false);
-
   };
-
 
   //data
   //useEffect to handle error
   const fetchAllAccount = async () => {
     try {
-      const res = await axios.get(
-        `http://localhost:8800/your-application/${userID}`
-      );
-      //http://localhost:8800/user - local
+      const res = await axios.get(`${apiBaseUrl}/your-application/${userID}`);
+      //${apiBaseUrl}/user - local
       //http://192.168.1.47:8800/user - network
       setApply(res.data);
       console.log(res.data);
@@ -310,9 +305,7 @@ function Application() {
     //e.preventDefault();
 
     try {
-      await axios.put(
-        `http://localhost:8800/cancel-apply/${userID}/${applicationID}`
-      );
+      await axios.put(`${apiBaseUrl}/cancel-apply/${userID}/${applicationID}`);
 
       //add a notification to the commission's employer
       notif.notifDesc =
@@ -321,7 +314,7 @@ function Application() {
       notif.notificationType = "Application Cancelled";
       notif.notifDate = getTimeAndDate();
 
-      await axios.post("http://localhost:8800/notify", notif);
+      await axios.post("${apiBaseUrl}/notify", notif);
       // window.location.reload();
       // navigate(`/my-application/${userID}`);
 
@@ -345,7 +338,7 @@ function Application() {
     try {
       //"http://localhost:8800/commission" - local computer
       //"http://192.168.1.47:8800/commission" - netwrok
-      await axios.delete(`http://localhost:8800/delete-apply/${applicationID}`);
+      await axios.delete(`${apiBaseUrl}/delete-apply/${applicationID}`);
 
       // popup delete modal
       setTimeout(() => {
@@ -355,7 +348,7 @@ function Application() {
       }, 1000);
 
       // close if click "yes" modal
-      setOpenDelete(false)
+      setOpenDelete(false);
 
       // setAlerMsg("You have deleted your Application");
       // setShowAlert(true);

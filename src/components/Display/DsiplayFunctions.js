@@ -97,6 +97,7 @@ export function AmountDecimal(amount, separator = ",") {
 }
 //Applicant count for employer
 export function ApplicantsCount(id) {
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const [num, setNum] = useState();
   useEffect(() => {
     // Simulate fetching counts from backend API, be removed
@@ -104,7 +105,7 @@ export function ApplicantsCount(id) {
     const fetchCount = async () => {
       try {
         const res2 = await axios.get(
-          `http://localhost:8800/post-and-applicant-count/${id}`
+          `${apiBaseUrl}/post-and-applicant-count/${id}`
         );
         setNum(res2.data[0].applicantCount);
       } catch (err) {
@@ -120,13 +121,14 @@ export function ApplicantsCount(id) {
 
 //Application count forCather
 export function ApplicationCount(id) {
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const userID = id.id;
   const [num, setNum] = useState(null);
   useEffect(() => {
     const fetchCount = async () => {
       try {
         const res2 = await axios.get(
-          `http://localhost:8800/application-count/${userID}`
+          `${apiBaseUrl}/application-count/${userID}`
         );
         // setNum(res2.data[0]?.c || 0);
         setNum(res2.data[0]?.c ?? null); // Treat `null` if no valid count
@@ -139,7 +141,6 @@ export function ApplicationCount(id) {
     return () => clearInterval(interval);
   }, [userID, num]);
 
- 
   if (num === null || num === undefined) {
     return null;
   }

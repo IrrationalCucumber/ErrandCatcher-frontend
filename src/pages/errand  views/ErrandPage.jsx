@@ -59,7 +59,7 @@ const ErrandPage = () => {
     setOpenFeedmodal(false);
     window.location.reload();
   };
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const navigate = useNavigate();
   const location = useLocation();
   //pathname to array from
@@ -85,7 +85,7 @@ const ErrandPage = () => {
       const fetchApp = async () => {
         try {
           const res = await axios.get(
-            `http://localhost:8800/get-apply/${userID}/${commissionID}`
+            `${apiBaseUrl}/get-apply/${userID}/${commissionID}`
           );
           console.log(res.data[0]);
           if (!!res.data[0]) {
@@ -106,9 +106,7 @@ const ErrandPage = () => {
   useEffect(() => {
     const fetchCommission = async () => {
       try {
-        const res = await axios.get(
-          `http://localhost:8800/errand/${commissionID}`
-        );
+        const res = await axios.get(`${apiBaseUrl}/errand/${commissionID}`);
         const retrievedCommission = res.data[0];
         //format date
         // const formattedDate = new Date(retrievedCommission.commissionDeadline)
@@ -215,14 +213,14 @@ const ErrandPage = () => {
       application.catcherID = user.userID;
 
       console.log(application); // Check the updated commission object
-      await axios.post("http://localhost:8800/apply", application);
+      await axios.post(`${apiBaseUrl}/apply`, application);
 
       //add a notification to the commission's employer
       notif.notifDesc = "A Catcher has applied to on of your errand";
       notif.userID = commission.employerID;
       notif.notificationType = "Errand Application";
 
-      await axios.post("http://localhost:8800/notify", notif);
+      await axios.post(`${apiBaseUrl}/notify`, notif);
       // setAlerMsg("You have applied to this Errand!");
       // setShowAlert(true);
       // setAlrtColor("success");
@@ -259,7 +257,7 @@ const ErrandPage = () => {
   useEffect(() => {
     const fetchSkills = async () => {
       try {
-        const res = await axios(`http://localhost:8800/user/${user.userID}`);
+        const res = await axios(`${apiBaseUrl}/user/${user.userID}`);
         const skillArray = res.data.map((skill) => skill.userQualification);
         setCatcher(skillArray[0].split(",")); // Ensure catcher is an array
       } catch (error) {
@@ -408,7 +406,8 @@ const ErrandPage = () => {
               fontWeight: 500,
             }}
           >
-            <WorkOutlineOutlinedIcon color="primary" /> <i>You still have an Errand to do!</i>
+            <WorkOutlineOutlinedIcon color="primary" />{" "}
+            <i>You still have an Errand to do!</i>
           </Typography>
         ) : null}
         <Typography
@@ -440,8 +439,8 @@ const ErrandPage = () => {
                     isApplied
                       ? null
                       : (e) => {
-                        handleApply(true);
-                      }
+                          handleApply(true);
+                        }
                   }
                   style={{
                     backgroundColor: isApplied ? "none" : "",

@@ -39,12 +39,12 @@ function Navbar(props) {
   //carry id to other page
   //pathname to array from
   const userID = user.userID;
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const [notifCount, setNotifCount] = useState("");
   useEffect(() => {
     const fetchNotif = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/count/${userID}`);
+        const res = await axios.get(`${apiBaseUrl}/count/${userID}`);
         setNotifCount(res.data[0].c);
       } catch (err) {
         console.log(err);

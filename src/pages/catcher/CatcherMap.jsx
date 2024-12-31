@@ -17,12 +17,12 @@ function CatcherMap() {
   const [userLocation, setUserLocation] = useState({ lat: 0, lng: 0 });
   const [proximity, setProximity] = useState(10); // Proximity in kilometers
   const [filter, setFilter] = useState(""); // State for type filter
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   // Fetch errands from the API
   useEffect(() => {
     const fetchErrands = async () => {
       try {
-        const response = await axios.get("http://localhost:8800/available/");
+        const response = await axios.get(`${apiBaseUrl}/available/`);
         setErrands(response.data);
       } catch (error) {
         console.error(error);

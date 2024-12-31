@@ -15,6 +15,7 @@ import CardItemNew from "./CardsItemNew";
 import { AmountDecimal } from "../Display/DsiplayFunctions";
 
 function CatCardsNew({ commissions }) {
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const [commissionslist, setCommissionslist] = useState([]);
   const location = useLocation();
   //pathname to array from
@@ -25,7 +26,7 @@ function CatCardsNew({ commissions }) {
   useEffect(() => {
     const fetchAllCommission = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/type/${type}`);
+        const res = await axios.get(`${apiBaseUrl}/type/${type}`);
         //"http://localhost:8800/commission" - local computer
         //"http://192.168.1.47:8800/commission" - netwrok
         setCommissionslist(res.data);

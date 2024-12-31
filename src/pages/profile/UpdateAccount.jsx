@@ -20,7 +20,7 @@ const UpdateAccount = () => {
     //dateCreated:"",
     // profileImage:"",
   });
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -47,9 +47,7 @@ const UpdateAccount = () => {
   useEffect(() => {
     const fetchStatus = async () => {
       try {
-        const res = await axios.get(
-          `http://localhost:8800/user-verify/${userID}`
-        );
+        const res = await axios.get(`${apiBaseUrl}/user-verify/${userID}`);
         console.log(res.data[0].accountStatus);
         setStatus(res.data[0].accountStatus);
       } catch (err) {
@@ -63,7 +61,7 @@ const UpdateAccount = () => {
   useEffect(() => {
     const fetchAccount = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/user/${userID}`);
+        const res = await axios.get(`${apiBaseUrl}/user/${userID}`);
         const retrievedAccount = res.data[0];
         //format date
         const formattedDate = new Date(retrievedAccount.userBirthday)
@@ -100,10 +98,7 @@ const UpdateAccount = () => {
     //refresh the page when button is clicked
     e.preventDefault();
     try {
-      await axios.put(
-        "http://localhost:8800/update-account/" + userID,
-        account
-      );
+      await axios.put(`${apiBaseUrl}/update-account/` + userID, account);
       navigate("/accounts");
     } catch (err) {
       console.log(err);
@@ -115,7 +110,7 @@ const UpdateAccount = () => {
     //refresh the page when button is clicked
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:8800/verify-account/${userID}`);
+      await axios.put(`${apiBaseUrl}/verify-account/${userID}`);
       navigate("/accounts");
     } catch (err) {
       console.log(err);
@@ -127,7 +122,7 @@ const UpdateAccount = () => {
     //refresh the page when button is clicked
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:8800/deactivate-account/${userID}`);
+      await axios.put(`${apiBaseUrl}/deactivate-account/${userID}`);
       navigate("/accounts");
     } catch (err) {
       console.log(err);

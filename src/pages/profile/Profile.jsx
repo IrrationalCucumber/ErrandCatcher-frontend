@@ -17,6 +17,7 @@ import NewUserProfile, {
   NewUserProfileui,
 } from "../../components/Profile/NewUserProfile";
 const Profile = () => {
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const [verified, setVerified] = useState(false);
   //APS - 03/03/24
   //get userID from url
@@ -54,9 +55,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchDetails = async () => {
       try {
-        const res = await axios.get(
-          `http://localhost:8800/ver-details/${userID}`
-        );
+        const res = await axios.get(`${apiBaseUrl}/ver-details/${userID}`);
         setDocs({
           requestStatus: res.data[0].requestStatus,
           frontID: res.data[0].id_picture_front,
@@ -100,7 +99,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchAccount = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/user/${userID}`);
+        const res = await axios.get(`${apiBaseUrl}/user/${userID}`);
         const retrievedAccount = res.data[0];
         //format date
         const formattedDate = new Date(retrievedAccount.userBirthday)
@@ -173,9 +172,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchRating = async () => {
       try {
-        const res = await axios.get(
-          `http://localhost:8800/user-rating/${userID}`
-        );
+        const res = await axios.get(`${apiBaseUrl}/user-rating/${userID}`);
         //console.log(res.data[0].c);
         setRating(res.data[0].c);
       } catch (err) {
@@ -212,7 +209,7 @@ const Profile = () => {
       window.location.reload();
 
       await axios
-        .post(`http://localhost:8800/update-pic/${userID}`, formData)
+        .post(`${apiBaseUrl}/update-pic/${userID}`, formData)
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
     }
@@ -280,7 +277,7 @@ const Profile = () => {
         setAccount(tempAccount); // Save changes to the actual account
         setIsEditing(false); // Exit edit mode
         // await axios
-        //   .post(`http://localhost:8800/update-pic/${userID}`, formData)
+        //   .post(`${apiBaseUrl}/update-pic/${userID}`, formData)
         //   .then((res) => console.log(res))
         //   .catch((err) => console.log(err));
 
@@ -291,7 +288,7 @@ const Profile = () => {
         setSnacMess("Profile details have been updated.");
         setSnacColor("success");
         setOpenSnack(true);
-        await axios.put("http://localhost:8800/update/" + userID, tempAccount);
+        await axios.put(`${apiBaseUrl}/update/` + userID, tempAccount);
         // setShowAlert(true);
       }
       window.scrollTo({

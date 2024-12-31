@@ -15,13 +15,13 @@ function CommissionMap() {
   const [zoom] = useState(10);
   const [API_KEY] = useState("ZQyqv6eWtI6zNE29SPDd");
   const [errands, setErrands] = useState([]);
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   //fetch and store errand
   useEffect(() => {
     const fetchErrand = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8800/your-commission/" + user.userID
+          `${apiBaseUrl}/your-commission/` + user.userID
         );
         setErrands(response.data);
       } catch (error) {

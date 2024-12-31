@@ -567,7 +567,7 @@ export function Step3({ details, images, haveLicense, onPrev, onNext }) {
   const [open, setOpen] = useState(false);
   const [alertOpen, setAlertOpen] = useState(false);
   const [loading, setLoading] = useState(false);
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const handleOpenModal = () => {
     setOpen(true);
   };
@@ -606,13 +606,13 @@ export function Step3({ details, images, haveLicense, onPrev, onNext }) {
       console.log("info successfully sent to server");
       //upload docs to server
       await axios
-        .post(`http://localhost:8800/upload/${userID}`, formData)
+        .post(`${apiBaseUrl}/upload/${userID}`, formData)
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
       //update accound data
       //await axios.put("http://localhost:8800/update-info/" + userID, details); //update skills in db
       //add notif of request
-      await axios.post("http://localhost:8800/notify-admin"); // notify all admin
+      await axios.post(`${apiBaseUrl}/notify-admin`); // notify all admin
     } catch (error) {
       console.log(error);
     }

@@ -40,7 +40,7 @@ const EmployerApplicants = () => {
   //const [searchTerm, setSearchTerm] = useState('');
   const [applicants, setApplicants] = useState([]);
   const [searchTerm, setSearchTerm] = useState({ term: "" });
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   //current page state --Ash
   const [currentPage, setCurrentPage] = useState(1);
   //Pagination --Ash
@@ -94,7 +94,7 @@ const EmployerApplicants = () => {
   const fetchAllAccount = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:8800/applicants/${userID}` // show only pending
+        `${apiBaseUrl}/applicants/${userID}` // show only pending
       );
       //http://localhost:8800/user - local
       //http://192.168.1.47:8800/user - network
@@ -379,7 +379,7 @@ const EmployerApplicants = () => {
     // Add logic to handle accepting the application
     try {
       await axios.put(
-        `http://localhost:8800/accept-apply/${applicationErrandID}/${applicationID}`
+        `${apiBaseUrl}/accept-apply/${applicationErrandID}/${applicationID}`
       );
 
       handleOpen();
@@ -389,15 +389,15 @@ const EmployerApplicants = () => {
       trans.catcherID = selectedApplicant;
       trans.dateAccepted = getTimeAndDate();
       //console.log(catcherID);
-      await axios.post("http://localhost:8800/add-trans/", trans);
+      await axios.post(`${apiBaseUrl}/add-trans/`, trans);
       //add a notification to the commission's applicant
       notif.notifDesc = "Your Errand application has been Accepted";
       notif.userID = selectedApplicant;
       notif.notificationType = "Application";
       notif.notifDate = getTimeAndDate();
-      await axios.post("http://localhost:8800/notify", notif);
+      await axios.post(`${apiBaseUrl}/notify`, notif);
       //set catcher has errand
-      await axios.put(`http://localhost:8800/has-errand/${catcherID}`);
+      await axios.put(`${apiBaseUrl}/has-errand/${catcherID}`);
     } catch (err) {
       console.log(err);
     }
@@ -412,14 +412,14 @@ const EmployerApplicants = () => {
     // Add logic to handle declining the application
     try {
       await axios.put(
-        `http://localhost:8800/deny-apply/${applicationErrandID}/${applicationID}`
+        `${apiBaseUrl}/deny-apply/${applicationErrandID}/${applicationID}`
       );
       //add a notification to the commission's applicant
       notif.notifDesc = "Your Errand application has been Denied";
       notif.userID = catcherID;
       notif.notificationType = "Application";
       notif.notifDate = getTimeAndDate();
-      await axios.post("http://localhost:8800/notify", notif);
+      await axios.post(`${apiBaseUrl}/notify`, notif);
       //  alert("You have Posted an Errand!");
       window.location.reload();
       setShowProfileModal(false);
@@ -434,7 +434,7 @@ const EmployerApplicants = () => {
     try {
       //DENY other applicants
       const denyResponse = await axios.put(
-        `http://localhost:8800/deny-other-apply/${errandID}/${catcherID}`
+        `${apiBaseUrl}/deny-other-apply/${errandID}/${catcherID}`
       );
       if (denyResponse.data.message === "No other applications to deny") {
         console.log("No other applications were found to deny.");
@@ -442,7 +442,7 @@ const EmployerApplicants = () => {
         console.log("Other applications denied successfully.");
       }
       //set the errand status to caught
-      await axios.put(`http://localhost:8800/errand-taken/${errandID}`);
+      await axios.put(`${apiBaseUrl}/errand-taken/${errandID}`);
     } catch (error) {
       console.log(error);
     }

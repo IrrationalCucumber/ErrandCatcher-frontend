@@ -28,7 +28,7 @@ const UpdateCommission = () => {
     comDestLat: "",
     comTags: "",
   });
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const [distance, setDistance] = useState(0);
   const accessToken =
     "pk.eyJ1IjoibWlyYWthNDQiLCJhIjoiY20xcWVhejZ0MGVzdjJscTF5ZWVwaXBzdSJ9.aLYnU19L7neFq2Y7J_UXhQ";
@@ -72,9 +72,7 @@ const UpdateCommission = () => {
   useEffect(() => {
     const fetchCommission = async () => {
       try {
-        const res = await axios.get(
-          `http://localhost:8800/errand/${commissionID}`
-        );
+        const res = await axios.get(`${apiBaseUrl}/errand/${commissionID}`);
         const retrievedCommission = res.data[0];
         //format date
         // const formattedDate = new Date(retrievedCommission.commissionDeadline)
@@ -84,7 +82,12 @@ const UpdateCommission = () => {
         //   .toISOString()
         //   .substr(0, 10);
 
-        const options = { timeZone: "Asia/Manila", year: "numeric", month: "2-digit", day: "2-digit" };
+        const options = {
+          timeZone: "Asia/Manila",
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+        };
 
         // Format Deadline
         const formattedDate = new Date(retrievedCommission.commissionDeadline)
@@ -99,7 +102,6 @@ const UpdateCommission = () => {
           .split("/")
           .reverse()
           .join("-");
-
 
         // Update the state with retrieved account data
         setCommission({
@@ -190,7 +192,7 @@ const UpdateCommission = () => {
         //account.dateCreated = getCurrentDate();
         commission.comStatus = "Available";
         await axios.put(
-          `http://localhost:8800/update-errand/${commissionID}`,
+          `${apiBaseUrl}/update-errand/${commissionID}`,
           commission
         );
         // popup update modal

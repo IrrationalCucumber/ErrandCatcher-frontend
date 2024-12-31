@@ -39,7 +39,7 @@ function CommissionPage() {
     status: "",
     date: "",
   });
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   // Pagination
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
@@ -71,9 +71,7 @@ function CommissionPage() {
   useEffect(() => {
     const fetchAllCommission = async () => {
       try {
-        const res = await axios.get(
-          `http://localhost:8800/accepted-errand/${userID}`
-        );
+        const res = await axios.get(`${apiBaseUrl}/accepted-errand/${userID}`);
         //"http://localhost:8800/commission" - local computer
         //"http://192.168.1.47:8800/commission" - netwrok
         setCommissions(res.data);
@@ -89,9 +87,7 @@ function CommissionPage() {
   const [forPayment, setForPayment] = useState([]);
   const fetchPending = async () => {
     try {
-      const res = await axios.get(
-        `http://localhost:8800/catcher/ongoing/${userID}`
-      );
+      const res = await axios.get(`${apiBaseUrl}/catcher/ongoing/${userID}`);
 
       setForPayment(res.data);
     } catch (err) {
@@ -176,11 +172,9 @@ function CommissionPage() {
       notif.userID = employerID;
       notif.notificationType = "Errand Cancelled";
       notif.notifDate = getTimeAndDate();
-      await axios.post("http://localhost:8800/notify", notif);
+      await axios.post(`${apiBaseUrl}/notify`, notif);
       //cancel the transaction
-      await axios.put(
-        `http://localhost:8800/catcher/cancel/${transactID}/${userID}`
-      );
+      await axios.put(`${apiBaseUrl}/catcher/cancel/${transactID}/${userID}`);
       /**
        * ADD METHOD TO CHANGE ALSO THE STATUS OF ERRAND TO CANCELLED
        */
@@ -208,11 +202,9 @@ function CommissionPage() {
       notif.userID = empID;
       notif.notificationType = "Errand Completed";
       notif.notifDate = getTimeAndDate();
-      await axios.post("http://localhost:8800/notify", notif);
+      await axios.post(`${apiBaseUrl}/notify`, notif);
       //cancel the transaction
-      await axios.put(
-        `http://localhost:8800/catcher/complete/${transID}/${userID}`
-      );
+      await axios.put(`${apiBaseUrl}/catcher/complete/${transID}/${userID}`);
     } catch (error) {
       console.log(error);
     }

@@ -11,7 +11,7 @@ const Invoice = ({ open, onClose, userID }) => {
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const handleClose = () => {
     onClose();
   };
@@ -21,7 +21,7 @@ const Invoice = ({ open, onClose, userID }) => {
       const fetchTransactions = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:8800/transactions/${userID}`
+            `${apiBaseUrl}/transactions/${userID}`
           );
           setTransactions(response.data);
           setLoading(false);

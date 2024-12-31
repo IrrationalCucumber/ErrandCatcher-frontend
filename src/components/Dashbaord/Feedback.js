@@ -20,6 +20,7 @@ export default Feedback;
  * Component to Display feedback of Catcher
  */
 export function MyFeedback({ id }) {
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const [myFeedback, setMyFeedback] = useState([]);
   const { user } = useAuth();
   //get all the feedback of user
@@ -27,7 +28,7 @@ export function MyFeedback({ id }) {
     //fetch data in backend
     const fetchFeedback = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/my-feedbacks/${id}`);
+        const res = await axios.get(`${apiBaseUrl}/my-feedbacks/${id}`);
         setMyFeedback(res.data);
       } catch (error) {
         console.log(error);
@@ -78,13 +79,13 @@ export function MyFeedback({ id }) {
 export function MyPostedFeedback() {
   const { user } = useAuth();
   const [feedback, setFeedback] = useState([]);
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   //fetch posted feedback of employer
   useEffect(() => {
     const fetchFeedback = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8800/posted-feedbacks/${user.userID}`
+          `${apiBaseUrl}/posted-feedbacks/${user.userID}`
         );
         setFeedback(res.data);
       } catch (error) {
