@@ -239,7 +239,7 @@ export function NoUserNabar() {
               >
                 <img
                   src="./images/ERicon.png"
-                  alt="ERRAND CATCHER Icon"
+                  alt="ER"
                   className="logo-image"
                   style={{
                     width: "50px",
