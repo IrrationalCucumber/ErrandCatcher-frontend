@@ -5,12 +5,13 @@ import StarRating from "../Display/StarRating";
 import "./topcat.css";
 
 export default function TopCatcher() {
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const [catchers, setCatchers] = useState([]);
   //fetch top rated catchers
   useEffect(() => {
     const fetchCatchers = async () => {
       try {
-        const res = await axios.get("http://localhost:8800/top-rated");
+        const res = await axios.get(`${apiBaseUrl}/top-rated`);
         setCatchers(res.data);
       } catch (error) {
         console.error("Error fetching top rated catchers:", error);
@@ -58,7 +59,10 @@ export default function TopCatcher() {
             data-bs-target="#carouselExampleIndicators"
             data-bs-slide="prev"
           >
-            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span
+              className="carousel-control-prev-icon"
+              aria-hidden="true"
+            ></span>
             <span className="visually-hidden">Previous</span>
           </button>
           <button
@@ -67,7 +71,10 @@ export default function TopCatcher() {
             data-bs-target="#carouselExampleIndicators"
             data-bs-slide="next"
           >
-            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span
+              className="carousel-control-next-icon"
+              aria-hidden="true"
+            ></span>
             <span className="visually-hidden">Next</span>
           </button>
         </div>
