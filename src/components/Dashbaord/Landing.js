@@ -39,7 +39,7 @@ export function LandingServiceDetails() {
             className="landing__bg__right"
             style={{
               background:
-                "rgb(255, 255, 255) url('/images/hs-o-1.jpg') no-repeat fixed right / 70% 100%",
+                "rgb(255, 255, 255) url('../../../../public/images/hs-o-1.jpg') no-repeat fixed right / 70% 100%",
             }}
           >
             <button className="landing__service__btn__rt">VIEW ERRANDS</button>
@@ -50,7 +50,7 @@ export function LandingServiceDetails() {
             className="landing__bg__left"
             style={{
               background:
-                "rgb(255, 255, 255) url('/images/d-1.jpg') no-repeat fixed left / 70% 100%",
+                "rgb(255, 255, 255) url('../../../../public/images/d-1.jpg') no-repeat fixed left / 70% 100%",
             }}
           >
             <button className="landing__service__btn__lt">VIEW ERRANDS</button>
@@ -76,7 +76,7 @@ export function LandingServiceDetails() {
             className="landing__bg__right"
             style={{
               background:
-                "rgb(255, 255, 255) url('/images/t-1.jpg') no-repeat fixed right / 70% 100%",
+                "rgb(255, 255, 255) url('../../../../public/images/t-1.jpg') no-repeat fixed right / 70% 100%",
             }}
           >
             <button className="landing__service__btn__rt">VIEW ERRANDS</button>

@@ -58,7 +58,7 @@ const Landing = () => {
         <div className="box-container">
           {/* 1 */}
           <div className="box">
-            <img src="/images/img1.png" alt="" />
+            <img src="../../../../public/images/img1.png" alt="" />
             <div className="content">
               <p style={{ textAlign: "center" }}>Transportation</p>
               <h3>
@@ -78,7 +78,7 @@ const Landing = () => {
           </div>
           {/* 2 */}
           <div className="box">
-            <img src="/images/img2.png" alt="" />
+            <img src="../../../../public/images/img2.png" alt="" />
             <div className="content">
               <p style={{ textAlign: "center" }}>Delivery</p>
               <h3>
@@ -99,7 +99,7 @@ const Landing = () => {
           </div>
           {/* 3 */}
           <div className="box">
-            <img src="/images/img3.png" alt="" />
+            <img src="../../../../public/images/img3.png" alt="" />
             <div className="content">
               <p style={{ textAlign: "center" }}>Home Service</p>
               <h3>
@@ -118,7 +118,7 @@ const Landing = () => {
           </div>
           {/* 4 */}
           <div className="box">
-            <img src="/images/img1.png" alt="" />
+            <img src="../../../../public/images/img1.png" alt="" />
             <div className="content">
               <p style={{ textAlign: "center" }}>Transportation</p>
               <h3>
@@ -139,7 +139,7 @@ const Landing = () => {
           </div>
           {/* 5 */}
           <div className="box">
-            <img src="/images/img2.png" alt="" />
+            <img src="../../../../public/images/img2.png" alt="" />
             <div className="content">
               <p style={{ textAlign: "center" }}>Delivery</p>
               <h3>
@@ -159,7 +159,7 @@ const Landing = () => {
           </div>
           {/* 6 */}
           <div className="box">
-            <img src="/images/img3.png" alt="" />
+            <img src="../../../../public/images/img3.png" alt="" />
             <div className="content">
               <p style={{ textAlign: "center" }}>Home Service</p>
               <h3>
@@ -178,7 +178,7 @@ const Landing = () => {
           </div>
           {/* 7 */}
           <div className="box">
-            <img src="/images/img1.png" alt="" />
+            <img src="../../../../public/images/img1.png" alt="" />
             <div className="content">
               <p style={{ textAlign: "center" }}>Transportation</p>
               <h3>
@@ -212,7 +212,7 @@ const Landing = () => {
                 complete an errand
               </p>
             </div>
-            <img src="/images/employer.png" alt="" />
+            <img src="../../../../public/images/employer.png" alt="" />
           </div>
 
           <div className="box">
@@ -223,7 +223,7 @@ const Landing = () => {
                 employer's errands
               </p>
             </div>
-            <img src="/images/employee.png" alt="" />
+            <img src="../../../../public/images/employee.png" alt="" />
           </div>
         </div>
       </section>
