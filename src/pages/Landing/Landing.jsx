@@ -178,7 +178,7 @@ const Landing = () => {
           </div>
           {/* 7 */}
           <div className="box">
-            <img src="../../../../public/images/img1.png" alt="" />
+            <img src="./images/img1.png" alt="" />
             <div className="content">
               <p style={{ textAlign: "center" }}>Transportation</p>
               <h3>
@@ -212,7 +212,7 @@ const Landing = () => {
                 complete an errand
               </p>
             </div>
-            <img src="../../../../public/images/employer.png" alt="" />
+            <img src="./images/employer.png" alt="" />
           </div>
 
           <div className="box">
