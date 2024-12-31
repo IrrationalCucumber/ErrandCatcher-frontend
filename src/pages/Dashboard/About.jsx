@@ -26,7 +26,7 @@ function About() {
       <div className="w3-row-padding w3-grayscale">
         <div className="w3-col l3 m6 w3-margin-bottom">
           <img
-            src="./images/employer.png"
+            src="../images/employer.png"
             alt="Ash"
             style={{ width: "100%" }}
           />
@@ -44,7 +44,7 @@ function About() {
         </div>
         <div className="w3-col l3 m6 w3-margin-bottom">
           <img
-            src="./images/employer.png"
+            src="../images/employer.png"
             alt="Lorry"
             style={{ width: "100%" }}
           />
@@ -62,7 +62,7 @@ function About() {
         </div>
         <div className="w3-col l3 m6 w3-margin-bottom">
           <img
-            src="./images/employer.png"
+            src="../images/employer.png"
             alt="Diane"
             style={{ width: "100%" }}
           />
@@ -80,7 +80,7 @@ function About() {
         </div>
         <div className="w3-col l3 m6 w3-margin-bottom">
           <img
-            src="./images/employer.png"
+            src="../images/employer.png"
             alt="Trish"
             style={{ width: "100%" }}
           />
@@ -98,7 +98,7 @@ function About() {
         </div>
         <div className="w3-col l3 m6 w3-margin-bottom">
           <img
-            src="./images/employer.png"
+            src="../images/employer.png"
             alt="Adrean"
             style={{ width: "100%" }}
           />
@@ -116,7 +116,7 @@ function About() {
         </div>
         <div className="w3-col l3 m6 w3-margin-bottom">
           <img
-            src="./images/employer.png"
+            src="../images/employer.png"
             alt="Trish"
             style={{ width: "100%" }}
           />
