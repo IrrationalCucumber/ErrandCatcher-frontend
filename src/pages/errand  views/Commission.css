@@ -11,12 +11,14 @@ textarea {
 
 label {
   color: black;
+
   width: 100% !important;
 }
 
 .errand-cont {
   position: relative;
   width: 90%;
+ 
   margin-left: 60px;
   padding-bottom: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
@@ -32,7 +34,8 @@ label {
 
 .errand-inputs {
   border-radius: 5px;
-  padding: 20px 0px 10px 20px;
+
+  padding: 0px 0px 10px 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

@@ -1,5 +1,4 @@
 
-
   .form{
     display: flex;
     flex-direction: column;
@@ -8,6 +7,7 @@
 
   input{
     width: 250px;
+
     border: 1px solid gray;
   }
 
@@ -27,6 +27,7 @@ label{
     width: 200px;
     height: 45px;
     border: none;
+  
     margin-left: 20px;
     background-color: #1679AB;
     color: white;

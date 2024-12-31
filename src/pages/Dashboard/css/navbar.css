@@ -1,6 +1,7 @@
 
 .navbar__cont {
   background: #378ce7;
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,6 +28,7 @@
 
 .navbar__catcher {
     background: #9999ff;
+  
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,6 +55,7 @@
 
 .navbar {
   background: #378ce7;;
+
  display: flex;
  justify-content: center;
  align-items: center;

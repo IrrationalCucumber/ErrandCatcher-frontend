@@ -115,6 +115,7 @@
 
 
 
+
 .step__title {
     font-size: 24px;
     font-weight: 500;
@@ -132,6 +133,7 @@
     grid-template-columns: 1fr;
     gap: 10px;
     margin-bottom: 20px;
+
     text-align: center
 }
 

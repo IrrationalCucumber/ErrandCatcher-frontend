@@ -1,5 +1,5 @@
-headingTranspo {
-
+.headingTranspo {
+  
   text-align: center;
   color: white;
   margin-right: 12px;
@@ -15,6 +15,7 @@ headingTranspo {
 
 .search-barborder .inputSearch {
   border-radius: 25px;
+ 
   width: 400px;
 }
 
@@ -36,17 +37,17 @@ headingTranspo {
   font-weight: 700;
   color: white;
   display: flex;
-  gap: 5px;
+
   justify-content: center;
-  align-items: center;
+  
 }
 
 
-.inputNum {
+input .inputNum {
   max-width: 188px;
 }
 
-select > .selected {
+select>.selected {
   width: 250px;
 }
 
@@ -56,6 +57,10 @@ select > .selected {
   align-items: center;
   justify-self: center;
   gap: 20px;
+}
+
+.sliderpay {
+  margin-left: 12px;
 }
 
 @media screen and (max-width: 768px) {

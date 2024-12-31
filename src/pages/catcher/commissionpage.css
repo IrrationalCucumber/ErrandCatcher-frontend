@@ -1,6 +1,8 @@
+
 .Commission-page-container {
     display: flex;
     justify-content: space-between;
+   
     align-items: flex-start;
     margin: 20px;
 }
@@ -20,6 +22,7 @@
 }
 
 .Commission-page button.cancel-btn {
+
     padding: 10px 20px;
     font-size: 12px;
     background-color: rgb(217, 83, 79);
@@ -50,7 +53,9 @@
 
 .Commission-page-divider {
     border-top: 1px solid #ccc;
+  
     margin: 20px 0;
+
 }
 
 .Commission-page-divider .table-wrapper {

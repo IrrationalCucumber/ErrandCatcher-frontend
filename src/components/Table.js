@@ -1,7 +1,8 @@
 //03-05-24 table.js is updated to make the td be onclick
 
-import React from "react";
-import "./table.css";
+import React from 'react';
+//import './Table.css';
+import './table.css';
 
 const Table = ({ headers, data, onCellClick }) => {
   const handleCellClick = (rowIndex, cellIndex) => {
@@ -13,7 +14,7 @@ const Table = ({ headers, data, onCellClick }) => {
   return (
     <>
       <div className="table-containerr">
-        <table className="commissions-table">
+        <table className='commissions-table'>
           <thead>
             <tr>
               {headers.map((header, index) => (
@@ -26,12 +27,7 @@ const Table = ({ headers, data, onCellClick }) => {
             {data.map((row, rowIndex) => (
               <tr key={rowIndex}>
                 {row.map((cell, cellIndex) => (
-                  <td
-                    key={cellIndex}
-                    onClick={() => handleCellClick(rowIndex, cellIndex)}
-                  >
-                    {cell}
-                  </td>
+                  <td key={cellIndex} onClick={() => handleCellClick(rowIndex, cellIndex)}>{cell}</td>
                 ))}
               </tr>
             ))}

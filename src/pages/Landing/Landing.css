@@ -49,6 +49,7 @@
   text-shadow: rgb(28, 26, 23);
   margin-bottom: 10px;
   margin-top: 10px;
+  
   text-align: left;
   text-align-last: auto;
   margin-left: 180px;
@@ -85,6 +86,7 @@
   border: solid var(--primary);
   transition: all 0.3s ease-out;
   font-size: 12px;
+
   padding: 8px 100px;
 }
 
@@ -103,19 +105,21 @@
   border: solid var(--primary);
   transition: all 0.3s ease-out;
   font-size: 12px;
+
   padding: 8px 95px;
 }
 
 @media (max-width: 1099px) {
- 
+
 
   .Services .box-container .box {
     flex: 1 1 0rem;
     border-radius: 0.5rem;
+  
     border: none;
     box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-   
+ 
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -126,7 +130,7 @@
     height: 30rem;
     width: 16rem;
     text-align: center;
-   
+  
   }
 }
 
@@ -143,6 +147,7 @@
 
 .landing__map {
   margin: 80px;
+
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 12px;
 }
@@ -172,6 +177,7 @@
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   max-width: 90rem;
+
   margin: 0 auto;
   background: transparent;
   margin-bottom: 6rem;
@@ -184,9 +190,11 @@
 .Services .box-container .box {
   flex: 1 1 0rem;
   border-radius: 0.5rem;
+
   border: none;
   box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -194,6 +202,7 @@
   align-items: flex-start;
   background-color: transparent;
   align-items: center;
+ 
 }
 
 .Services .box-container .box img {
@@ -208,11 +217,13 @@
 .Services .box-container .box .content {
   padding: 1rem 0 1.5rem 0;
   background: transparent;
+
 }
 
 .Services .box-container .box .content h3 {
   font-size: 1rem;
   color: rgb(17, 16, 16);
+ 
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   text-align: center;
@@ -242,6 +253,7 @@
   color: white;
   transition: 0.5s;
   text-decoration: none;
+
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
@@ -249,6 +261,7 @@
   background: #eca763;
   color: rgb(8, 8, 8);
 }
+
 
 @media (max-width: 500px) {
   .Services {
@@ -276,24 +289,24 @@
 
   .Services .box-container .box .content {
     padding: 20px; 
-    text-align: center;
+    text-align: center; 
   }
 
   .Services .box-container .box .content p {
     padding: 0;
-    margin-left: 10px;
+    margin-left: 10px; 
     font-size: 14px;
   }
 
   .Services .box-container .box .content h3 {
     padding: 3%;
-    margin-left: 10px;
+    margin-left: 10px; 
     font-size: 12px;
   }
 
   .Services .box-container .box .content .price {
     padding-top: 10%;
-    margin-left: 10px; 
+    margin-left: 10px;
     font-size: 16px;
   }
 
@@ -307,6 +320,7 @@
     margin-top: 10px;
   }
 }
+
 
 .People {
   margin: 0;
@@ -337,7 +351,7 @@
 
 .People .box-container .box {
   position: relative;
-  width: calc(50% - 20px);
+  width: calc(50% - 20px); 
   display: flex;
   flex-direction: column; 
   align-items: center;
@@ -434,6 +448,7 @@
   }
 
   .content {
+   
     margin-top: 10px;
     position: relative;
   }

@@ -1,4 +1,5 @@
 
+
 body {
   background-color: white; 
 }
@@ -96,7 +97,7 @@ body {
 }
 
 .input-rows .label {
-  margin-right: 10px;
+  margin-right: 10px; 
   flex-shrink: 0;
 }
 
@@ -104,13 +105,13 @@ body {
 .input-rows input[type="number"],
 .input-rows select,
 .input-rows input[type="date"] {
-  flex: 1;
+  flex: 1; 
   height: 40px;
 }
 
 .input-rows input[type="number"],
 .input-rows input[type="date"] {
-  margin-right: 10px;
+  margin-right: 10px; 
 }
 
 .input-rows .select {
@@ -122,5 +123,5 @@ body {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
-  justify-content: center;
+  justify-content: center; 
 }

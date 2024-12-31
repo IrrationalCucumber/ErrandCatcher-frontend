@@ -28,8 +28,10 @@
   font-size: 16px;
   background-color: #ce9251;
   color: #fff;
+
   border: none;
   border-radius: 5px;
+
   cursor: pointer;
 }
 
@@ -41,6 +43,7 @@
   font-weight: 700;
   line-height: 1.15;
   color: #f3f3f4;
+
 }
 
 .group {
@@ -50,6 +53,7 @@
   position: relative;
   width: 80%;
   max-width: 700px;
+
 }
 
 .inputsss {
@@ -59,6 +63,7 @@
   padding: 0 1rem;
   padding-left: 2.5rem;
   border: 2px solid transparent;
+
   border-top-left-radius: 16px;
   border-bottom-left-radius: 16px;
   outline: none;
@@ -88,6 +93,7 @@
 }
 
 .group .buttonss {
+
   padding: 0 1rem;
   background: linear-gradient(135deg, #BFF0FA 0%, #4998FF 100%);
   font-weight: 900;
@@ -98,4 +104,9 @@
   border-radius: 0 1rem 1rem 0;
   transition: all 0.2s ease-in-out;
   height: 40px;
+}
+
+.group .buttonss:hover {
+  background: linear-gradient(135deg, #BFF0FA 0%, #2b87ff 100%);
+  opacity: 0.9;
 }

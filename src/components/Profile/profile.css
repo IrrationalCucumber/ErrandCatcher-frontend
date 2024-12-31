@@ -5,7 +5,7 @@
     max-width: 1000px;
     margin: 0 auto;
     background-color: white;
-    padding: 40px;
+    padding: 0px;
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
@@ -29,6 +29,12 @@
     align-items: center;
     flex-direction: column;
     display: flex;
+
+    background-color: #f8f9fa;
+
+    box-shadow: #00000013 0px 2px 4px 0px;
+    padding: 40px 30px 40px 40px;
+
 }
 
 .profile-left .info {
@@ -56,6 +62,7 @@
 .profile-right {
     display: flex;
     flex-direction: column;
+    padding: 40px 40px 40px 0px;
 }
 
 .id_1 img {
@@ -66,6 +73,7 @@
 }
 
 .id_2 img {
+
 
     width: 300px;
     height: 150px;
@@ -109,8 +117,11 @@
     font-size: 16px;
     outline: none;
     text-align: center;
+
     background-color: transparent;
+
     transition: border-bottom 0.3s ease;
+
 }
 
 .profile-left input[type="text"]:focus,
@@ -118,19 +129,24 @@
 .profile-left input[type="email"]:focus {
     background-color: #e4dfdf88;
     border-bottom: 1px solid rgb(49, 47, 47);
+
 }
 
 .profile-left input[type="text"].error,
 .profile-left input[type="email"].error,
 .profile-left input[type="number"].error {
     border: 2px solid #dc3545;
+
 }
 
 .profile-right input[type="text"].error,
 .profile-right input[type="number"].error,
 .profile-right input[type="date"].error {
     border: 2px solid #dc3545;
+
 }
+
+
 input[type="number"].error {
     border: 2px solid #dc3545;
     color: black;
@@ -176,6 +192,7 @@ select .display-data1 .error {
     border-bottom: 1px solid rgb(49, 47, 47);
 }
 
+
 .profile-left input[type="number"] {
     -moz-appearance: textfield;
 
@@ -184,6 +201,7 @@ select .display-data1 .error {
 .profile-left input[type="number"]::-webkit-outer-spin-button,
 .profile-left input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
+
     margin: 0;
 }
 
@@ -223,9 +241,11 @@ select .display-data1 .error {
 
 .profile-right .buttonchange button {
     background-color: #ccc;
+
     padding: 10px;
     border: none;
     border-radius: 6px;
+
     cursor: pointer;
     font-size: 14px;
     width: 100%;
@@ -234,6 +254,7 @@ select .display-data1 .error {
 }
 
 .profile-right .buttonchange button:hover {
+
     background-color: #378ce7;
     color: #fff;
 }
@@ -300,24 +321,27 @@ select .display-data1 .error {
 
 .upload-container {
     display: flex;
-    padding: 5px;
+    padding: 2px;
     align-items: center;
-    justify-content: center;
-    gap: 8px;
+
+    justify-content: start;
 }
 
 .upload-container button {
     width: 35px;
-    height: 45px;
+    height: 42.5px;
+    border-radius: 0 10% 10% 0;
 }
 
 .upload-container input[type="file"] {
     margin-right: 10px;
+
 }
 
 
+
 .form-container {
-    max-width: 400px;
+
     background-color: #fff;
     padding: 32px 24px;
     font-size: 14px;
@@ -330,8 +354,6 @@ select .display-data1 .error {
     border-radius: 10px;
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.084), 0px 2px 3px rgba(0, 0, 0, 0.168);
 }
-
-
 
 .form-container .titlehead {
     text-align: center;

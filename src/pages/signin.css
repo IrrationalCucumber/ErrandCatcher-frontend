@@ -19,7 +19,9 @@ body .App .si {
 
 .errand-catcher {
   font-size: 2rem;
+ 
   font-weight: bold;
+
 }
 
 .text {
@@ -39,6 +41,7 @@ body .App .si {
   display: inline-block;
   vertical-align: top;
   width: 50%;
+
   height: 100vh;
 }
 
@@ -66,6 +69,7 @@ body .App .si {
   display: block;
   font-family: "PT Sans", sans-serif;
   border-radius: 6px;
+
   border-style: solid;
   padding: 8px 12px;
   line-height: 24px;
@@ -74,6 +78,7 @@ body .App .si {
 
 .cont input[type="text"]:focus,
 .cont input[type="password"]:focus {
+
   border: 1.8px solid rgb(22, 121, 171);
   outline: none;
 }
@@ -106,9 +111,7 @@ body .App .si {
   color: #ffff;
 }
 
-button:hover {
-  background-color: #1a96d5;
-}
+
 
 .cont .cont2 {
   max-width: 250px;
@@ -119,12 +122,15 @@ button:hover {
 }
 
 .cont-tawo {
+
   height: 100vh;
   background-color: #f1f5f9;
+
 }
 
 .cont-tawo img {
   width: 425px;
+
   height: 100vh;
   object-fit: cover;
 }
@@ -132,6 +138,7 @@ button:hover {
 @media screen and (max-width: 768px) {
   .contman {
     display: block;
+
     width: 100%;
   }
 

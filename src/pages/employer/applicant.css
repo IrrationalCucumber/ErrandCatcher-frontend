@@ -1,9 +1,11 @@
+
 .applicants-container {
   margin: 20px;
 }
 
 .applicants {
   display: flex;
+
   margin: 20px;
   flex-direction: column;
   min-height: 100vh;
@@ -15,17 +17,17 @@
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-.search {
-  margin-bottom: 10px; 
+.employer__applicants__search {
+  margin-bottom: 1rem; 
   display: flex;
   align-items: center;
+  width: 35%;
 }
 
-.search input[type="text"],
-.search button {
+.employer__applicants__search input[type="text"],
+.employer__applicants__search button {
   padding: 8px;
   font-size: 16px;
-  margin-bottom: 20px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 12px;
@@ -80,7 +82,7 @@
   padding: 8px 12px;
   font-size: 16px;
   cursor: pointer;
-  margin-right: 5px;
+ 
 }
 
 .applicants-table .update button {
