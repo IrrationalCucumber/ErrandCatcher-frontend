@@ -39,8 +39,8 @@ export default function TopCatcher() {
                   <img
                     src={
                       catcher.profileImage
-                        ? `http://localhost:8800/images/profile/${catcher.profileImage}`
-                        : "/images/catcher.png"
+                        ? `${apiBaseUrl}/images/profile/${catcher.profileImage}`
+                        : "./images/catcher.png"
                     }
                     alt="Catcher Profile"
                     className="catcher-image"
