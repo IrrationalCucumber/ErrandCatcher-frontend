@@ -10,6 +10,7 @@ import TopCatcher from "../../components/Carousel/TopCatcher";
 import { House, LocationOn, RemoveRedEyeRounded } from "@mui/icons-material";
 
 const Landing = () => {
+  const baseUrl = process.env.REACT_APP_BASE_URL;
   return (
     <>
       <div className="home">
@@ -19,7 +20,7 @@ const Landing = () => {
         ></meta>
 
         <div className="content">
-          <img src="./images/tawo.png" alt="" />
+          <img src={`${baseUrl}/images/tawo.png`} alt="" />
         </div>
         <div className="content">
           <h1>
@@ -212,7 +213,7 @@ const Landing = () => {
                 complete an errand
               </p>
             </div>
-            <img src="/images/employer.png" alt="" />
+            <img src={`${baseUrl}/images/employer.png`} alt="" />
           </div>
 
           <div className="box">
@@ -223,7 +224,7 @@ const Landing = () => {
                 employer's errands
               </p>
             </div>
-            <img src="/images/employee.png" alt="" />
+            <img src={`${baseUrl}/images/employee.png`} alt="" />
           </div>
         </div>
       </section>
