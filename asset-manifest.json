@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ErrandCatcher-frontend/static/css/main.8f54891e.css",
-    "main.js": "/ErrandCatcher-frontend/static/js/main.08568f97.js",
+    "main.js": "/ErrandCatcher-frontend/static/js/main.778e72a3.js",
     "static/media/img-2.jpg": "/ErrandCatcher-frontend/static/media/img-2.bb238fc1bea8ae2474d2.jpg",
     "static/media/banner_epmloyer.jpg": "/ErrandCatcher-frontend/static/media/banner_epmloyer.e7b919313ac01653d569.jpg",
     "static/media/hs-i-4.jpg": "/ErrandCatcher-frontend/static/media/hs-i-4.70cf044f5ee2ecd7d0b0.jpg",
@@ -10,10 +10,10 @@
     "static/media/adminHS__bg.jpg": "/ErrandCatcher-frontend/static/media/adminHS__bg.25fe16a06bf780242dc1.jpg",
     "index.html": "/ErrandCatcher-frontend/index.html",
     "main.8f54891e.css.map": "/ErrandCatcher-frontend/static/css/main.8f54891e.css.map",
-    "main.08568f97.js.map": "/ErrandCatcher-frontend/static/js/main.08568f97.js.map"
+    "main.778e72a3.js.map": "/ErrandCatcher-frontend/static/js/main.778e72a3.js.map"
   },
   "entrypoints": [
     "static/css/main.8f54891e.css",
-    "static/js/main.08568f97.js"
+    "static/js/main.778e72a3.js"
   ]
 }
