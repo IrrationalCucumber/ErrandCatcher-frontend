@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/ErrandCatcher-frontend/static/css/main.8f54891e.css",
-    "main.js": "/ErrandCatcher-frontend/static/js/main.9ceb208c.js",
-    "static/media/img-2.jpg": "/ErrandCatcher-frontend/static/media/img-2.bb238fc1bea8ae2474d2.jpg",
-    "static/media/banner_epmloyer.jpg": "/ErrandCatcher-frontend/static/media/banner_epmloyer.e7b919313ac01653d569.jpg",
-    "static/media/hs-i-4.jpg": "/ErrandCatcher-frontend/static/media/hs-i-4.70cf044f5ee2ecd7d0b0.jpg",
-    "static/media/img-3.jpg": "/ErrandCatcher-frontend/static/media/img-3.6d683c0ee6824af7961a.jpg",
-    "static/media/img-1.jpg": "/ErrandCatcher-frontend/static/media/img-1.53f4843759ebec256cb9.jpg",
-    "static/media/adminHS__bg.jpg": "/ErrandCatcher-frontend/static/media/adminHS__bg.25fe16a06bf780242dc1.jpg",
-    "index.html": "/ErrandCatcher-frontend/index.html",
-    "main.8f54891e.css.map": "/ErrandCatcher-frontend/static/css/main.8f54891e.css.map",
-    "main.9ceb208c.js.map": "/ErrandCatcher-frontend/static/js/main.9ceb208c.js.map"
+    "main.css": "/static/css/main.f09276d8.css",
+    "main.js": "/static/js/main.3a02333a.js",
+    "static/media/img-2.jpg": "/static/media/img-2.bb238fc1bea8ae2474d2.jpg",
+    "static/media/banner_epmloyer.jpg": "/static/media/banner_epmloyer.e7b919313ac01653d569.jpg",
+    "static/media/hs-i-4.jpg": "/static/media/hs-i-4.70cf044f5ee2ecd7d0b0.jpg",
+    "static/media/img-3.jpg": "/static/media/img-3.6d683c0ee6824af7961a.jpg",
+    "static/media/img-1.jpg": "/static/media/img-1.53f4843759ebec256cb9.jpg",
+    "static/media/adminHS__bg.jpg": "/static/media/adminHS__bg.25fe16a06bf780242dc1.jpg",
+    "index.html": "/index.html",
+    "main.f09276d8.css.map": "/static/css/main.f09276d8.css.map",
+    "main.3a02333a.js.map": "/static/js/main.3a02333a.js.map"
   },
   "entrypoints": [
-    "static/css/main.8f54891e.css",
-    "static/js/main.9ceb208c.js"
+    "static/css/main.f09276d8.css",
+    "static/js/main.3a02333a.js"
   ]
 }
