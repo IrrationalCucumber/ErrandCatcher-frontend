@@ -1,0 +1,166 @@
+body .App .si {
+  display: block;
+  max-width: 850px;
+  width: 100%;
+  margin: 0 auto;
+  box-shadow: aliceblue;
+  margin-top: 60px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.si-txt {
+  text-align: center;
+  color: #333;
+}
+
+.welcome {
+  text-transform: uppercase;
+}
+
+.errand-catcher {
+  font-size: 2rem;
+  /* Adjust font size as needed */
+  font-weight: bold;
+  /* Optionally, adjust font weight */
+}
+
+.text {
+  text-align: left;
+}
+
+.rem {
+  color: #333;
+  padding-left: 0rem;
+  align-items: inherit;
+  max-width: 290px;
+  margin: 13px auto;
+  display: block;
+}
+
+.contman {
+  display: inline-block;
+  vertical-align: top;
+  width: 50%;
+  /* background-color: #f1f5f9; */
+  height: 100vh;
+}
+
+.cont h1 {
+  font-size: 26px;
+  font-weight: 500;
+  color: #333;
+  font-weight: bold;
+  padding: 50px 30px;
+}
+
+.cont h3 {
+  padding-top: 45px;
+  font-size: 16px;
+  max-width: 250px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.cont input {
+  font-size: 13px;
+  max-width: 290px;
+  width: 100%;
+  margin: 13px auto;
+  display: block;
+  font-family: "PT Sans", sans-serif;
+  border-radius: 6px;
+  /* border-color: #cbd5e1; */
+  border-style: solid;
+  padding: 8px 12px;
+  line-height: 24px;
+  /* box-shadow: #0000 0px 0px 0px 0px; */
+
+}
+
+.cont input[type="text"]:focus,
+.cont input[type="password"]:focus {
+  /* background-color: #e8f0fe;
+  background-color: #f1f5f9; */
+  /* border-color: #6366f1; */
+  /* rgb(22, 121, 171) */
+  border: 1.8px solid rgb(22, 121, 171);
+  outline: none;
+}
+
+.cont input[type="checkbox"] {
+  display: inline-block;
+  max-width: 43px;
+  position: relative;
+  top: 2px;
+}
+
+.cont .em,
+.cont .button1 {
+  max-width: 250px;
+  width: 100%;
+  margin: 8px auto;
+  display: block;
+  margin-top: 20px;
+}
+
+.button1 button {
+  border: none;
+  font-family: "Neue Montreal", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  cursor: pointer;
+  width: 250px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #1679ab;
+  font-size: 16px;
+  color: #ffff;
+}
+
+button:hover {
+  background-color: #1a96d5;
+}
+
+.cont .cont2 {
+  max-width: 250px;
+  width: 100%;
+  margin: 60px auto 8px auto;
+  display: block;
+  text-align: center;
+}
+
+.cont-tawo {
+  /* height: 605px; */
+  height: 100vh;
+  background-color: #f1f5f9;
+  /* background-size: cover; */
+  /* background-position: 100% 50%; */
+}
+
+.cont-tawo img {
+  width: 425px;
+  /* height: 606px; */
+  height: 100vh;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+  .contman {
+    display: block;
+    /* vertical-align: top; */
+    width: 100%;
+  }
+
+  .cont-tawo {
+    display: none;
+    height: none;
+    width: none;
+  }
+
+  .contman-cont-tawo {
+    display: none;
+  }
+
+  .cont-tawo img {
+    height: 100vh;
+    object-fit: cover;
+  }
+}
