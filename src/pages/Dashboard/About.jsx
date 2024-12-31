@@ -25,7 +25,11 @@ function About() {
       {/* REPLACE INDIVIDUAL DETAILS */}
       <div className="w3-row-padding w3-grayscale">
         <div className="w3-col l3 m6 w3-margin-bottom">
-          <img src="/images/employer.png" alt="Ash" style={{ width: "100%" }} />
+          <img
+            src="./images/employer.png"
+            alt="Ash"
+            style={{ width: "100%" }}
+          />
           <h3>ASh</h3>
           <p className="w3-opacity">CEO & Founder</p>
           <p>
@@ -40,7 +44,7 @@ function About() {
         </div>
         <div className="w3-col l3 m6 w3-margin-bottom">
           <img
-            src="/images/employer.png"
+            src="./images/employer.png"
             alt="Lorry"
             style={{ width: "100%" }}
           />
@@ -58,7 +62,7 @@ function About() {
         </div>
         <div className="w3-col l3 m6 w3-margin-bottom">
           <img
-            src="/images/employer.png"
+            src="./images/employer.png"
             alt="Diane"
             style={{ width: "100%" }}
           />
@@ -76,7 +80,7 @@ function About() {
         </div>
         <div className="w3-col l3 m6 w3-margin-bottom">
           <img
-            src="/images/employer.png"
+            src="./images/employer.png"
             alt="Trish"
             style={{ width: "100%" }}
           />
@@ -94,7 +98,7 @@ function About() {
         </div>
         <div className="w3-col l3 m6 w3-margin-bottom">
           <img
-            src="/images/employer.png"
+            src="./images/employer.png"
             alt="Adrean"
             style={{ width: "100%" }}
           />
@@ -112,7 +116,7 @@ function About() {
         </div>
         <div className="w3-col l3 m6 w3-margin-bottom">
           <img
-            src="/images/employer.png"
+            src="./images/employer.png"
             alt="Trish"
             style={{ width: "100%" }}
           />

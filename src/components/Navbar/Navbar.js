@@ -76,7 +76,7 @@ function Navbar(props) {
                 style={{ backgroundColor: "transparent" }}
               >
                 <img
-                  src="/ERicon.png"
+                  src="./ERicon.png"
                   alt="ERRAND CATCHER Icon"
                   className="logo-image"
                   style={{
@@ -238,7 +238,7 @@ export function NoUserNabar() {
                 style={{ backgroundColor: "transparent" }}
               >
                 <img
-                  src="/ERicon.png"
+                  src="./ERicon.png"
                   alt="ERRAND CATCHER Icon"
                   className="logo-image"
                   style={{

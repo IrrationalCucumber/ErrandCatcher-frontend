@@ -223,7 +223,7 @@ const Landing = () => {
                 employer's errands
               </p>
             </div>
-            <img src=".images/employee.png" alt="" />
+            <img src="./images/employee.png" alt="" />
           </div>
         </div>
       </section>
