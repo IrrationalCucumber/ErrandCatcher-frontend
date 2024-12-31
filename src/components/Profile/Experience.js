@@ -290,7 +290,7 @@ export default Experience;
 
 export function ViewExperience(props) {
   const [experience, setExperience] = useState([]); //state to store experience
-
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   //fetch experience
   const fetch = async () => {
     try {

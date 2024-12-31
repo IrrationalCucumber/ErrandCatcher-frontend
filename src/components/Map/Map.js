@@ -134,6 +134,7 @@ export function HomeMap(props) {
   const [errands, setErrands] = useState([]);
 
   useEffect(() => {
+    const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
     //fetch all errands
     //regardless of status
     //change api endpoint to "/available/" for available only
