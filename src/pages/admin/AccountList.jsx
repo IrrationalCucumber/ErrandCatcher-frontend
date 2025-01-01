@@ -1,11 +1,10 @@
 //updated
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import "./accountlist.css";
 import Pagination from "../../components/Pagination";
 import Table from "../../components/Table";
-import { useAuth } from "../../components/AuthContext";
 import { DisplayDate } from "../../components/DisplayDate";
 // ui components
 import Dropdown from "@mui/joy/Dropdown";
@@ -15,8 +14,6 @@ import MenuItem from "@mui/joy/MenuItem";
 import Modal from "@mui/joy/Modal";
 import ModalClose from "@mui/joy/ModalClose";
 import ModalDialog from "@mui/joy/ModalDialog";
-import DialogTitle from "@mui/joy/DialogTitle";
-import DialogContent from "@mui/joy/DialogContent";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import ErrorIcon from "@mui/icons-material/Error";
 import CancelIcon from "@mui/icons-material/Cancel";
@@ -33,8 +30,6 @@ const AccountList = () => {
     status: "",
   });
   // const { user } = useAuth();
-  // const userID = user.userID;
-  const navigate = useNavigate();
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [currentId, setCurrentId] = useState(null);
   const handleOpenModal = (id) => {
@@ -62,67 +57,22 @@ const AccountList = () => {
   useEffect(() => {
     fetchAllAccount();
   }, []);
-  //view user details
-  const [account, setAccount] = useState({
-    username: "",
-    password: "",
-    lname: "",
-    fname: "",
-    gender: "",
-    email: "",
-    contact: "",
-    age: "",
-    bday: "",
-    address: "",
-    desc: "",
-    profileImage: "",
-    dateC: "",
-    status: "",
-  });
-  //pre-fill the fields
-  useEffect(() => {
-    const fetchAccount = async () => {
-      try {
-        const res = await axios.get(`${apiBaseUrl}/user/${currentId}`);
-        const retrievedAccount = res.data[0];
-        // Update the state with retrieved account data
-        setAccount({
-          username: retrievedAccount.username,
-          password: retrievedAccount.password,
-          lname: retrievedAccount.userLastname,
-          fname: retrievedAccount.userFirstname,
-          gender: retrievedAccount.userGender,
-          email: retrievedAccount.userEmail,
-          contact: retrievedAccount.userContactNum,
-          age: retrievedAccount.userAge,
-          bday: DisplayDate(retrievedAccount.userBirthday),
-          address: retrievedAccount.userAddress,
-          desc: retrievedAccount.userDesc,
-          profileImage: retrievedAccount.profileImage,
-          dateC: DisplayDate(retrievedAccount.dateCreated),
-          status: retrievedAccount.accountStatus,
-        });
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchAccount();
-  }, [currentId]);
-  //get the rating of the user
-  const [rating, setRating] = useState("0");
-  useEffect(() => {
-    const fetchRating = async () => {
-      try {
-        const res = await axios.get(`${apiBaseUrl}/user-rating/${currentId}`);
-        if (!!res.data) {
-          setRating(res.data[0].c);
-        }
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchRating();
-  }, [currentId]);
+
+  // //get the rating of the user
+  // const [rating, setRating] = useState("0");
+  // useEffect(() => {
+  //   const fetchRating = async () => {
+  //     try {
+  //       const res = await axios.get(`${apiBaseUrl}/user-rating/${currentId}`);
+  //       if (!!res.data) {
+  //         setRating(res.data[0].c);
+  //       }
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   };
+  //   fetchRating();
+  // }, [currentId, apiBaseUrl]);
 
   //FOR NOTIFICATION
   //set variables for notification
@@ -263,10 +213,7 @@ const AccountList = () => {
   /**
    * ACTIONS OF ADMIN
    */
-  //view profile
-  const onView = (id) => {
-    navigate(`/profile/user/${id}`);
-  };
+
   //suspend user
   const onSuspend = async (id) => {
     try {

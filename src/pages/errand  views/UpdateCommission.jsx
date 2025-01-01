@@ -1,10 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 //import "../style.css";
 import ErrandInputs from "../../components/ErrandInputs";
 import "./Commission.css"; // Import your CSS file
-import { useAuth } from "../../components/AuthContext";
 import { UpdateMapLibre, ViewMapBox } from "../../components/Map/Map";
 import { Alert, IconButton } from "@mui/joy";
 import { CloseRounded, Warning } from "@mui/icons-material";

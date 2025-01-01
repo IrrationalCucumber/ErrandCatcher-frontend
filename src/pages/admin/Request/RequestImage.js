@@ -13,14 +13,14 @@ const ImageModal = ({ request, handleClose }) => {
             <h7 style={header}>Front:</h7>
             <img
               src={`${apiBaseUrl}/images/docu/${request.id_picture_front}`}
-              alt={`Image `}
+              alt={`Front`}
               style={imageStyle}
             />
             <br></br>
             <h7 style={header}>Back:</h7>
             <img
               src={`${apiBaseUrl}/images/docu/${request.id_picture_back}`}
-              alt={`Image `}
+              alt={`Back`}
               style={imageStyle}
             />
             <br></br>
@@ -28,26 +28,26 @@ const ImageModal = ({ request, handleClose }) => {
 
             <img
               src={`${apiBaseUrl}/images/docu/${request.docu_1}`}
-              alt={`Image `}
+              alt={`Document 1`}
               style={imageStyle}
             />
             <br></br>
             <img
               src={`${apiBaseUrl}/images/docu/${request.docu_2}`}
-              alt={`Image `}
+              alt={`Document 2`}
               style={imageStyle}
             />
             <h2 style={header}>Driver License:</h2>
             <h7 style={header}>Front:</h7>
             <img
               src={`${apiBaseUrl}/images/docu/${request.driversLicense1}`}
-              alt={`Image `}
+              alt={`Driver License `}
               style={imageStyle}
             />
             <h7 style={header}>Back:</h7>
             <img
               src={`${apiBaseUrl}/images/docu/${request.driversLicense2}`}
-              alt={`Image `}
+              alt={`Driver License `}
               style={imageStyle}
             />
           </div>
@@ -85,43 +85,43 @@ const header = {
   marginLeft: "16px",
 };
 
-const modalStyle = {
-  display: "block",
-  position: "fixed",
-  zIndex: "1",
-  left: "0",
-  top: "0",
-  width: "100%",
-  height: "100%",
-  overflow: "auto",
-  backgroundColor: "rgba(0,0,0,0.4)",
-};
+// const modalStyle = {
+//   display: "block",
+//   position: "fixed",
+//   zIndex: "1",
+//   left: "0",
+//   top: "0",
+//   width: "100%",
+//   height: "100%",
+//   overflow: "auto",
+//   backgroundColor: "rgba(0,0,0,0.4)",
+// };
 
-const modalContentStyle = {
-  backgroundColor: "#fefefe",
-  margin: "15% auto",
-  padding: "20px",
-  border: "1px solid #888",
-  width: "80%",
-  maxWidth: "500px",
-  borderRadius: "10px",
-  boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
-};
+// const modalContentStyle = {
+//   backgroundColor: "#fefefe",
+//   margin: "15% auto",
+//   padding: "20px",
+//   border: "1px solid #888",
+//   width: "80%",
+//   maxWidth: "500px",
+//   borderRadius: "10px",
+//   boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
+// };
 
-const closeStyle = {
-  color: "#aaa",
-  float: "right",
-  fontSize: "28px",
-  fontWeight: "bold",
-  cursor: "pointer",
-};
+// const closeStyle = {
+//   color: "#aaa",
+//   float: "right",
+//   fontSize: "28px",
+//   fontWeight: "bold",
+//   cursor: "pointer",
+// };
 
-const scrollContainerStyle = {
-  backgroundColor: "#333",
-  overflowX: "auto",
-  whiteSpace: "nowrap",
-  padding: "10px",
-};
+// const scrollContainerStyle = {
+//   backgroundColor: "#333",
+//   overflowX: "auto",
+//   whiteSpace: "nowrap",
+//   padding: "10px",
+// };
 
 const imageContainerStyle = {
   display: "flex",

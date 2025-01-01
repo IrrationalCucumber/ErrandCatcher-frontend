@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useNavigate, Link, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "../../style.css";
 import Navbar from "../../components/Navbar/NavBarPage";
 
@@ -111,7 +111,7 @@ const ApplyCommission = () => {
     };
 
     fetchCommission();
-  }, [commissionID]);
+  }, [commissionID, apiBaseUrl]);
 
   const handleClick = async (e) => {
     e.preventDefault();

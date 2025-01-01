@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
-import RadioInputs from "./RadioInputs";
 //import "./Error.css";
 import "./passignup.css";
 import ModalFeedback from "../../components/ModalFeedback";
@@ -61,7 +60,7 @@ const Signup = () => {
       }
     };
     fetchResp();
-  }, []);
+  }, [apiBaseUrl]);
   //check email
   useEffect(() => {
     const fetchResp2 = async () => {
@@ -74,7 +73,7 @@ const Signup = () => {
       }
     };
     fetchResp2();
-  }, [account.email]);
+  }, [account.email, apiBaseUrl]);
 
   console.log(emails);
 
@@ -157,25 +156,6 @@ const Signup = () => {
   // const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
-  const resetForm = () => {
-    setAccount({
-      regUsername: "",
-      regPassword: "",
-      firstName: "",
-      lastName: "",
-      regPassword2: "",
-      bday: "",
-      gender: "",
-      email: "",
-      contact: "",
-      address: "",
-      type: "",
-      dateCreated: "",
-    });
-    // setEmployerErrorMessage("");
-    // setCatcherErrorMessage("");
-    // setErrorMessage("");
-  };
 
   function evaluatePasswordStrength(password) {
     let score = 0;
@@ -203,6 +183,8 @@ const Signup = () => {
       case 4:
       case 5:
         return "Strong";
+      default:
+        return "";
     }
   }
 
@@ -239,13 +221,6 @@ const Signup = () => {
     const day = String(currentDate.getDate()).padStart(2, "0");
     return `${year}-${month}-${day}`;
   };
-
-  const [selectedType, setSelectedType] = useState("");
-  const [selectedOption, setSelectedOption] = useState("");
-  const options = [
-    { label: "Employer", value: "Employer" },
-    { label: "Catcher", value: "Catcher" },
-  ];
 
   // Get the current date and calculate the date (18 years ago)
   const getMaxDate = () => {

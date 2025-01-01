@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "../Services/Delivery.css";
-import CatCards from "../../components/Cards/CatCards";
-import Navbar from "../../components/Navbar/Navbar";
-import { useLocation } from "react-router-dom";
 import axios from "axios";
 import Search from "@mui/icons-material/Search";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import SyncAltIcon from "@mui/icons-material/SyncAlt";
 import CatCardsNew from "../../components/Cards/CatCardsNew";
-import { Slider, Box, Typography, TextField } from "@mui/material";
+import { Slider, Box, Typography } from "@mui/material";
 
 const Delivery = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -45,7 +42,7 @@ const Delivery = () => {
       }
     };
     fetchAllCommission();
-  }, []);
+  }, [apiBaseUrl]);
 
   // Search commmissions using JS filter method //
   const filteredCommissions = commissions.filter((commission) => {

@@ -35,7 +35,7 @@ function Notification(props) {
     fetchNotif();
     const intervalNotif = setInterval(fetchNotif, 1000);
     return () => clearInterval(intervalNotif);
-  }, [user.userID]);
+  }, [user.userID, apiBaseUrl]);
 
   // Function to mark all notifications as read
   const handleMarkAllAsRead = async () => {

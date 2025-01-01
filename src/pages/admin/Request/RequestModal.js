@@ -9,7 +9,6 @@ import {
   ModalDialog,
   DialogTitle,
   Divider,
-  Box,
 } from "@mui/joy";
 import { Close, WarningRounded } from "@mui/icons-material";
 import Snackbar from "@mui/joy/Snackbar";
@@ -20,10 +19,10 @@ import LoadingBackdrop from "../../../components/LoadingSpinner";
 import { GetUserAge } from "../../../components/Display/DsiplayFunctions";
 
 const RequestModal = ({ request, handleClose }) => {
-  const [isButtonClicked, setIsButtonClicked] = useState(false);
+  const [setIsButtonClicked] = useState(false);
   //FOR NOTIFICATION
   //set variables for notification
-  const [notif, setNotif] = useState({
+  const [notif] = useState({
     userID: "", //this is the employer/ userID of the commission
     notificationType: "", //notif description
     notifDesc: "", //contents of the notif
@@ -191,7 +190,7 @@ const RequestModal = ({ request, handleClose }) => {
           <div>
             <h3>Images</h3>
             {request.images.map((image, index) => (
-              <img key={index} src={image} alt={`Image ${index + 1}`} />
+              <img key={index} src={image} alt={`ID ${index + 1}`} />
             ))}
           </div>
         )}

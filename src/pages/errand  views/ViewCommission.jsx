@@ -1,9 +1,7 @@
 //03-31-24 inserted start date but unsure with data
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useNavigate, Link, useLocation } from "react-router-dom";
-import Navbar from "../../components/Navbar/NavBarPage";
-import maplibregl from "maplibre-gl";
+import { useNavigate, useLocation } from "react-router-dom";
 import Map from "../../components/Map/Map.js";
 //import "../style.css";
 import "./Commission.css";
@@ -32,17 +30,17 @@ const ViewCommission = () => {
   const commissionID = location.pathname.split("/")[2];
 
   //handle changes
-  const handleChange = (e) => {
-    if (e.target.name === "comType") {
-      setCommission((prev) => ({ ...prev, comType: e.target.value }));
-      //setImageURL(commissionTypeImages[e.target.value]);
-    } else if (e.target.name === "comDescription") {
-      setCommission((prev) => ({ ...prev, comDescription: e.target.value }));
-    } else {
-      // For other fields, use spread syntax as before
-      setCommission((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-    }
-  };
+  // const handleChange = (e) => {
+  //   if (e.target.name === "comType") {
+  //     setCommission((prev) => ({ ...prev, comType: e.target.value }));
+  //     //setImageURL(commissionTypeImages[e.target.value]);
+  //   } else if (e.target.name === "comDescription") {
+  //     setCommission((prev) => ({ ...prev, comDescription: e.target.value }));
+  //   } else {
+  //     // For other fields, use spread syntax as before
+  //     setCommission((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  //   }
+  // };
 
   //funtion to delete commission
   // const handleDelete = async (commissionID) =>{
@@ -88,21 +86,21 @@ const ViewCommission = () => {
     };
 
     fetchCommission();
-  }, [commissionID]);
+  }, [commissionID, apiBaseUrl]);
 
-  const handleClick = async (e) => {
-    e.preventDefault();
-    try {
-      //account.dateCreated = getCurrentDate();
-      await axios.put(
-        `${apiBaseUrl}/update-commission/` + commissionID,
-        commission
-      );
-      navigate("/commission-list");
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // const handleClick = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     //account.dateCreated = getCurrentDate();
+  //     await axios.put(
+  //       `${apiBaseUrl}/update-commission/` + commissionID,
+  //       commission
+  //     );
+  //     navigate("/commission-list");
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   console.log(commission);
 

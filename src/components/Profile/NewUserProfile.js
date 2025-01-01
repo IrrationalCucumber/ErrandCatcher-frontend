@@ -7,44 +7,30 @@
 import React, { useState } from "react";
 import "./profile.css";
 import StarRating from "../Display/StarRating";
-import ViewFeedback from "./ViewFeedback";
-import Docu from "./Docu";
-import Resetpassword from "./Resetpassword";
 import { Link, useNavigate } from "react-router-dom";
 import {
   Box,
   Button,
   Chip,
-  FormLabel,
-  Input,
-  Sheet,
   Stack,
   Typography,
   Alert,
   Modal,
   ModalDialog,
   ModalClose,
-  DialogTitle,
   DialogContent,
 } from "@mui/joy";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
-import {
-  AmountDecimal,
-  Capitalize,
-  DisplayDate,
-  GetUserAge,
-} from "../Display/DsiplayFunctions";
+import { GetUserAge } from "../Display/DsiplayFunctions";
 import { useAuth } from "../AuthContext";
 import SkillsInputModal from "../Profile Modal/SkillsInputModal";
-import { Call, Email, Home, Mail } from "@mui/icons-material";
 import axios from "axios";
 import CloseIcon from "@mui/icons-material/Close";
 import WarningIcon from "@mui/icons-material/Warning";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import { MyFeedback } from "../Dashbaord/Feedback";
-import { maxHeight } from "@mui/system";
 
 import PersonIcon from "@mui/icons-material/Person";
 import Person2Icon from "@mui/icons-material/Person2";
@@ -68,10 +54,6 @@ export function NewUserProfileui(props) {
   const [image, setImage] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
   const [open, setOpen] = useState(false);
-
-  const [buttonPopup1, setButtonPopup1] = useState(false);
-  const [buttonPopup2, setButtonPopup2] = useState(false);
-  const [buttonPopup3, setButtonPopup3] = useState(false);
 
   const handleImage = (e) => {
     const file = e.target.files[0];
@@ -103,7 +85,6 @@ export function NewUserProfileui(props) {
   const [showAlert, setShowAlert] = useState(false);
   //modal for pics
   //adrean 12/17/2024
-  const [showModal, setShowModal] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [filePath, setFilePath] = useState();
   const handleOpenModalDocs = (docs) => {
@@ -186,6 +167,8 @@ export function NewUserProfileui(props) {
       case 4:
       case 5:
         return "Strong";
+      default:
+        return "";
     }
   }
 
@@ -247,10 +230,7 @@ export function NewUserProfileui(props) {
                           alt="ProfPic"
                         />
                       ) : (
-                        <img
-                          src="./images/employer.png"
-                          alt="Profile Picture"
-                        />
+                        <img src="./images/employer.png" alt="Profile" />
                       )}
                     </div>
                     <h5 class="text-center mb-1">
@@ -625,7 +605,7 @@ export function NewUserProfileui(props) {
                                 <img
                                   className="user_profile_pic"
                                   src={preview}
-                                  alt="Preview Image"
+                                  alt="Preview"
                                   // width={250}
                                   // height={250}
                                   style={{
@@ -663,7 +643,7 @@ export function NewUserProfileui(props) {
                                 ) : (
                                   <img
                                     src="/images/employer.png"
-                                    alt="Profile Picture"
+                                    alt="Profile"
                                   />
                                 )}
                               </>
@@ -1103,7 +1083,7 @@ export function NewUserProfileui(props) {
                           <DialogContent>
                             <img
                               src={filePath}
-                              alt={`Doc Image`}
+                              alt={`Document`}
                               style={imageStyle}
                             />
                           </DialogContent>
@@ -1151,37 +1131,14 @@ export function NewUserProfileui(props) {
  */
 export function NewViewUserProfile(props) {
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
-  const { user } = useAuth();
-  const [preview, setPreview] = useState(null);
-  const [image, setImage] = useState(null);
-  const [isHovered, setIsHovered] = useState(false);
   const [open, setOpen] = useState(false);
 
-  const [buttonPopup3, setButtonPopup3] = useState(false);
-
-  const handleImage = (e) => {
-    const file = e.target.files[0];
-    setImage(file);
-    setPreview(URL.createObjectURL(file));
-
-    if (props.handleImage) {
-      props.handleImage(e);
-    }
-  };
-
-  const handleDeleteImage = () => {
-    setImage(null);
-    setPreview(null);
-  };
   //skills
   //split it into array
   const skillsArray = props.skills ? props.skills.split(",") : [];
-  const [buttonPopup1, setButtonPopup1] = useState(false);
-  const [buttonPopup2, setButtonPopup2] = useState(false);
 
   //modal for pics
   //adrean 12/17/2024
-  const [showModal, setShowModal] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [filePath, setFilePath] = useState();
   const handleOpenModalDocs = (docs) => {
@@ -1218,10 +1175,7 @@ export function NewViewUserProfile(props) {
                           alt="ProfPic"
                         />
                       ) : (
-                        <img
-                          src="./images/employer.png"
-                          alt="Profile Picture"
-                        />
+                        <img src="./images/employer.png" alt="Profile" />
                       )}
                     </div>
                     <h5 class="text-center mb-1">
@@ -1442,20 +1396,6 @@ export function NewViewUserProfile(props) {
                       </button>
                     </li>
                   ) : null}
-                  {/* <li class="nav-item" role="presentation">
-                    <button
-                      class="nav-link"
-                      id="reviews-tab"
-                      data-bs-toggle="tab"
-                      data-bs-target="#reviews-tab-pane"
-                      type="button"
-                      role="tab"
-                      aria-controls="reviews-tab-pane"
-                      aria-selected="false"
-                    >
-                      Reviews
-                    </button>
-                  </li> */}
                 </ul>
                 {/* ------------------------ Overview tab ---------------------------- */}
                 <div class="tab-content pt-4" id="profileTabContent">
@@ -1621,7 +1561,7 @@ export function NewViewUserProfile(props) {
                           <DialogContent>
                             <img
                               src={filePath}
-                              alt={`Doc Image`}
+                              alt={`Doc1`}
                               style={imageStyle}
                             />
                           </DialogContent>

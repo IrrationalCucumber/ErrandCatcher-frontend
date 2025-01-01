@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Grow, Alert } from "@mui/material";
 import {
   Button,
@@ -9,23 +9,15 @@ import {
   ModalDialog,
   DialogTitle,
   Divider,
-  Typography,
   Box,
-  FormControl,
-  FormLabel,
-  Input,
-  Chip,
-  ChipDelete,
 } from "@mui/joy";
-import { Image, WarningRounded, Verified, Add } from "@mui/icons-material";
+import { Image, WarningRounded, Verified } from "@mui/icons-material";
 import { useAuth } from "../AuthContext";
 import axios from "axios";
 import "./css/style.css";
 import { useNavigate } from "react-router-dom";
 import HourglassBottomIcon from "@mui/icons-material/HourglassBottom";
 import LoadingBackdrop from "../LoadingSpinner";
-import { Capitalize } from "../Display/DsiplayFunctions";
-
 export default function StepContent() {
   return <div>StepContent</div>;
 }
@@ -33,7 +25,6 @@ export default function StepContent() {
 //Basin info
 export function Step1({ onNext, images, setImages }) {
   const { user } = useAuth();
-  const userID = user.userID;
   const [alertOpen, setAlertOpen] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -193,7 +184,7 @@ export function Step1({ onNext, images, setImages }) {
                 className="step2__nav__btn__sbmt"
                 sx={{
                   // Custom color
-                  backgroundColor: "",
+                  //backgroundColor: "",
                   "&:hover": {
                     backgroundColor: "#1A97DE", // Darker green on hover
                   },
@@ -258,19 +249,12 @@ export function Step2({
   onPrev,
 }) {
   const { user } = useAuth();
-  const userID = user.userID;
-  const [open, setOpen] = useState(false); // modal
 
   const handleSubmit = (e) => {
     e.preventDefault();
     onNext(); // move next
   };
 
-  const handleOpenModal = () => {
-    setOpen(true);
-  };
-
-  const [alertOpen, setAlertOpen] = useState(false);
   function handleImage(e) {
     const file = e.target.files[0];
     if (file) {

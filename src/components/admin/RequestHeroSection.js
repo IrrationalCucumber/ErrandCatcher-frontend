@@ -18,7 +18,7 @@ function RequestHeroSection() {
       }
     };
     fetchRequestCount();
-  }, [request]);
+  }, [request, apiBaseUrl]);
   return (
     <div className="request__hero__section">
       <h2

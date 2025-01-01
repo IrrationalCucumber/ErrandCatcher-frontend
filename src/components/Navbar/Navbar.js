@@ -1,15 +1,14 @@
 //03-16-24 to make the design responsive
 
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 //import "./Navbar.css";
 import { useAuth } from "../AuthContext";
-import NotificationIcon from "./notif-icon";
 import NavDropdown from "./NavDropdown";
 import axios from "axios";
 import { Button } from "./NavButton";
 import Notification from "../NotificationNavbar/Notification";
-import { Close, MenuBook, More } from "@mui/icons-material";
+import { Close, More } from "@mui/icons-material";
 
 function Navbar(props) {
   const { user } = useAuth();
@@ -19,7 +18,6 @@ function Navbar(props) {
   //reverse the state of the above funstion
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
-  const navigate = useNavigate();
 
   const showButton = () => {
     if (window.innerWidth <= 960) {
@@ -53,7 +51,7 @@ function Navbar(props) {
     fetchNotif();
     const intervalNotif = setInterval(fetchNotif, 1000);
     return () => clearInterval(intervalNotif);
-  }, [userID]);
+  }, [userID, apiBaseUrl]);
 
   return (
     <>

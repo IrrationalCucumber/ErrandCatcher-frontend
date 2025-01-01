@@ -1,9 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import Map from "../../components/Map/Map";
-import { useAuth } from "../../components/AuthContext";
 import maplibregl from "maplibre-gl";
 import axios from "axios";
-import Filter from "../../components/Map/Filter";
 //import NavBar from "../../components/Navbar/Navbar.js";
 
 function CommissionMap() {
@@ -28,7 +26,7 @@ function CommissionMap() {
     //refresh map for 5 sec
     const interval = setInterval(fetchCommissions, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [apiBaseUrl]);
   //filter
   const [filter, setFilter] = useState([]); // State to store filtered errands
   const handleChange = (e) => {

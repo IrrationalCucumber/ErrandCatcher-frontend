@@ -25,7 +25,7 @@ function CardsRecentErrands() {
       }
     };
     fetchErrands();
-  }, []);
+  }, [apiBaseUrl]);
   return (
     <div className="cards">
       <div className="cards__container">

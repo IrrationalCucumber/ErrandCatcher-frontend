@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import Cards from "../components/Cards/CatCards";
 import axios from "axios";
 import Navbar from "../components/Navbar/NavBarPage";
-import { useAuth } from "../components/AuthContext";
 import Search from "@mui/icons-material/Search";
-import LocationOn from "@mui/icons-material/LocationOn";
 import CatCardsNew from "../components/Cards/CatCardsNew";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { Slider, Box, Typography } from "@mui/material";
@@ -59,7 +56,7 @@ function SearchPage() {
     // }
     //add 'term' as dependencies
     // to trigger if its empty
-  }, [term]);
+  }, [term, apiBaseUrl]);
 
   // Search commmissions using JS filter method //
   const filteredCommissions = commissions.filter((commission) => {

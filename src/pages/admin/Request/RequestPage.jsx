@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Pagination from "../../../components/Pagination";
 import RequestModal from "./RequestModal";
-import { useLocation } from "react-router-dom";
 import axios from "axios";
 import RequestImages from "./RequestImage";
 import "../Request/request.css";
@@ -21,8 +20,6 @@ function RequestPage() {
   const [selectedImages, setSelectedImages] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [showImageModal, setShowImageModal] = useState(false);
-  const location = useLocation();
-  const userID = location.pathname.split("/")[2];
   const [searchTerm, setSearchTerm] = useState({
     term: "",
     type: "",
@@ -41,7 +38,7 @@ function RequestPage() {
     };
 
     fetchData();
-  }, []);
+  }, [apiBaseUrl]);
 
   const handleClick = (request) => {
     setSelectedRequest(request); // Set selected request
@@ -49,10 +46,10 @@ function RequestPage() {
   };
 
   // Function to handle click on RequestImage button
-  const handleImageButtonClick = (requestImages) => {
-    setSelectedImages(requestImages);
-    setShowImageModal(true);
-  };
+  // const handleImageButtonClick = (requestImages) => {
+  //   setSelectedImages(requestImages);
+  //   setShowImageModal(true);
+  // };
 
   const handleCloseModal = () => {
     setShowModal(false); // Hide modal
@@ -335,7 +332,6 @@ const tableHeaderStyle = {
   // backgroundColor: "#f2f2f2",
   backgroundColor: "#1679AB",
   padding: "10px",
-  textAlign: "left",
   fontSize: "12px",
   color: "white",
   textAlign: "center",

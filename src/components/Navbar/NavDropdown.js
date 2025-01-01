@@ -3,7 +3,7 @@
 //03-05-24 fetch&pulled, added the /:userID
 
 import React, { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
 import {
   Chip,
@@ -21,14 +21,8 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import { ApplicationCount } from "../Display/DsiplayFunctions";
 
 function NavDropdown(props) {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [numCount, setNumCount] = useState(null);
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
-  };
-
-  const location = useLocation();
   const { user } = useAuth();
   const navigate = useNavigate();
   const handleSignOut = () => {
@@ -111,17 +105,15 @@ function NavDropdown(props) {
               <Typography>
                 <AssignmentOutlinedIcon /> Applications
                 {numCount !== null && numCount > 0 ? (
-                  <Chip
-                    color="danger"
-                    size="md"
-                    variant="solid">
+                  <Chip color="danger" size="md" variant="solid">
                     <ApplicationCount id={user.userID} />
                   </Chip>
                 ) : (
                   <Chip
                     // color="success"
                     color="danger"
-                    variant="soft">
+                    variant="soft"
+                  >
                     <ApplicationCount id={user.userID} />
                   </Chip>
                   // <ApplicationCount id={user.userID} />
@@ -144,7 +136,8 @@ function NavDropdown(props) {
             >
               <HistoryIcon /> Generate Report
             </Link>
-          </MenuItem>) :
+          </MenuItem>
+        ) : (
           // employer & catcher history
           <MenuItem onClick={() => navigate(historyLink)}>
             <Link
@@ -159,7 +152,7 @@ function NavDropdown(props) {
               <HistoryIcon /> History
             </Link>
           </MenuItem>
-        }
+        )}
         <MenuItem
           onClick={() => {
             handleSignOut();

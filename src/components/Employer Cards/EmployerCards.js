@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./employercard.css";
 import axios from "axios";
 import { useAuth } from "../AuthContext";
@@ -44,7 +44,7 @@ const EmployerCard = ({ employer }) => {
       //   setCounts(simulatedCounts);
       setLoading(false);
     }, 100); // Simulate 1 second delay
-  }, [counts, userID]);
+  }, [counts, userID, apiBaseUrl]);
 
   return (
     <>

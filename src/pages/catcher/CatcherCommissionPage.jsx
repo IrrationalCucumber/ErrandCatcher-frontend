@@ -2,22 +2,19 @@
 //
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Navbar from "../../components/Navbar/Navbar";
 import Table from "../../components/Table";
 import Pagination from "../../components/Pagination";
 import "./commissionpage.css";
-import { useLocation } from "react-router-dom";
 import { useAuth } from "../../components/AuthContext";
-import OngoingCards from "../Dropdown/OngoingCards";
 import { DisplayDate } from "../../components/DisplayDate";
-import Button from "@mui/joy/Button";
-import Divider from "@mui/joy/Divider";
-import DialogTitle from "@mui/joy/DialogTitle";
-import DialogContent from "@mui/joy/DialogContent";
-import DialogActions from "@mui/joy/DialogActions";
-import Modal from "@mui/joy/Modal";
-import ModalDialog from "@mui/joy/ModalDialog";
-import WarningRoundedIcon from "@mui/icons-material/WarningRounded";
+// import Button from "@mui/joy/Button";
+// import Divider from "@mui/joy/Divider";
+// import DialogTitle from "@mui/joy/DialogTitle";
+// import DialogContent from "@mui/joy/DialogContent";
+// import DialogActions from "@mui/joy/DialogActions";
+// import Modal from "@mui/joy/Modal";
+// import ModalDialog from "@mui/joy/ModalDialog";
+// import WarningRoundedIcon from "@mui/icons-material/WarningRounded";
 import OngoingCardsNew from "../Dropdown/OngoingCardsNew";
 
 import DateRangeOutlinedIcon from "@mui/icons-material/DateRangeOutlined";
@@ -26,12 +23,11 @@ import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
 import RotateRightOutlinedIcon from "@mui/icons-material/RotateRightOutlined";
 import ChecklistIcon from "@mui/icons-material/Checklist";
 import { Box } from "@mui/material";
-import { Alert, IconButton, Tooltip } from "@mui/joy";
-import { CloseRounded } from "@mui/icons-material";
-import ModalFeedback from "../../components/ModalFeedback";
+import { Tooltip } from "@mui/joy";
+// import { CloseRounded } from "@mui/icons-material";
+// import ModalFeedback from "../../components/ModalFeedback";
 
 function CommissionPage() {
-  const headers = ["DATE", "EMPLOYER", "ERRAND TITLE", "STATUS"];
   const [commissions, setCommissions] = useState([]);
   const [searchTerm, setSearchTerm] = useState({
     term: "",
@@ -44,29 +40,29 @@ function CommissionPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
   // modal
-  const [openCancel, setOpenCancel] = useState(false);
+  // const [openCancel, setOpenCancel] = useState(false);
 
-  const handleOpenCancelModal = () => {
-    setOpenCancel(true);
-    console.log("canceled");
-  };
+  // const handleOpenCancelModal = () => {
+  //   setOpenCancel(true);
+  //   console.log("canceled");
+  // };
 
   //getuserID
   const { user } = useAuth();
   const userID = user.userID;
   //alert message
-  const [showAlert, setShowAlert] = useState(false);
-  const [alertMesg, setAlerMsg] = useState("");
-  const [alrtColor, setAlrtColor] = useState("");
+  // const [showAlert, setShowAlert] = useState(false);
+  // const [alertMesg, setAlerMsg] = useState("");
+  // const [alrtColor, setAlrtColor] = useState("");
 
   // modal message pop-up
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
+  //const [open, setOpen] = useState(false);
+  // const handleOpen = () => {
+  //   setOpen(true);
+  // };
+  // const handleClose = () => {
+  //   setOpen(false);
+  // };
 
   useEffect(() => {
     const fetchAllCommission = async () => {
@@ -82,7 +78,7 @@ function CommissionPage() {
     fetchAllCommission();
     const interval = setInterval(fetchAllCommission, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [apiBaseUrl, userID]);
   //for payment errand
   const [forPayment, setForPayment] = useState([]);
   const fetchPending = async () => {
@@ -139,80 +135,80 @@ function CommissionPage() {
   const currentItems = filterErrands.slice(indexOfFirstItem, indexOfLastItem);
 
   //set variables for notification
-  const [notif, setNotif] = useState({
-    userID: "", //this is the employer/ userID of the commission
-    notificationType: "", //notif description
-    notifDesc: "", //contents of the notif
-    notifDate: "", //time and date notif is added
-  });
+  // const [notif, setNotif] = useState({
+  //   userID: "", //this is the employer/ userID of the commission
+  //   notificationType: "", //notif description
+  //   notifDesc: "", //contents of the notif
+  //   notifDate: "", //time and date notif is added
+  // });
   //get current date
   //for cancel and notif
-  const getTimeAndDate = () => {
-    const currentDate = new Date();
-    // Get the date components
-    const year = currentDate.getFullYear();
-    const month = String(currentDate.getMonth() + 1).padStart(2, "0"); // Months are zero-based
-    const day = String(currentDate.getDate()).padStart(2, "0");
-    // Get the time components
-    const hours = String(currentDate.getHours()).padStart(2, "0");
-    const minutes = String(currentDate.getMinutes()).padStart(2, "0");
-    const seconds = String(currentDate.getSeconds()).padStart(2, "0");
+  // const getTimeAndDate = () => {
+  //   const currentDate = new Date();
+  //   // Get the date components
+  //   const year = currentDate.getFullYear();
+  //   const month = String(currentDate.getMonth() + 1).padStart(2, "0"); // Months are zero-based
+  //   const day = String(currentDate.getDate()).padStart(2, "0");
+  //   // Get the time components
+  //   const hours = String(currentDate.getHours()).padStart(2, "0");
+  //   const minutes = String(currentDate.getMinutes()).padStart(2, "0");
+  //   const seconds = String(currentDate.getSeconds()).padStart(2, "0");
 
-    // Create a string representing the current date and time
-    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-  };
+  //   // Create a string representing the current date and time
+  //   return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+  // };
 
   //CANCEL TRANSACTION
-  const handleCancel = async (transactID, employerID) => {
-    try {
-      // alert(transactID);
+  // const handleCancel = async (transactID, employerID) => {
+  //   try {
+  //     // alert(transactID);
 
-      // add a notification to the commission's employer
-      notif.notifDesc = "A Catcher has cancelled in doing an errand";
-      notif.userID = employerID;
-      notif.notificationType = "Errand Cancelled";
-      notif.notifDate = getTimeAndDate();
-      await axios.post(`${apiBaseUrl}/notify`, notif);
-      //cancel the transaction
-      await axios.put(`${apiBaseUrl}/catcher/cancel/${transactID}/${userID}`);
-      /**
-       * ADD METHOD TO CHANGE ALSO THE STATUS OF ERRAND TO CANCELLED
-       */
-      // popup cancel modal
-      setTimeout(() => {
-        // setLoading(false);
-        // modal will pop-up in 1 seconds
-        handleOpen();
-      }, 1000);
-      // setAlerMsg("You have cancelled an errand.");
-      // setShowAlert(true);
-      // setAlrtColor("warning");
-      const interval = setInterval(fetchPending, 11000);
-      return () => clearInterval(interval);
-      // window.location.reload();
-      setOpenCancel(false);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  //     // add a notification to the commission's employer
+  //     notif.notifDesc = "A Catcher has cancelled in doing an errand";
+  //     notif.userID = employerID;
+  //     notif.notificationType = "Errand Cancelled";
+  //     notif.notifDate = getTimeAndDate();
+  //     await axios.post(`${apiBaseUrl}/notify`, notif);
+  //     //cancel the transaction
+  //     await axios.put(`${apiBaseUrl}/catcher/cancel/${transactID}/${userID}`);
+  //     /**
+  //      * ADD METHOD TO CHANGE ALSO THE STATUS OF ERRAND TO CANCELLED
+  //      */
+  //     // popup cancel modal
+  //     setTimeout(() => {
+  //       // setLoading(false);
+  //       // modal will pop-up in 1 seconds
+  //       handleOpen();
+  //     }, 1000);
+  //     // setAlerMsg("You have cancelled an errand.");
+  //     // setShowAlert(true);
+  //     // setAlrtColor("warning");
+  //     const interval = setInterval(fetchPending, 11000);
+  //     return () => clearInterval(interval);
+  //     // window.location.reload();
+  //     //setOpenCancel(false);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
   //ERRAND IS DONE
-  const handleComplete = async (transID, empID) => {
-    try {
-      notif.notifDesc = "A Catcher has completed your errand";
-      notif.userID = empID;
-      notif.notificationType = "Errand Completed";
-      notif.notifDate = getTimeAndDate();
-      await axios.post(`${apiBaseUrl}/notify`, notif);
-      //cancel the transaction
-      await axios.put(`${apiBaseUrl}/catcher/complete/${transID}/${userID}`);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const handleComplete = async (transID, empID) => {
+  //   try {
+  //     notif.notifDesc = "A Catcher has completed your errand";
+  //     notif.userID = empID;
+  //     notif.notificationType = "Errand Completed";
+  //     notif.notifDate = getTimeAndDate();
+  //     await axios.post(`${apiBaseUrl}/notify`, notif);
+  //     //cancel the transaction
+  //     await axios.put(`${apiBaseUrl}/catcher/complete/${transID}/${userID}`);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   return (
     <div>
-      <ModalFeedback
+      {/* <ModalFeedback
         open={open}
         handleClose={handleClose}
         headerMes="Cancelled!"
@@ -220,9 +216,9 @@ function CommissionPage() {
         color="error"
         colorText="error"
         icon={CancelOutlinedIcon}
-      />
+      /> */}
 
-      {showAlert && (
+      {/* {showAlert && (
         <Alert
           color={alrtColor}
           size="md"
@@ -241,7 +237,7 @@ function CommissionPage() {
         >
           {alertMesg}
         </Alert>
-      )}
+      )} */}
       <div className="Commission-page-container">
         <div className="Commission-page">
           {" "}

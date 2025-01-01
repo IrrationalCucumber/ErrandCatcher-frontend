@@ -18,7 +18,7 @@ export default function TopCatcher() {
       }
     };
     fetchCatchers();
-  }, []);
+  }, [apiBaseUrl]);
 
   return (
     <>

@@ -22,7 +22,6 @@ export default Feedback;
 export function MyFeedback({ id }) {
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const [myFeedback, setMyFeedback] = useState([]);
-  const { user } = useAuth();
   //get all the feedback of user
   useEffect(() => {
     //fetch data in backend
@@ -37,7 +36,7 @@ export function MyFeedback({ id }) {
     //refresh feedback every 1 seconds
     const refresh = setInterval(fetchFeedback, 30000);
     return () => clearInterval(refresh);
-  }, []);
+  }, [apiBaseUrl, id]);
   return (
     <>
       {myFeedback.map((feedback) => (
@@ -95,7 +94,7 @@ export function MyPostedFeedback() {
     //refresh list every 5 sec
     const refresh = setInterval(fetchFeedback, 5000);
     return () => clearInterval(refresh);
-  }, []);
+  }, [apiBaseUrl, user.userID]);
   return (
     <>
       {feedback.map((fb) => {
@@ -117,12 +116,12 @@ export function MyPostedFeedback() {
               }}
             >
               <CardContent>
-                <StarRating rating={feedback.feedbackRate} />
+                <StarRating rating={fb.feedbackRate} />
                 {/* CHANGE TO CATCHER */}
                 <i>
-                  "{feedback.feedbackComment}" <b>-{feedback.username}</b>
+                  "{fb.feedbackComment}" <b>-{fb.username}</b>
                 </i>
-                {DisplayDate(feedback.feedbackDate)}
+                {DisplayDate(fb.feedbackDate)}
               </CardContent>
             </Card>
           </ListItem>

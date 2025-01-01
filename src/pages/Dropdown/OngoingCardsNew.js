@@ -5,7 +5,7 @@
  */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Modals from "../../components/Modals";
 import OtherHousesIcon from "@mui/icons-material/OtherHouses";
 import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
@@ -78,7 +78,7 @@ function OngoingCardsNew(props) {
     feedbackDate: "",
     feedbackPosterID: "",
   });
-  const [successMsg, setSuccessMsg] = useState("");
+  const [setSuccessMsg] = useState("");
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [inputValue, setInputValue] = useState({ feedbacks: "" });
@@ -375,7 +375,7 @@ function OngoingCardsNew(props) {
     };
 
     checkPaymentStatus();
-  }, [transCatID, comID, empID]);
+  }, [transCatID, comID, empID, apiBaseUrl, userID]);
 
   const handlePayment = (
     pay,
@@ -890,7 +890,6 @@ const styles = {
     marginRight: "10px",
     textAlign: "center",
     backgroundColor: "#1679AB",
-    color: "white",
     fontWeight: "bold",
   },
   buttonContainer: {

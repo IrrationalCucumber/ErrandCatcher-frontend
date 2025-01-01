@@ -64,7 +64,7 @@ export function LandingMap() {
     //refresh map for 5 sec
     const interval = setInterval(fetchErrands, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [apiBaseUrl]);
   //filter
   const [filter, setFilter] = useState([]); // State to store filtered errands
   const handleChange = (e) => {
@@ -152,7 +152,7 @@ export function HomeMap(props) {
     //refresh map for 5 sec
     const interval = setInterval(fetchErrands, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [props.id]);
   //filter
   const [filter, setFilter] = useState([]); // State to store filtered errands
   const handleChange = (e) => {
@@ -352,7 +352,7 @@ export function UpdateMapLibre({ getCoords, id }) {
       }
     };
     fetchLoc();
-  }, [id]);
+  }, [id, apiBaseUrl]);
 
   // Map initialization
   const mapContainer = useRef(null);
@@ -477,7 +477,13 @@ export function ViewMapBox({
         }
       });
     });
-  }, [accessToken, getDistanceCallback, initialOrigin, initialDestination]);
+  }, [
+    accessToken,
+    getDistanceCallback,
+    initialOrigin,
+    initialDestination,
+    interactive,
+  ]);
 
   return (
     <div className="main-map">
@@ -577,7 +583,7 @@ export function PostMapBox({
         destinationCoordinates
       );
     });
-  }, [accessToken]);
+  }, [accessToken, getDistanceCallback, lat, lng, zoom]);
 
   // Sync starting location (origin) with custom input
   useEffect(() => {

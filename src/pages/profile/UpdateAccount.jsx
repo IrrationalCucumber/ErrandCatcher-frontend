@@ -40,22 +40,6 @@ const UpdateAccount = () => {
       setAccount((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     }
   };
-  //RV & APS 02/03/24
-  //useState for Status
-  const [status, setStatus] = useState("");
-  //update display for status
-  useEffect(() => {
-    const fetchStatus = async () => {
-      try {
-        const res = await axios.get(`${apiBaseUrl}/user-verify/${userID}`);
-        console.log(res.data[0].accountStatus);
-        setStatus(res.data[0].accountStatus);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchStatus();
-  }, []);
 
   //pre-fill the fields
   useEffect(() => {
@@ -90,7 +74,7 @@ const UpdateAccount = () => {
     };
 
     fetchAccount();
-  }, [userID]);
+  }, [userID, apiBaseUrl]);
 
   //save the data into db
   const handleClick = async (e) => {

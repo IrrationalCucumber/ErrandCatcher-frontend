@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./LoadingMap.css";
 import axios from "axios";
-import { Badge } from "@mui/joy";
 
 export function Capitalize(text) {
   const capitalizeThis = text;
@@ -115,7 +114,7 @@ export function ApplicantsCount(id) {
     fetchCount();
     const interval = setInterval(fetchCount, 10000); // 10 seconds refresh
     return () => clearInterval(interval);
-  }, [id, num]);
+  }, [id, num, apiBaseUrl]);
   return num;
 }
 
@@ -139,7 +138,7 @@ export function ApplicationCount(id) {
     fetchCount();
     const interval = setInterval(fetchCount, 10000); // 10 seconds refresh
     return () => clearInterval(interval);
-  }, [userID, num]);
+  }, [userID, num, apiBaseUrl]);
 
   if (num === null || num === undefined) {
     return null;

@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 //import Cards from '../../components/Cards';
-import OngoingCards from "./OngoingCards";
-import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../../components/AuthContext";
 import "./ongoing.css";
@@ -17,7 +15,6 @@ function Ongoing() {
   const [commissions, setCommissions] = useState([]);
   //get user details
   const { user } = useAuth();
-  const location = useLocation();
   const userID = user.userID;
   const [searchTerm, setSearchTerm] = useState({
     term: "",
@@ -38,7 +35,7 @@ function Ongoing() {
       }
     };
     fetchAllCommission();
-  }, []);
+  }, [apiBaseUrl, userID]);
 
   const handleChange = (e) => {
     // For the 'gender' field, directly set the value without using spread syntax

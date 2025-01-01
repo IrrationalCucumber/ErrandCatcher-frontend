@@ -1,13 +1,10 @@
 import { Add } from "@mui/icons-material";
 import {
-  Autocomplete,
   Box,
-  Button,
   Chip,
   ChipDelete,
   FormControl,
   FormLabel,
-  Input,
   Modal,
   ModalClose,
   ModalDialog,
@@ -24,7 +21,7 @@ function SkillsInputModal(props) {
   //SKill tags
   // State to hold the selected skills
   const [selectedSkills, setSelectedSkills] = useState([]);
-  const [inputSkill, setInputSkill] = useState("");
+  // const [inputSkill, setInputSkill] = useState("");
   const [error, setError] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [details, setDetails] = useState({
@@ -138,12 +135,12 @@ function SkillsInputModal(props) {
     }
   };
   // Function to add a custom skill from input
-  const handleAddCustomSkill = () => {
-    if (inputSkill && !selectedSkills.includes(inputSkill)) {
-      setSelectedSkills([...selectedSkills, inputSkill]);
-      setInputSkill(""); // Clear the input
-    }
-  };
+  // const handleAddCustomSkill = () => {
+  //   if (inputSkill && !selectedSkills.includes(inputSkill)) {
+  //     setSelectedSkills([...selectedSkills, inputSkill]);
+  //     setInputSkill(""); // Clear the input
+  //   }
+  // };
   // Function to remove a skill from the selectedSkills array
   const handleRemoveSkill = (skillToRemove) => {
     setSelectedSkills(

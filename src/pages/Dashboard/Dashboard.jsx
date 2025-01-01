@@ -37,7 +37,7 @@ function Dashboard() {
     const interval = setInterval(fetchHasErrand, 110000); // Fetch every second
 
     return () => clearInterval(interval); // Cleanup interval on unmount
-  }, [user, updateUser]); // Ensure the effect runs when `user` or `updateUser` changes
+  }, [user, updateUser, apiBaseUrl]); // Ensure the effect runs when `user` or `updateUser` changes
 
   // const type = user.userType.toLocaleLowerCase();
   return (

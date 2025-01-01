@@ -87,7 +87,6 @@ function ApplicationQualificationModal(props) {
   const [drivingExperience, setDrivingExperience] = useState("");
   const [vehicleType, setVehicleType] = useState("");
   const [generalExperience, setGeneralExperience] = useState("");
-  const [skills, setSkills] = useState("");
   const [error, setError] = useState("");
 
   //click event for apply

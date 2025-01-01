@@ -5,15 +5,7 @@ import ViewFeedback from "./ViewFeedback";
 import Docu from "./Docu";
 import Resetpassword from "./Resetpassword";
 import { Link } from "react-router-dom";
-import {
-  Button,
-  Chip,
-  FormLabel,
-  Input,
-  Sheet,
-  Stack,
-  Typography,
-} from "@mui/joy";
+import { Button, Chip, Input, Sheet, Stack, Typography } from "@mui/joy";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
@@ -66,7 +58,7 @@ function UserProfile(props) {
               <img
                 className="user_profile_pic"
                 src={preview}
-                alt="Preview Image"
+                alt="Preview"
                 // width={250}
                 // height={250}
                 style={{
@@ -97,7 +89,7 @@ function UserProfile(props) {
                   alt="ProfPic"
                 />
               ) : (
-                <img src="/images/employer.png" alt="Profile Picture" />
+                <img src="/images/employer.png" alt="Profile" />
               )}
             </>
           )}
@@ -531,7 +523,7 @@ export function ViewUserProfile(props) {
                 alt="ProfPic"
               />
             ) : (
-              <img src="/images/employer.png" alt="Profile Picture" />
+              <img src="/images/employer.png" alt="Profile" />
             )}
           </>
           <div className="info">

@@ -6,12 +6,12 @@
 //03-28-24 added view profile but modal doesnt have data
 
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+
 import axios from "axios";
 import Table from "../../components/Table";
 import "./applicant.css";
 import Pagination from "../../components/Pagination";
-import ProfileModal from "../../components/Profile Modal/ProfileModal";
+
 import { useAuth } from "../../components/AuthContext";
 import Button from "@mui/joy/Button";
 import Divider from "@mui/joy/Divider";
@@ -32,7 +32,6 @@ import { Box, Typography } from "@mui/material";
 import { Refresh } from "@mui/icons-material";
 
 const EmployerApplicants = () => {
-  const navigate = useNavigate();
   const { user } = useAuth();
   //pathname to array from
   //get the id
@@ -106,7 +105,7 @@ const EmployerApplicants = () => {
 
   useEffect(() => {
     fetchAllAccount();
-  }, [userID]);
+  }, [userID, apiBaseUrl]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -507,7 +506,7 @@ const EmployerApplicants = () => {
           </Modal>
 
           {/* Pagination controls */}
-          {applicants.length > 0 && (
+          {currentItems.length > 0 && (
             <Pagination
               itemsPerPage={itemsPerPage}
               totalItems={applicants.length}
@@ -521,33 +520,33 @@ const EmployerApplicants = () => {
   );
 };
 
-const styles = {
-  button: {
-    padding: "10px 20px",
-    fontSize: "12px",
-    backgroundColor: "#42a942",
-    color: "#fff",
-    border: "none",
-    borderRadius: "5px",
-    cursor: "pointer",
-    marginRight: "10px",
-    textAlign: "center",
-  },
-};
+// const styles = {
+//   button: {
+//     padding: "10px 20px",
+//     fontSize: "12px",
+//     backgroundColor: "#42a942",
+//     color: "#fff",
+//     border: "none",
+//     borderRadius: "5px",
+//     cursor: "pointer",
+//     marginRight: "10px",
+//     textAlign: "center",
+//   },
+// };
 
-const style1 = {
-  button: {
-    padding: "10px 20px",
-    fontSize: "12px",
-    backgroundColor: "#d9534f",
-    color: "#fff",
-    border: "none",
-    borderRadius: "5px",
-    cursor: "pointer",
-    marginRight: "10px",
-    textAlign: "center",
-  },
-};
+// const style1 = {
+//   button: {
+//     padding: "10px 20px",
+//     fontSize: "12px",
+//     backgroundColor: "#d9534f",
+//     color: "#fff",
+//     border: "none",
+//     borderRadius: "5px",
+//     cursor: "pointer",
+//     marginRight: "10px",
+//     textAlign: "center",
+//   },
+// };
 
 const style2 = {
   button: {

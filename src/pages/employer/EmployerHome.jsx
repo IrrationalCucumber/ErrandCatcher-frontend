@@ -4,7 +4,6 @@ import React from "react";
 import NavBar from "../../components/Navbar/Navbar";
 //import HeroSection from '../components/HeroSection'
 import { useLocation } from "react-router-dom";
-import Menu from "../Menu";
 import StickyButton from "../../components/Sticky Button/StickyButton";
 import EmployerCard from "../../components/Employer Cards/EmployerCards";
 import Cards from "../../components/Cards/Cards";

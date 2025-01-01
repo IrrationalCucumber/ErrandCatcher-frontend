@@ -16,7 +16,6 @@ function CatCards({ commissions }) {
   const location = useLocation();
   //pathname to array from
   //get the id
-  const userID = location.pathname.split("/")[2];
   const type = location.pathname.split("/")[3];
   //rretrieve data
   useEffect(() => {
@@ -31,7 +30,7 @@ function CatCards({ commissions }) {
       }
     };
     fetchAllCommission();
-  }, [type]);
+  }, [type, apiBaseUrl]);
   return (
     <div className="cards">
       {/* <h1>Check out this epic Destination!</h1> */}

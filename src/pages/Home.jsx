@@ -6,15 +6,9 @@ import {
   BannerEmployerPostErrand,
   HeroSection,
 } from "../components/Banner/HeroSection";
-import RequestHeroSection, {
-  AdminHeroSection,
-} from "../components/admin/RequestHeroSection";
 import { HomeMap } from "../components/Map/Map";
-import { Alert, Button, Sheet } from "@mui/joy";
-import { MyFeedback, MyPostedFeedback } from "../components/Dashbaord/Feedback";
+import { Alert, Button } from "@mui/joy";
 import TopCatcher from "../components/Carousel/TopCatcher";
-import CardsNew from "../components/Cards/CardsNew";
-import CardsRecentErrands from "../components/Cards/CardsRecentErrands";
 import axios from "axios";
 
 const Home = () => {
@@ -36,7 +30,7 @@ const Home = () => {
     };
 
     checkVerificationStatus();
-  }, [userID]);
+  }, [userID, apiBaseUrl]);
 
   return (
     <>

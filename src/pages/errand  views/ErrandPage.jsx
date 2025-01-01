@@ -9,17 +9,7 @@ import ErrandInputs from "../../components/ErrandInputs";
 import "./Commission.css"; // Import your CSS file
 import { useAuth } from "../../components/AuthContext";
 import { ViewMap, ViewMapBox } from "../../components/Map/Map";
-import ApplicationQualificationModal from "../../components/ApplicationModal/ApplicationQualificationModal";
-import {
-  Alert,
-  Button,
-  IconButton,
-  Modal,
-  ModalClose,
-  ModalDialog,
-  Typography,
-} from "@mui/joy";
-import { CheckCircle, CloseRounded } from "@mui/icons-material";
+import { Button, Typography } from "@mui/joy";
 import ModalFeedback from "../../components/ModalFeedback";
 import HourglassBottomIcon from "@mui/icons-material/HourglassBottom";
 import LoadingBackdrop from "../../components/LoadingSpinner";
@@ -48,7 +38,6 @@ const ErrandPage = () => {
     destLat: "",
     tags: "",
   });
-  const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   // modal message pop-up
   const [openFeedmodal, setOpenFeedmodal] = useState(false);
@@ -71,9 +60,9 @@ const ErrandPage = () => {
     "pk.eyJ1IjoibWlyYWthNDQiLCJhIjoiY20xcWVhejZ0MGVzdjJscTF5ZWVwaXBzdSJ9.aLYnU19L7neFq2Y7J_UXhQ";
   const [distance, setDistance] = useState();
   //alert message
-  const [showAlert, setShowAlert] = useState(false);
-  const [alertMesg, setAlerMsg] = useState("");
-  const [alrtColor, setAlrtColor] = useState("");
+  // const [showAlert, setShowAlert] = useState(false);
+  // const [alertMesg, setAlerMsg] = useState("");
+  // const [alrtColor, setAlrtColor] = useState("");
 
   //APS - 19/03/24
   //CHeck if Catcher already applied
@@ -100,7 +89,7 @@ const ErrandPage = () => {
       const interval = setInterval(fetchApp, 3000);
       return () => clearInterval(interval);
     }
-  }, [isApplied, user.userType, userID, commissionID]);
+  }, [isApplied, user.userType, userID, commissionID, apiBaseUrl]);
 
   //pre-fill the fields
   useEffect(() => {
@@ -167,7 +156,7 @@ const ErrandPage = () => {
     };
 
     fetchCommission();
-  }, [commissionID]);
+  }, [commissionID, apiBaseUrl]);
 
   //Transfer to update page
   const handleClick = (e) => {
@@ -265,7 +254,7 @@ const ErrandPage = () => {
       }
     };
     fetchSkills();
-  }, [user.userID]);
+  }, [user.userID, apiBaseUrl]);
 
   useEffect(() => {
     if (catcher.length > 0 && commission.tags) {
@@ -279,7 +268,7 @@ const ErrandPage = () => {
   console.log(user);
   return (
     <>
-      {showAlert && (
+      {/* {showAlert && (
         <Alert
           color={alrtColor}
           size="md"
@@ -298,7 +287,7 @@ const ErrandPage = () => {
         >
           {alertMesg}
         </Alert>
-      )}
+      )} */}
 
       <LoadingBackdrop
         open={loading}

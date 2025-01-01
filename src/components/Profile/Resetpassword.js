@@ -132,6 +132,8 @@ function Resetpassword(props) {
       case 4:
       case 5:
         return "Strong";
+      default:
+        return "";
     }
   }
 

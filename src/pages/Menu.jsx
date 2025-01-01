@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import Cards from "../components/Cards/Cards";
+import { Link, useNavigate } from "react-router-dom";
 //  import NavBar from '../components/Navbar';
 //import Footer from "../components/Footer";
 import "./Menu.css";
@@ -28,10 +27,6 @@ const Menu = () => {
   };
   const handleClose = () => {
     setOpen(false);
-  };
-
-  const handleSearchChange = (event) => {
-    setSearchQuery(event.target.value);
   };
 
   const handleSearch = (e) => {
@@ -76,7 +71,9 @@ const Menu = () => {
         icons={<HourglassBottomIcon />}
       />
 
-      {user.hasErrand === "false" || user.userType === "admin" || user.userType === "Catcher" ? (
+      {user.hasErrand === "false" ||
+      user.userType === "admin" ||
+      user.userType === "Catcher" ? (
         <section className="Menu" id="Menu">
           {/* bootstrap class applied */}
           <div className="box-container d-flex justify-content-center align-items-center">

@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../../components/Navbar/Navbar";
-import CatCards from "../../components/Cards/CatCards";
 import axios from "axios";
 import Search from "@mui/icons-material/Search";
-import HomeWorkIcon from "@mui/icons-material/HomeWork";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import SyncAltIcon from "@mui/icons-material/SyncAlt";
 import HomeWork from "@mui/icons-material/HomeWork";
 import CatCardsNew from "../../components/Cards/CatCardsNew";
-import { Slider, Box, Typography, TextField } from "@mui/material";
+import { Slider, Box, Typography } from "@mui/material";
 import "./HomeServices.css";
 
 const HomeServices = () => {
@@ -45,7 +42,7 @@ const HomeServices = () => {
       }
     };
     fetchAllCommission();
-  }, []);
+  }, [apiBaseUrl]);
 
   // Search commmissions using JS filter method //
   const filteredCommissions = commissions.filter((commission) => {
@@ -255,46 +252,3 @@ const HomeServices = () => {
 };
 
 export default HomeServices;
-
-{
-  /* <Box >
-                <Typography variant="h6" gutterBottom>
-                  Payment Range:
-                </Typography>
-                <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                  <TextField
-                    label="Minimum"
-                    type="number"
-                    name="minPay"
-                    value={filter.minPay}
-                    onChange={handleChange}
-                    variant="outlined"
-                    size="small"
-                    sx={{ width: 120 }}
-                  />
-                  <SyncAltIcon sx={{ color: "#4caf50", fontSize: 24 }} />
-                  <TextField
-                    label="Maximum"
-                    type="number"
-                    name="maxPay"
-                    value={filter.maxPay}
-                    onChange={handleChange}
-                    variant="outlined"
-                    size="small"
-                    sx={{ width: 120 }}
-                  />
-                </Box>
-                <Slider
-                  value={[
-                    Number(filter.minPay) || 0,
-                    Number(filter.maxPay) || 1000, // Default max value
-                  ]}
-                  onChange={handleSliderChange}
-                  // valueLabelDisplay="on"
-                  min={0}
-                  max={5000} // Adjust range as needed
-                  step={100}
-                  sx={{ marginTop: 3, color: "#4caf50" }}
-                />
-              </Box> */
-}

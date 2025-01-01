@@ -7,7 +7,6 @@
  */
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import CardItem from "./CardItem";
 import axios from "axios";
 // import "./Cards.css";
 import "./cardsNew.css";
@@ -20,7 +19,6 @@ function CatCardsNew({ commissions }) {
   const location = useLocation();
   //pathname to array from
   //get the id
-  const userID = location.pathname.split("/")[2];
   const type = location.pathname.split("/")[3];
   //rretrieve data
   useEffect(() => {
@@ -35,7 +33,7 @@ function CatCardsNew({ commissions }) {
       }
     };
     fetchAllCommission();
-  }, [type]);
+  }, [type, apiBaseUrl]);
   return (
     <div className="cards">
       {/* <h1>Check out this epic Destination!</h1> */}

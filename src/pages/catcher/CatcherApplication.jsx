@@ -5,9 +5,7 @@
 // <Route path="/c-application" exact Component={Application}/>
 
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-import Navbar from "../../components/Navbar/Navbar";
 import Table from "../../components/Table";
 import Pagination from "../../components/Pagination";
 import "./application.css";
@@ -61,8 +59,8 @@ function Application() {
   };
   //alert message
   const [showAlert, setShowAlert] = useState(false);
-  const [alertMesg, setAlerMsg] = useState("");
-  const [alrtColor, setAlrtColor] = useState("");
+  const [alertMesg] = useState("");
+  const [alrtColor] = useState("");
 
   // modal message pop-up
   // cancel state
@@ -314,7 +312,7 @@ function Application() {
       notif.notificationType = "Application Cancelled";
       notif.notifDate = getTimeAndDate();
 
-      await axios.post("${apiBaseUrl}/notify", notif);
+      await axios.post(`${apiBaseUrl}/notify`, notif);
       // window.location.reload();
       // navigate(`/my-application/${userID}`);
 

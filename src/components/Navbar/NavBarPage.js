@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Button } from "./NavButton";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Close, More } from "@mui/icons-material";
 
 function Navbar() {
@@ -28,12 +26,10 @@ function Navbar() {
   //handles the resizing of window
   window.addEventListener("resize", showButton);
 
-  const navigate = useNavigate();
-
-  //function for my back
-  const goBack = () => {
-    navigate(-1); // This navigates back to the previous page
-  };
+  // //function for my back
+  // const goBack = () => {
+  //   navigate(-1); // This navigates back to the previous page
+  // };
 
   return (
     <>

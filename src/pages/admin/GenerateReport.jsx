@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import axios from "axios";
 import Table from "../../components/Table.js";
 import Pagination from "../../components/Pagination.js";
@@ -11,7 +10,7 @@ import CameraOutdoorIcon from "@mui/icons-material/CameraOutdoor";
 import SyncAltIcon from "@mui/icons-material/SyncAlt";
 import PaymentsIcon from "@mui/icons-material/Payments";
 import Filter9PlusOutlinedIcon from "@mui/icons-material/Filter9PlusOutlined";
-import { Slider, Box, Typography, TextField } from "@mui/material";
+import { Slider, Box, TextField } from "@mui/material";
 
 const GenerateReport = () => {
   const [invoices, setInvoices] = useState([]);
@@ -24,8 +23,6 @@ const GenerateReport = () => {
     maxPay: "",
     date: "",
   });
-  const location = useLocation();
-  const userID = location.pathname.split("/")[2];
 
   //current page state --Ash
   const [currentPage, setCurrentPage] = useState(1);
@@ -48,7 +45,7 @@ const GenerateReport = () => {
       }
     };
     fetchAllInvoice();
-  }, []);
+  }, [apiBaseUrl, invoices]);
 
   useEffect(() => {
     const fetchTotalInvoice = async () => {
@@ -64,7 +61,7 @@ const GenerateReport = () => {
       }
     };
     fetchTotalInvoice();
-  }, []);
+  }, [apiBaseUrl, totalinvoices]);
 
   const handleChange = (e) => {
     // For the 'gender' field, directly set the value without using spread syntax
@@ -132,7 +129,7 @@ const GenerateReport = () => {
   });
 
   // convert to centavo
-  const amountInCents = (invoices.total / 100).toFixed(2);
+  // const amountInCents = (invoices.total / 100).toFixed(2);
   const amountInCentsTotal = (totalinvoices.t / 100).toFixed(2);
 
   //Logic of Pagination

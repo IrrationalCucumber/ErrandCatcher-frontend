@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
+// import App from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
@@ -13,7 +13,7 @@ import "./style.css";
 import "./App.css";
 //DISPLAY
 import Landing from "./pages/Landing/Landing";
-import Menu from "./pages/Menu";
+// import Menu from "./pages/Menu";
 import ErrandPage from "./pages/errand  views/ErrandPage";
 import ViewProfile from "./pages/profile/ViewProfile";
 import ProfilePage from "./pages/profile/ProfilePage";
@@ -32,18 +32,18 @@ import Profile from "./pages/profile/Profile";
 import AccountList from "./pages/admin/AccountList";
 import AddAccount from "./pages/admin/AddAccount";
 import CommissionList from "./pages/admin/CommissionList";
-import AdminHome from "./pages/admin/AdminHome";
+// import AdminHome from "./pages/admin/AdminHome";
 import Map from "./pages/admin/CommissionMap";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import RequestPage from "./pages/admin/Request/RequestPage";
 //CATCHER Routes
-import CatcherHome from "./pages/catcher/CatcherHome";
+// import CatcherHome from "./pages/catcher/CatcherHome";
 import CatcherMap from "./pages/catcher/CatcherMap";
-import ApplyCommission from "./pages/catcher/ApplyCommission";
+// import ApplyCommission from "./pages/catcher/ApplyCommission";
 import Application from "./pages/catcher/CatcherApplication";
 import CatcherCommission from "./pages/catcher/CatcherCommissionPage";
 //EMPLOYER Routes
-import EmployerHome from "./pages/employer/EmployerHome";
+// import EmployerHome from "./pages/employer/EmployerHome";
 import PostCommission from "./pages/errand  views/PostCommission";
 import EmployerCommissions from "./pages/employer/EmployerCommissionList";
 import EmployerApplicants from "./pages/employer/EmployerApplicants";

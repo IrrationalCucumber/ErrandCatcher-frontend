@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import "./commissionlist.css";
 import Pagination from "../../components/Pagination.js";
 import Table from "../../components/Table.js";
-import Select from "@mui/joy/Select";
-import Option from "@mui/joy/Option";
 import { DisplayDate } from "../../components/DisplayDate.js";
 import OtherHousesIcon from "@mui/icons-material/OtherHouses";
 import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
@@ -18,8 +16,7 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import TimerOffIcon from "@mui/icons-material/TimerOff";
 import HandshakeIcon from "@mui/icons-material/Handshake";
 import EventAvailableIcon from "@mui/icons-material/EventAvailable";
-import { PanoramaFishEye, RemoveRedEyeSharp } from "@mui/icons-material";
-import EventBusyOutlinedIcon from "@mui/icons-material/EventBusyOutlined";
+import { RemoveRedEyeSharp } from "@mui/icons-material";
 
 const CommissionList = () => {
   const [commissions, setCommissions] = useState([]);
@@ -28,8 +25,6 @@ const CommissionList = () => {
     type: "",
     status: "",
   });
-  const location = useLocation();
-  const userID = location.pathname.split("/")[2];
 
   //current page state --Ash
   const [currentPage, setCurrentPage] = useState(1);
@@ -52,19 +47,19 @@ const CommissionList = () => {
       }
     };
     fetchAllCommission();
-  }, []);
+  }, [apiBaseUrl]);
 
   //funtion to delete commission
-  const handleDelete = async (commissionID) => {
-    try {
-      //"http://localhost:8800/commission" - local computer
-      //"http://192.168.1.47:8800/commission" - netwrok
-      await axios.delete(`${apiBaseUrl}/commission/${commissionID}`);
-      window.location.reload();
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // const handleDelete = async (commissionID) => {
+  //   try {
+  //     //"http://localhost:8800/commission" - local computer
+  //     //"http://192.168.1.47:8800/commission" - netwrok
+  //     await axios.delete(`${apiBaseUrl}/commission/${commissionID}`);
+  //     window.location.reload();
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   const handleChange = (e) => {
     // For the 'gender' field, directly set the value without using spread syntax

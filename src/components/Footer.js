@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "./Navbar/NavButton";
 import { Link } from "react-router-dom";
 import "./Footer.css";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";

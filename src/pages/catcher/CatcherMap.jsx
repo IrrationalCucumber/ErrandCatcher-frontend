@@ -1,12 +1,10 @@
 import React, { useRef, useEffect, useState } from "react";
 import Map from "../../components/Map/Map.js";
-import { useAuth } from "../../components/AuthContext";
 import maplibregl from "maplibre-gl";
 import axios from "axios";
 import "./style.css";
 
 function CatcherMap() {
-  const { user } = useAuth();
   const mapContainer = useRef(null);
   const map = useRef(null);
   const [lng, setLng] = useState(123.8854);
@@ -33,7 +31,7 @@ function CatcherMap() {
     // Refresh map every 5 seconds
     // const interval = setInterval(fetchErrands, 5000);
     // return () => clearInterval(interval);
-  }, []);
+  }, [apiBaseUrl]);
 
   // Get user's current location
   useEffect(() => {

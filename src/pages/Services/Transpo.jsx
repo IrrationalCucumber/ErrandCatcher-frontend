@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "../Services/Transpo.css";
-import Navbar from "../../components/Navbar/Navbar";
-import { useLocation } from "react-router-dom";
 import axios from "axios";
-import CatCards from "../../components/Cards/CatCards";
 import Search from "@mui/icons-material/Search";
 import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import SyncAltIcon from "@mui/icons-material/SyncAlt";
 import CatCardsNew from "../../components/Cards/CatCardsNew";
-import { Slider, Box, Typography, TextField } from "@mui/material";
+import { Slider, Box, Typography } from "@mui/material";
 
 const Transportation = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -45,7 +42,7 @@ const Transportation = () => {
       }
     };
     fetchAllCommission();
-  }, []);
+  }, [apiBaseUrl]);
 
   // Search commmissions using JS filter method //
   const filteredCommissions = commissions.filter((commission) => {
@@ -248,56 +245,3 @@ const Transportation = () => {
 };
 
 export default Transportation;
-
-{
-  /* <>
-
-<div className="search-barborder">
-<h1 className="headingTranspo">Transportation</h1>
-  
-  <div className="box">
-  <input className="inputSearch"
-    type="text"
-    placeholder="Search..."
-    value={searchQuery}
-    onChange={handleSearchChange}
-  />
-
-<select className="selected"
-  name="location"
-  id="location"
-  value={filter.location}
-  onChange={handleChange}
->
-  <option value="">Choose Location....</option>
-  <option value="Cebu">Cebu</option>
-  <option value="Cordova">Cordova</option>
-  <option value="Mandaue">Mandaue</option>
-  <option value="Lapu-Lapu">Lapu-Lapu</option>
-  <option value="Talisay">Talisay</option>
-</select>
-
-<div className="Paylabel">
-<label htmlFor="">Payment range:
-  <input className="inputNum"
-    type="number"
-    placeholder="Starting range..."
-    name="minPay"
-    onChange={handleChange}
-    value={filter.minPay}
-  />
-  <input className="inputNum"
-    type="number"
-    placeholder="Maximum range..."
-    name="maxPay"
-    onChange={handleChange}
-    value={filter.maxPay}
-  />
-</label>
-</div>
-  </div>
-</div>
-
-<CatCards commissions={filteredCommissions} />
-</> */
-}

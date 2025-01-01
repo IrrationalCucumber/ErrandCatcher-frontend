@@ -1,5 +1,3 @@
-import React from "react";
-
 export function DisplayDate(theDate) {
   //Display format to date
   // months into words

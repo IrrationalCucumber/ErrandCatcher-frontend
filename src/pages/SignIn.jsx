@@ -11,7 +11,6 @@ import LoadingBackdrop from "../components/LoadingSpinner";
 const SignIn = () => {
   const [username, setUsername] = useState(""); //username
   const [password, setPassword] = useState(""); //passwod
-  const [userID, setUserID] = useState(""); //var for id
   const [errorMessage, setErrorMessage] = useState(""); //error message
   const [rememberMe, setRememberMe] = useState(false); //remember me function
   const { updateUser } = useAuth(); // Get the login function from useAut
@@ -122,7 +121,7 @@ const SignIn = () => {
           placeholder="Password"
         />
         <div className="em">
-          {errorMessage != "" && (
+          {errorMessage !== "" && (
             <Alert color="danger" size="lg" variant="outlined">
               <i style={{ fontSize: 12 }}>{errorMessage}</i>
             </Alert>

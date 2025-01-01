@@ -4,18 +4,14 @@ import React, { useEffect, useState } from "react";
 // import { faCertificate } from "@fortawesome/free-solid-svg-icons";
 import "./profile.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { useAuth } from "../../components/AuthContext";
-import UserProfile from "../../components/Profile/UserProfile";
 import { Alert, Button } from "@mui/joy";
 import WarningIcon from "@mui/icons-material/Warning";
 import CloseIcon from "@mui/icons-material/Close";
 import UpdateIcon from "@mui/icons-material/Update";
 import Snackbar from "@mui/joy/Snackbar";
 import CancelIcon from "@mui/icons-material/Cancel";
-import NewUserProfile, {
-  NewUserProfileui,
-} from "../../components/Profile/NewUserProfile";
+import { NewUserProfileui } from "../../components/Profile/NewUserProfile";
 const Profile = () => {
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   const [verified, setVerified] = useState(false);
@@ -70,7 +66,7 @@ const Profile = () => {
       }
     };
     fetchDetails();
-  }, [userID]);
+  }, [userID, apiBaseUrl]);
 
   const [isEditing, setIsEditing] = useState(false);
   const [tempAccount, setTempAccount] = useState(account); // Store temporary edits
@@ -139,7 +135,7 @@ const Profile = () => {
     };
 
     fetchAccount();
-  }, [userID, account.status, verified]);
+  }, [userID, account.status, verified, apiBaseUrl]);
 
   const handleChange = (e) => {
     // For the 'gender' field, directly set the value without using spread syntax
@@ -180,7 +176,7 @@ const Profile = () => {
       }
     };
     fetchRating();
-  }, [userID]);
+  }, [userID, apiBaseUrl]);
 
   const [image, setImage] = useState("");
   function handleImage(e) {
