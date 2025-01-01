@@ -24,6 +24,7 @@ function Notification() {
   };
   useEffect(() => {
     fetchNotif();
+    // eslint-disable-next-line
   }, []);
 
   // When user clicks 'mark as read', update db notif isRead to Yes

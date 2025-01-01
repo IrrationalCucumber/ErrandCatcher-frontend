@@ -93,6 +93,7 @@ function CommissionPage() {
 
   useEffect(() => {
     fetchPending();
+    // eslint-disable-next-line
   }, []);
   const handleChange = (e) => {
     // For the 'gender' field, directly set the value without using spread syntax

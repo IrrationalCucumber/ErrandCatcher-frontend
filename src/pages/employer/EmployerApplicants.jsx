@@ -105,6 +105,7 @@ const EmployerApplicants = () => {
 
   useEffect(() => {
     fetchAllAccount();
+    // eslint-disable-next-line
   }, [userID, apiBaseUrl]);
 
   const handleInputChange = (e) => {
@@ -332,7 +333,7 @@ const EmployerApplicants = () => {
   ]);
   //FOR NOTIFICATION
   //set variables for notification
-  const [notif, setNotif] = useState({
+  const [notif] = useState({
     userID: "", //this is the employer/ userID of the commission
     notificationType: "", //notif description
     notifDesc: "", //contents of the notif
@@ -355,7 +356,7 @@ const EmployerApplicants = () => {
   };
   //ADD TRANSACTION RECORD - 24/03/24
   //set variable fro trans
-  const [trans, setTrans] = useState({
+  const [trans] = useState({
     comID: "",
     catcherID: "",
     dateAccepted: "",

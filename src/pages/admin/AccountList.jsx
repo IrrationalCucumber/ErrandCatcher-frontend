@@ -56,6 +56,7 @@ const AccountList = () => {
   };
   useEffect(() => {
     fetchAllAccount();
+    // eslint-disable-next-line
   }, []);
 
   // //get the rating of the user
@@ -76,7 +77,7 @@ const AccountList = () => {
 
   //FOR NOTIFICATION
   //set variables for notification
-  const [notif, setNotif] = useState({
+  const [notif] = useState({
     userID: "", //this is the employer/ userID of the commission
     notificationType: "", //notif description
     notifDesc: "", //contents of the notif

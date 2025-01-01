@@ -171,14 +171,14 @@ const ErrandPage = () => {
 
   //apply for errand
   // Application state
-  const [application, setApplication] = useState({
+  const [application] = useState({
     catcherID: "",
     comID: "",
     applicationDate: "",
   });
 
   //set variables for notification
-  const [notif, setNotif] = useState({
+  const [notif] = useState({
     userID: "", //this is the employer/ userID of the commission
     notificationType: "", //notif description
     notifDesc: "", //contents of the notif
