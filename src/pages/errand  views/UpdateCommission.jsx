@@ -33,12 +33,10 @@ const UpdateCommission = () => {
   const accessToken =
     "pk.eyJ1IjoibWlyYWthNDQiLCJhIjoiY20xcWVhejZ0MGVzdjJscTF5ZWVwaXBzdSJ9.aLYnU19L7neFq2Y7J_UXhQ";
 
-  const navigate = useNavigate();
   const location = useLocation();
   //pathname to array from
   //get the id
   const commissionID = location.pathname.split("/")[3];
-  const { user } = useAuth();
   const [showAlert, setShowAlert] = useState(false);
   const [alertMesg, setAlerMsg] = useState("");
   const [alrtColor, setAlrtColor] = useState("");
@@ -127,7 +125,7 @@ const UpdateCommission = () => {
     };
 
     fetchCommission();
-  }, [commissionID]);
+  }, [commissionID, apiBaseUrl]);
 
   const [minimum, setMinimum] = useState(0);
   useEffect(() => {

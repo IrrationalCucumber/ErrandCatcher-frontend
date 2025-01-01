@@ -4,11 +4,8 @@
  * APS - 30/03/24
  */
 import React, { useEffect, useState } from "react";
-import NavbarPage from "../../components/Navbar/NavBarPage";
 import "./profile.css";
-import { useLocation } from "react-router-dom";
 import axios from "axios";
-import { ViewUserProfile } from "../../components/Profile/UserProfile";
 import { NewViewUserProfile } from "../../components/Profile/NewUserProfile";
 
 function ViewProfile(id) {
@@ -72,7 +69,7 @@ function ViewProfile(id) {
     };
 
     fetchAccount();
-  }, [userID]);
+  }, [userID, apiBaseUrl]);
 
   //get the rating of the user
   const [rating, setRating] = useState("");
@@ -87,7 +84,7 @@ function ViewProfile(id) {
       }
     };
     fetchRating();
-  }, [userID]);
+  }, [userID, apiBaseUrl]);
 
   //variables to store verification details
   const [docs, setDocs] = useState({
@@ -114,7 +111,7 @@ function ViewProfile(id) {
       }
     };
     fetchDetails();
-  }, [userID]);
+  }, [userID, apiBaseUrl]);
   return (
     <div>
       {/* <ViewUserProfile
