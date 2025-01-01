@@ -13,7 +13,7 @@
 @media screen and (max-width: 994px) {
   .navbar__cont {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
   }
 }
 
@@ -97,7 +97,7 @@
 @media screen and (min-width: 995px) and (max-width: 1138px) {
   .navbar__cont {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
   }
 
   .nav-menu {
@@ -133,7 +133,7 @@
 
   .navbar__cont {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
   }
 
   .nav-menu {

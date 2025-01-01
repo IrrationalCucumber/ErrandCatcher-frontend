@@ -195,6 +195,7 @@ select .display-data1 .error {
 
 .profile-left input[type="number"] {
     -moz-appearance: textfield;
+    appearance: textfield;
 
 }
 
@@ -235,7 +236,7 @@ select .display-data1 .error {
 
 .profile-right .buttonchange {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     margin-top: 16px;
 }
 
@@ -323,8 +324,7 @@ select .display-data1 .error {
     display: flex;
     padding: 2px;
     align-items: center;
-
-    justify-content: start;
+    justify-content: flex-start;
 }
 
 .upload-container button {

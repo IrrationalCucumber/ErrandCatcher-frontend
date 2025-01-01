@@ -14,14 +14,14 @@
   @media screen and (min-width: 995px) and (max-width: 1138px) {
     .navbar__cont {
       display: flex;
-      justify-content: start;
+      justify-content: flex-start;
     }
 }
 
 @media screen and (max-width: 994px) {
     .navbar__cont {
       display: flex;
-      justify-content: start;
+      justify-content: flex-start;
     }
 }
 
@@ -41,14 +41,14 @@
   @media screen and (min-width: 995px) and (max-width: 1138px) {
     .navbar__catcher {
       display: flex;
-      justify-content: start;
+      justify-content: flex-start;
     }
 }
 
 @media screen and (max-width: 994px) {
     .navbar__catcher {
       display: flex;
-      justify-content: start;
+      justify-content: flex-start;
     }
 }
 
@@ -68,13 +68,13 @@
 @media screen and (min-width: 995px) and (max-width: 1138px) {
   .navbar {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
   }
 }
 
 @media screen and (max-width: 994px) {
   .navbar {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
   }
 }
