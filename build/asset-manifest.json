@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a64b1000.css",
+    "main.js": "/static/js/main.d81585ec.js",
+    "static/media/img-2.jpg": "/static/media/img-2.bb238fc1bea8ae2474d2.jpg",
+    "static/media/banner_epmloyer.jpg": "/static/media/banner_epmloyer.e7b919313ac01653d569.jpg",
+    "static/media/hs-i-4.jpg": "/static/media/hs-i-4.70cf044f5ee2ecd7d0b0.jpg",
+    "static/media/img-3.jpg": "/static/media/img-3.6d683c0ee6824af7961a.jpg",
+    "static/media/img-1.jpg": "/static/media/img-1.53f4843759ebec256cb9.jpg",
+    "index.html": "/index.html",
+    "main.a64b1000.css.map": "/static/css/main.a64b1000.css.map",
+    "main.d81585ec.js.map": "/static/js/main.d81585ec.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a64b1000.css",
+    "static/js/main.d81585ec.js"
+  ]
+}

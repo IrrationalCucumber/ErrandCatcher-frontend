@@ -74,8 +74,8 @@ function Navbar(props) {
                 style={{ backgroundColor: "transparent" }}
               >
                 <img
-                  src="./images/ERicon.png"
-                  alt="ERRAND CATCHER Icon"
+                  src="/images/ERicon.png"
+                  alt="ER"
                   className="logo-image"
                   style={{
                     width: "50px",
