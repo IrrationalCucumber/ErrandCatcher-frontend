@@ -89,6 +89,7 @@ const CommissionList = () => {
     const intervalId = setInterval(fetchAllCommission, 5000); // Fetch every 5 seconds
     // Cleanup function to clear the interval when the component unmounts
     return () => clearInterval(intervalId);
+    // eslint-disable-next-line
   }, []);
 
   //funtion to delete commission
