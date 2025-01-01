@@ -214,8 +214,8 @@ export function HomeMap(props) {
 //view errand
 export function ViewMap({ id }) {
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
-  const [long, setLong] = useState(null);
-  const [lat, setLat] = useState(null);
+  const [setLong] = useState(null);
+  const [setLat] = useState(null);
   //get the coordinates of the cerrand
   const fetchLoc = async () => {
     try {
@@ -266,7 +266,8 @@ export function ViewMap({ id }) {
           .addTo(map.current);
       });
     });
-  }, [API_KEY, zoom]);
+    // eslint-disable-next-line
+  }, [API_KEY, zoom, setLat, setLong]);
 
   return (
     <>

@@ -248,7 +248,7 @@ function OngoingCardsNew(props) {
   };
 
   //set variables for notification
-  const [notif, setNotif] = useState({
+  const [notif] = useState({
     userID: "", //this is the employer/ userID of the commission
     notificationType: "", //notif description
     notifDesc: "", //contents of the notif
@@ -256,7 +256,7 @@ function OngoingCardsNew(props) {
   });
 
   //set variables for notification
-  const [notifcat, setNotifcat] = useState({
+  const [notifcat] = useState({
     userID: "", //this is the catcher/ userID of the commission
     notificationType: "", //notif description
     notifDesc: "", //contents of the notif
@@ -565,10 +565,8 @@ function OngoingCardsNew(props) {
 
           {/* View Errand */}
           <Link style={{ marginTop: "4px" }} to={props.path}>
-            <a class="action" href="#">
-              Find out more
-              <span aria-hidden="true">→</span>
-            </a>
+            Find out more
+            <span aria-hidden="true">→</span>
           </Link>
 
           <p class="desc" style={{ marginTop: "12px" }}>

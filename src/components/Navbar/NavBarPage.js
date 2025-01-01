@@ -6,7 +6,7 @@ import { Close, More } from "@mui/icons-material";
 function Navbar() {
   //change the state of the menu
   const [click, setClick] = useState(false);
-  const [button, setButton] = useState(true);
+  const [setButton] = useState(true);
   //reverse the state of the above funstion
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -21,6 +21,7 @@ function Navbar() {
 
   useEffect(() => {
     showButton();
+    // eslint-disable-next-line
   }, []);
 
   //handles the resizing of window

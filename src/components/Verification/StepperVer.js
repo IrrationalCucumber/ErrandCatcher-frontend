@@ -21,7 +21,7 @@ export default function StepperVer() {
   const [activeStep, setActiveStep] = useState(0);
   // variables to store step's user data
   //data will be pass around
-  const [details, setDetails] = useState({ skills: "" });
+  const [details] = useState({ skills: "" });
   const [images, setImages] = useState({
     image1: null,
     image2: null,

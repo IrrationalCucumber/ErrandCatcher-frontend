@@ -51,8 +51,8 @@ export function NewUserProfileui(props) {
   const { user } = useAuth();
   const userID = user.userID;
   const [preview, setPreview] = useState(null);
-  const [image, setImage] = useState(null);
-  const [isHovered, setIsHovered] = useState(false);
+  const [setImage] = useState(null);
+  const [isHovered] = useState(false);
   const [open, setOpen] = useState(false);
 
   const handleImage = (e) => {

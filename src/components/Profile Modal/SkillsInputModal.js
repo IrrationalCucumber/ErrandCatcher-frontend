@@ -24,7 +24,7 @@ function SkillsInputModal(props) {
   // const [inputSkill, setInputSkill] = useState("");
   const [error, setError] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
-  const [details, setDetails] = useState({
+  const [details] = useState({
     skills: "",
   });
   useEffect(() => {

@@ -33,7 +33,7 @@ const Invoice = ({ open, onClose, userID }) => {
       };
       fetchTransactions();
     }
-  }, [open, userID]);
+  }, [apiBaseUrl, open, userID]);
 
   if (loading && open) {
     return <div>Loading...</div>;

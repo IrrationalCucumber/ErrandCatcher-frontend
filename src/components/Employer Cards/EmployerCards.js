@@ -13,7 +13,7 @@ const EmployerCard = ({ employer }) => {
     numApplicants: 0,
     numErrands: 0,
   });
-  const [loading, setLoading] = useState(true);
+  const [setLoading] = useState(true);
   const { user } = useAuth();
   const userID = user.userID;
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
@@ -44,7 +44,7 @@ const EmployerCard = ({ employer }) => {
       //   setCounts(simulatedCounts);
       setLoading(false);
     }, 100); // Simulate 1 second delay
-  }, [counts, userID, apiBaseUrl]);
+  }, [counts, userID, apiBaseUrl, setLoading]);
 
   return (
     <>

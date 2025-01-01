@@ -4,7 +4,6 @@
  * Component display preview Cards
  */
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import CardItemNew from "./CardsItemNew";
 import axios from "axios";
 import "./cardsNew.css";
@@ -26,11 +25,9 @@ function CardsNew() {
       }
     };
     fetchAllCommission();
-  }, []);
-  const location = useLocation();
+  }, [apiBaseUrl]);
   //pathname to array from
   //get the id
-  const userID = location.pathname.split("/")[2];
 
   return (
     <div className="cards">

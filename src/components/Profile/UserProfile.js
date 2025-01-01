@@ -22,8 +22,8 @@ import { Call, Email, Home, Mail } from "@mui/icons-material";
 function UserProfile(props) {
   const { user } = useAuth();
   const [preview, setPreview] = useState(null);
-  const [image, setImage] = useState(null);
-  const [isHovered, setIsHovered] = useState(false);
+  const [setImage] = useState(null);
+  const [isHovered] = useState(false);
   const [open, setOpen] = useState(false);
 
   const [buttonPopup1, setButtonPopup1] = useState(false);

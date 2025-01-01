@@ -97,7 +97,7 @@ export function MyPostedFeedback() {
   }, [apiBaseUrl, user.userID]);
   return (
     <>
-      {feedback.map((fb) => {
+      {feedback.map((fb) => (
         <List key={fb.feedbackID}>
           <ListItem>
             <Card
@@ -125,8 +125,8 @@ export function MyPostedFeedback() {
               </CardContent>
             </Card>
           </ListItem>
-        </List>;
-      })}
+        </List>
+      ))}
     </>
   );
 }

@@ -59,7 +59,7 @@ function ApplicationQualificationModal(props) {
   };
 
   // Application state
-  const [application, setApplication] = useState({
+  const [application] = useState({
     catcherID: "",
     comID: "",
     applicationDate: "",
@@ -67,7 +67,7 @@ function ApplicationQualificationModal(props) {
   });
 
   //set variables for notification
-  const [notif, setNotif] = useState({
+  const [notif] = useState({
     userID: "", //this is the employer/ userID of the commission
     notificationType: "", //notif description
     notifDesc: "", //contents of the notif

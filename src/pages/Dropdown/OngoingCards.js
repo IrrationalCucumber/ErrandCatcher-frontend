@@ -30,7 +30,7 @@ function OngoingCards({ commissions, to }) {
     feedbackDate: "",
     feedbackPosterID: "",
   });
-  const [successMsg, setSuccessMsg] = useState("");
+  const [setSuccessMsg] = useState("");
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [inputValue, setInputValue] = useState({ feedbacks: "" });
@@ -101,7 +101,7 @@ function OngoingCards({ commissions, to }) {
   };
 
   //set variables for notification
-  const [notif, setNotif] = useState({
+  const [notif] = useState({
     userID: "", //this is the employer/ userID of the commission
     notificationType: "", //notif description
     notifDesc: "", //contents of the notif

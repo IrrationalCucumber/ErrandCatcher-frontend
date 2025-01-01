@@ -29,19 +29,18 @@ function Experience(props) {
   });
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   //fetch experience
-  const fetch = async () => {
-    try {
-      const response = await axios(`${apiBaseUrl}/experience/${props.id}`);
-      const data = await response.data;
-      setExperience(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
+    const fetch = async () => {
+      try {
+        const response = await axios(`${apiBaseUrl}/experience/${props.id}`);
+        const data = await response.data;
+        setExperience(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
     fetch();
-  }, []);
+  }, [apiBaseUrl, props.id]);
   //handle change for form
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -56,8 +55,8 @@ function Experience(props) {
     console.log(newExperience);
     setShowForm(false);
     //refresh experience display
-    const interval = setInterval(fetch, 1000);
-    return () => clearInterval(interval);
+    // const interval = setInterval(fetch, 1000);
+    // return () => clearInterval(interval);
   };
 
   //delete experience
@@ -292,19 +291,19 @@ export function ViewExperience(props) {
   const [experience, setExperience] = useState([]); //state to store experience
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
   //fetch experience
-  const fetch = async () => {
-    try {
-      const response = await axios(`${apiBaseUrl}/experience/${props.id}`);
-      const data = await response.data;
-      setExperience(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   useEffect(() => {
+    const fetch = async () => {
+      try {
+        const response = await axios(`${apiBaseUrl}/experience/${props.id}`);
+        const data = await response.data;
+        setExperience(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
     fetch();
-  }, []);
+  }, [apiBaseUrl, props.id]);
   return (
     <>
       {experience.length > 0 ? (

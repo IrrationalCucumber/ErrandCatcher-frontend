@@ -22,7 +22,7 @@ import { AmountDecimal } from "./Display/DsiplayFunctions";
 
 function ErrandInputs(props) {
   // Add a new state for tracking end date validation error
-  const [endDateError, setEndDateError] = useState("");
+  const [setEndDateError] = useState("");
 
   // Function to validate end date
   const validateEndDate = (startDate, endDate) => {

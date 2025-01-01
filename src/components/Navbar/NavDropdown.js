@@ -21,7 +21,7 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import { ApplicationCount } from "../Display/DsiplayFunctions";
 
 function NavDropdown(props) {
-  const [numCount, setNumCount] = useState(null);
+  const [numCount] = useState(null);
 
   const { user } = useAuth();
   const navigate = useNavigate();
