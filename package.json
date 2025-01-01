@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://errand-catcher-frontend.vercel.app/",
+  "homepage": "https://irrationalcucumber.github.io/ErrandCatcher-frontend/",
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
@@ -28,7 +28,8 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.18.6"
+    "@babel/plugin-proposal-private-property-in-object": "^7.18.6",
+    "gh-pages": "^6.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
