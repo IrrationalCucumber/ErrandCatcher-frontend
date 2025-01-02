@@ -30,6 +30,9 @@ function NavDropdown(props) {
     navigate("/sign-in");
     logout();
   };
+  const handleClick = (link) => {
+    navigate(link);
+  };
 
   return (
     <Dropdown>
@@ -52,7 +55,7 @@ function NavDropdown(props) {
           gap: "22px",
         }}
       >
-        <MenuItem onClick={() => navigate(`/profile/me`)}>
+        <MenuItem onClick={() => handleClick(`/profile/me`)}>
           <Link
             to={`/profile/me`}
             style={{
@@ -68,7 +71,7 @@ function NavDropdown(props) {
         {user.userType === "Catcher" ? (
           <MenuItem
             onClick={() => {
-              navigate("/dashboard/my-application");
+              handleClick("/dashboard/my-application");
             }}
           >
             <Link
@@ -102,7 +105,7 @@ function NavDropdown(props) {
         {/* admin history: generate report */}
         {user.userType === "admin" ? (
           <MenuItem
-            onClick={() => navigate("/dashboard/admin/generate-report")}
+            onClick={() => handleClick("/dashboard/admin/generate-report")}
           >
             <Link
               to={"/dashboard/admin/generate-report"}
@@ -116,7 +119,7 @@ function NavDropdown(props) {
           </MenuItem>
         ) : (
           // employer & catcher history
-          <MenuItem onClick={() => navigate("/history")}>
+          <MenuItem onClick={() => handleClick("/history")}>
             <Link
               to={"/history"}
               style={{
