@@ -55,7 +55,7 @@ function NavDropdown(props) {
           gap: "22px",
         }}
       >
-        <MenuItem onClick={() => handleClick(`/profile/me`)}>
+        <MenuItem onClick={() => handleClick(`/profile/me`)} to={`/profile/me`}>
           <Link
             to={`/profile/me`}
             style={{
