@@ -25,31 +25,10 @@ function NavDropdown(props) {
 
   const { user } = useAuth();
   const navigate = useNavigate();
-  const handleSignOut = () => {
-    navigate(signOutLink);
-    logout();
-  };
-  const profileLink = `/profile/me`; // URL for the profile page
-  const signOutLink = "/sign-in"; // URL for the sign out page
-  const historyLink = "/history"; // URL for the history page
-  const generateReportLink = "/dashboard/admin/generate-report";
-
   const { logout } = useAuth();
   const handleLogout = () => {
-    //   const userData = {
-    //     username: null,
-    //     userID: null,
-    //     userType: null,
-    //     status: null,
-    //   };
-    //   updateUser(userData);
-    //alert("clicked");
-    // log uot user
-
-    // const handleLogout = () => {
+    navigate("/sign-in");
     logout();
-
-    // };
   };
 
   return (
@@ -69,14 +48,13 @@ function NavDropdown(props) {
           display: "flex",
           justifyContent: "center",
           alignContent: "center",
-          // padding: "12x 16px",
           paddingTop: "8px",
           gap: "22px",
         }}
       >
-        <MenuItem onClick={() => navigate(profileLink)}>
+        <MenuItem onClick={() => navigate(`/profile/me`)}>
           <Link
-            to={profileLink}
+            to={`/profile/me`}
             style={{
               // display: "block",
               // padding: "12px 16px",
@@ -116,7 +94,6 @@ function NavDropdown(props) {
                   >
                     <ApplicationCount id={user.userID} />
                   </Chip>
-                  // <ApplicationCount id={user.userID} />
                 )}
               </Typography>
             </Link>
@@ -124,12 +101,12 @@ function NavDropdown(props) {
         ) : null}
         {/* admin history: generate report */}
         {user.userType === "admin" ? (
-          <MenuItem onClick={() => navigate(generateReportLink)}>
+          <MenuItem
+            onClick={() => navigate("/dashboard/admin/generate-report")}
+          >
             <Link
-              to={historyLink}
+              to={"/dashboard/admin/generate-report"}
               style={{
-                // display: "block",
-                // padding: "12px 16px",
                 textDecoration: "none",
                 color: "#565360",
               }}
@@ -139,9 +116,9 @@ function NavDropdown(props) {
           </MenuItem>
         ) : (
           // employer & catcher history
-          <MenuItem onClick={() => navigate(historyLink)}>
+          <MenuItem onClick={() => navigate("/history")}>
             <Link
-              to={historyLink}
+              to={"/history"}
               style={{
                 // display: "block",
                 // padding: "12px 16px",
@@ -155,12 +132,12 @@ function NavDropdown(props) {
         )}
         <MenuItem
           onClick={() => {
-            handleSignOut();
+            handleLogout();
           }}
         >
           <Link
             onClick={handleLogout}
-            to={signOutLink}
+            to={"/sign-in"}
             style={{
               // display: "block",
               // padding: "12px 16px",
